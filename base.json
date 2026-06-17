@@ -7,6 +7,9 @@
     "github>Captive-Studio/renovate-config//preset/commit",
     "github>Captive-Studio/renovate-config//preset/schedule",
     "github>Captive-Studio/renovate-config//preset/automergeBase",
+    ":separateMultipleMajorReleases",
+    ":separateMultipleMinorReleases",
+    ":pinAllExceptPeerDependencies",
     "workarounds:all"
   ],
   "onboarding": false,
