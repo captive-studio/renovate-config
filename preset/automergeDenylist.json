@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Denylist: exclut un package/version de l'automerge par defaut. Ajouter ici un package pour forcer la review manuelle.",
+  "packageRules": [
+    {
+      "description": "materialize-sass: pas d'automerge",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["materialize-sass"],
+      "automerge": false
+    },
+    {
+      "description": "axios: BREAKING CHANGES passes -> review major/minor",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["axios"],
+      "matchUpdateTypes": ["major", "minor"],
+      "automerge": false,
+      "addLabels": ["manual-review"],
+      "prHeader": "Il y a deja eu des BREAKING CHANGES par le passe. Verifie le changelog avant de merger."
+    },
+    {
+      "description": "react-native-signature-canvas 5.0.2 buggy",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["react-native-signature-canvas"],
+      "matchNewValue": "/^5\\.0\\.2$/",
+      "automerge": false,
+      "dependencyDashboardApproval": true,
+      "addLabels": ["warning"],
+      "prBodyNotes": [
+        "Cette version introduit un bug connu. https://github.com/YanYuanFE/react-native-signature-canvas/pull/430"
+      ]
+    }
+  ]
+}

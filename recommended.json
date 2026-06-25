@@ -35,11 +35,6 @@
       "matchManagers": ["asdf"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
-    },
-    {
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["patch"],
-      "automerge": true
     }
   ]
 }

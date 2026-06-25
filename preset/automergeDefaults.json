@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Automerge par defaut: patch/digest partout, minor pour npm et bundler",
+  "packageRules": [
+    {
+      "description": "Automerge patch & digest",
+      "matchUpdateTypes": ["patch", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "Automerge minor (npm & bundler)",
+      "matchManagers": ["npm", "bundler"],
+      "matchUpdateTypes": ["minor"],
+      "automerge": true
+    }
+  ]
+}

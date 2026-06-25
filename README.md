@@ -171,6 +171,50 @@ Maintenir le nombre de dépendances obsolètes aussi proche de zéro que possibl
 
 ---
 
+## 🔐 Comment autoriser un package à l'automerge
+
+L'automerge est piloté **par type de mise à jour**, pas par écosystème. Voir l'ADR [0004](./doc/adr/0004-modele-automerge-trusted-denylist.md).
+
+| Type de mise à jour | Comportement par défaut | Action pour ajuster |
+| --- | --- | --- |
+| **patch / digest** | ✅ Automerge partout | Rien à faire |
+| **minor** (`npm`, `bundler`) | ✅ Automerge | Rien à faire |
+| **major** | 🚫 Review manuelle | Ajouter une entrée dans [`preset/automergeTrustedMajors.json`](./preset/automergeTrustedMajors.json) |
+
+Donc, dans la grande majorité des cas, **autoriser un nouveau package ne demande aucune modification** : il est automergé par défaut dès qu'il est en patch ou minor (la CI restant le garde-fou).
+
+### Cas 1 — Autoriser un *major* de confiance
+
+Ajoutez le package dans [`preset/automergeTrustedMajors.json`](./preset/automergeTrustedMajors.json) :
+
+```jsonc
+{
+  "description": "mon-package: major de confiance",
+  "matchManagers": ["npm"],
+  "matchUpdateTypes": ["major"],
+  "matchPackageNames": ["mon-package"],
+  "automerge": true
+}
+```
+
+Pour limiter à une transition précise (ex. `7.x → 8.x`), ajoutez `matchCurrentVersion` et `allowedVersions`.
+
+### Cas 2 — Empêcher l'automerge d'un package risqué
+
+Ajoutez-le dans [`preset/automergeDenylist.json`](./preset/automergeDenylist.json) :
+
+```jsonc
+{
+  "description": "mon-package: review manuelle",
+  "matchPackageNames": ["mon-package"],
+  "matchUpdateTypes": ["major", "minor"],
+  "automerge": false,
+  "addLabels": ["manual-review"]
+}
+```
+
+> Le cas `rails` est géré dans [`preset/groupRails.json`](./preset/groupRails.json).
+
 ## 📚 Documentation complémentaire
 
 * [Documentation officielle Renovate](https://docs.renovatebot.com/)

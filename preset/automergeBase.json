@@ -2,10 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>w5s/renovate-config//preset/automergeRecommended",
-    "github>Captive-Studio/renovate-config//preset/automergeRecommendedGems",
-    "github>Captive-Studio/renovate-config//preset/automergeRecommendedNPM",
-    "github>Captive-Studio/renovate-config//preset/automergeTest",
-    "github>Captive-Studio/renovate-config//preset/automergePatches",
-    "github>Captive-Studio/renovate-config//preset/automergeToolVersions"
+    "github>Captive-Studio/renovate-config//preset/automergeDefaults",
+    "github>Captive-Studio/renovate-config//preset/automergeTrustedMajors",
+    "github>Captive-Studio/renovate-config//preset/automergeToolVersions",
+    "github>Captive-Studio/renovate-config//preset/automergeDenylist"
   ]
 }
