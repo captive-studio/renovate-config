@@ -664,7 +664,7 @@ __metadata:
     "@eslint/eslintrc": "npm:3.3.5"
     cspell: "npm:10.0.1"
     eslint: "npm:10.5.0"
-    markdown-magic: "npm:4.9.0"
+    markdown-magic: "npm:4.10.4"
     markdown-magic-package-json: "npm:2.0.2"
     markdown-magic-subpackage-list: "npm:1.1.2"
     npm-run-all2: "npm:9.0.2"
@@ -1339,17 +1339,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@davidwells/dx-args@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@davidwells/dx-args@npm:0.2.0"
+"@davidwells/dx-args@npm:0.2.2":
+  version: 0.2.2
+  resolution: "@davidwells/dx-args@npm:0.2.2"
   dependencies:
     is-glob: "npm:^4.0.3"
     is-valid-path: "npm:^0.1.1"
     mri: "npm:^1.2.0"
-    oparser: "npm:^3.1.0"
+    oparser: "npm:^3.1.1"
   bin:
     dx-args: src/index.js
-  checksum: 10/2cb55f454bb41724ab466a2a314cc84c5414f5788aa2b90a0837dc077fc3934db382dbcce7ac0e60fc79e179a4f28c20b2ab77365cfdaeaf025acf8fb3770a0c
+  checksum: 10/6f04d962f48a5a73552aba99538d6f116efdd4bf39375295a0203d21e3fa058a17e00e2b295dbd79f5e866d77d77eaded182499cf19d7443bf609f04dd475b36
   languageName: node
   linkType: hard
 
@@ -3450,35 +3450,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"comment-block-parser@npm:1.6.0":
-  version: 1.6.0
-  resolution: "comment-block-parser@npm:1.6.0"
+"comment-block-parser@npm:1.6.4":
+  version: 1.6.4
+  resolution: "comment-block-parser@npm:1.6.4"
   dependencies:
     dedent: "npm:^1.6.0"
     mri: "npm:^1.2.0"
-    oparser: "npm:^3.1.0"
+    oparser: "npm:^3.1.1"
   bin:
     comment-block-parser: cli.js
-  checksum: 10/f9ca88e33871ddd390c43947f03b0c34712935fa3318de80c69d768164f547f461a1a7ae3aba8b081333b7cd532cfc99a6fde00633ab0cecdacc35f47f3a9cd7
+  checksum: 10/6e38b26b4801d3df7a5fdaa7afe3569c779eb715f9617b0154465008baa651b355efcbb6a80f41b35c2b4e254da192a3c0f09765da6bce407386f2b320f98995
   languageName: node
   linkType: hard
 
-"comment-block-replacer@npm:0.1.19":
-  version: 0.1.19
-  resolution: "comment-block-replacer@npm:0.1.19"
+"comment-block-replacer@npm:0.1.23":
+  version: 0.1.23
+  resolution: "comment-block-replacer@npm:0.1.23"
   dependencies:
-    comment-block-transformer: "npm:0.8.0"
+    comment-block-transformer: "npm:0.8.4"
     is-valid-path: "npm:^0.1.1"
-  checksum: 10/6e242093c1b27b8c609cb6c82840587db56139b0021e23730247343185db774a188cff8f5771cfedb02dcec4ebd35f31bb8bde92ab4b78488eb82a7d7dafff33
+  checksum: 10/81c0f0717dcc09480e0bb7d61a4c06a6cb93bfd6a709055fb4e5fb8fecff5cd4398c5bd67cf639d758c4c58a1f72326bd532f6ba083620023b490617ee06b6ac
   languageName: node
   linkType: hard
 
-"comment-block-transformer@npm:0.8.0":
-  version: 0.8.0
-  resolution: "comment-block-transformer@npm:0.8.0"
+"comment-block-transformer@npm:0.8.4":
+  version: 0.8.4
+  resolution: "comment-block-transformer@npm:0.8.4"
   dependencies:
-    comment-block-parser: "npm:1.6.0"
-  checksum: 10/efba874a620ad1162ee99bb2f7ece87a1a93b526ad5045b9342e0370f68bc64bdc58922ad2913b3d5c897d31a17aeb33562e28a56da91b41cc4c411f4ce56477
+    comment-block-parser: "npm:1.6.4"
+  checksum: 10/605435183c231f9d1ce1723fc9c063d5aed52c3b88d2bf1d570130b512e18d8cca4ce8216c58f5e753ee947e5d59afcaa3de6e5effcc88ef7e5017c961566eed
   languageName: node
   linkType: hard
 
@@ -5935,16 +5935,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-magic@npm:4.9.0":
-  version: 4.9.0
-  resolution: "markdown-magic@npm:4.9.0"
+"markdown-magic@npm:4.10.4":
+  version: 4.10.4
+  resolution: "markdown-magic@npm:4.10.4"
   dependencies:
-    "@davidwells/dx-args": "npm:0.2.0"
+    "@davidwells/dx-args": "npm:0.2.2"
     "@davidwells/md-utils": "npm:0.0.53"
     color-convert: "npm:^2.0.1"
-    comment-block-parser: "npm:1.6.0"
-    comment-block-replacer: "npm:0.1.19"
-    comment-block-transformer: "npm:0.8.0"
+    comment-block-parser: "npm:1.6.4"
+    comment-block-replacer: "npm:0.1.23"
+    comment-block-transformer: "npm:0.8.4"
     globrex: "npm:^0.1.2"
     gray-matter: "npm:^4.0.3"
     is-glob: "npm:^4.0.3"
@@ -5961,7 +5961,7 @@ __metadata:
     markdown: cli.js
     md-magic: cli.js
     mdm: cli.js
-  checksum: 10/59ae7f6bea48c0ebd7a1153bda4e20481c75adfcfa0658f6c4e70de466a40911e536812f75f953727f22ae77c666257926cc88400d0fff1472b1fef55adbd339
+  checksum: 10/2754a44d36fc9fd98428e33a82a3a3ce425ba99360f19de64ae58066b5382d8cd8971711675b73f04818c595ceaff4913012c6764bab48fb4cc6454bebba25e0
   languageName: node
   linkType: hard
 
@@ -6968,12 +6968,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oparser@npm:^3.0.1, oparser@npm:^3.0.22, oparser@npm:^3.1.0":
+"oparser@npm:^3.0.1, oparser@npm:^3.0.22":
   version: 3.1.0
   resolution: "oparser@npm:3.1.0"
   dependencies:
     json-alexander: "npm:^0.1.14"
   checksum: 10/f46eda4a8685164e7711f1dd630f69c63c25db40915399edaa906c3ee431377396fec0c42526b348d118e04fa5d06ccb787fac922c7a85d41fe485040cdfd824
+  languageName: node
+  linkType: hard
+
+"oparser@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "oparser@npm:3.1.1"
+  dependencies:
+    json-alexander: "npm:^0.1.14"
+  checksum: 10/b7fd5dd944e54ec34f1d6a1a2d03bcb4cd6c0bfbfdee6dc0b91edc0f8c9ffd7976f02f2e302f3b53af3e6cdc3a521495e7265c25d834b4e5020cdeac09feccf9
   languageName: node
   linkType: hard
 
