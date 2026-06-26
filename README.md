@@ -171,6 +171,27 @@ Maintenir le nombre de dépendances obsolètes aussi proche de zéro que possibl
 
 ---
 
+## 🧰 Ajouter une dépendance en automerge (CLI)
+
+Pour autoriser/automerger une **gem Ruby** ou un **package npm** sans éditer les presets à la main, utilise la CLI interactive :
+
+```sh
+npm run add-dependency
+# ou directement :
+bin/add-dependency.sh
+```
+
+Elle te guide pas à pas (type de dépendance → nom → niveau `patch`/`minor`/`major`) puis écrit au bon endroit dans `preset/automergeRecommendedGems.json` ou `preset/automergeRecommendedNPM.json`, valide et formate automatiquement.
+
+Bon à savoir :
+
+* **Gems Ruby** : les `patch` et `minor` sont **déjà automergés par défaut** — seuls les `major` demandent une action (toutes versions, ou une montée ciblée `7.x → 8.x`).
+* **npm** : les `patch` sont **déjà automergés globalement** ; ajoute un package pour les `minor` (liste de confiance) ou les `major` (toutes versions ou montée ciblée).
+
+> Prérequis : [`jq`](https://jqlang.github.io/jq/) (`brew install jq`).
+
+---
+
 ## 📚 Documentation complémentaire
 
 * [Documentation officielle Renovate](https://docs.renovatebot.com/)
