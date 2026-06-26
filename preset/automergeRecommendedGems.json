@@ -6,7 +6,7 @@
       "matchUpdateTypes": ["minor"],
       "automerge": true,
       "matchManagers": ["bundler"],
-      "matchPackageNames": ["*", "!rails", "!materialize-sass"]
+      "matchPackageNames": ["!rails", "!materialize-sass"]
     },
     {
       "matchUpdateTypes": ["patch"],
