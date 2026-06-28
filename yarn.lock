@@ -6132,11 +6132,11 @@ __metadata:
   linkType: hard
 
 "micro-mdx-parser@npm:^1.1.0, micro-mdx-parser@npm:^1.1.1":
-  version: 1.1.24
-  resolution: "micro-mdx-parser@npm:1.1.24"
+  version: 1.1.26
+  resolution: "micro-mdx-parser@npm:1.1.26"
   dependencies:
     oparser: "npm:^3.0.22"
-  checksum: 10/287dade5bafee8c1f59de57a3cbeeaf20b6e9bc5c149e14d57a54363a75101bf649a5f4a84dca8c871426efbd137087e23976dd3be5a0b59bf70cd8594f7d8cf
+  checksum: 10/d4adefbae952d4a24abcab9c1027b6de56553325525047c671d078f7ca890bf56d87009558b6d43a964e8626461cae9ec8578faa9220bea0f13a72e795164060
   languageName: node
   linkType: hard
 
