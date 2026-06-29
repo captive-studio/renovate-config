@@ -176,12 +176,10 @@ Maintenir le nombre de dépendances obsolètes aussi proche de zéro que possibl
 Pour autoriser/automerger une **gem Ruby** ou un **package npm** sans éditer les presets à la main, utilise la CLI interactive :
 
 ```sh
-npm run add-dependency
-# ou directement :
-bin/add-dependency.sh
+bin/autorise-dependance
 ```
 
-Elle te guide pas à pas (type de dépendance → nom → niveau `patch`/`minor`/`major`) puis écrit au bon endroit dans `preset/automergeRecommendedGems.json` ou `preset/automergeRecommendedNPM.json`, valide et formate automatiquement.
+Elle te guide pas à pas (type de dépendance → nom → niveau actionnable) puis écrit au bon endroit dans `preset/automergeRecommendedGems.json` ou `preset/automergeRecommendedNPM.json`, valide et formate automatiquement. Seuls les niveaux encore nécessaires sont proposés (ou appliqués automatiquement s'il n'y en a qu'un).
 
 Bon à savoir :
 

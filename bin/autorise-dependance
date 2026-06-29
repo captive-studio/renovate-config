@@ -209,6 +209,31 @@ has_major_all_rule() {
   ' "$file" >/dev/null 2>&1
 }
 
+has_gem_unrestricted_automerge() {
+  local file="$1" name="$2"
+  jq -e --arg name "$name" '
+    any(.packageRules[];
+      .automerge == true
+      and any(.matchPackageNames[]?; . == $name)
+      and (.matchCurrentVersion == null)
+      and (.allowedVersions == null)
+    )
+  ' "$file" >/dev/null 2>&1
+}
+
+has_targeted_major_rule() {
+  local file="$1" name="$2" cur="$3" target="$4"
+  local next=$((target + 1))
+  jq -e --arg name "$name" --arg cur "$cur" --arg target "$target" --arg next "$next" '
+    any(.packageRules[];
+      .automerge == true
+      and any(.matchPackageNames[]?; . == $name)
+      and .matchCurrentVersion == ("/^" + $cur + "\\./")
+      and .allowedVersions == (">=" + $target + ".0.0 <" + $next + ".0.0")
+    )
+  ' "$file" >/dev/null 2>&1
+}
+
 add_major_all_rule() {
   local file="$1" manager="$2" name="$3"
   jq_write "$file" '
@@ -239,15 +264,59 @@ add_targeted_major_rule() {
 
 # Section : Handlers métier
 
-handle_gem_patch() {
-  nothing_to_do "$(bold "$NAME") est déjà couvert par défaut en patch (toutes les gems bundler). Rien à faire 🎉"
+available_levels() {
+  LEVEL_VALUES=()
+  LEVEL_LABELS=()
+
+  if [ "$KIND" = "gem" ]; then
+    if is_minor_excluded "$GEMS_FILE" "$NAME"; then
+      LEVEL_VALUES+=("minor")
+      LEVEL_LABELS+=("minor (retirer l'exclusion)")
+    fi
+    if ! has_major_all_rule "$GEMS_FILE" "$NAME" && ! has_gem_unrestricted_automerge "$GEMS_FILE" "$NAME"; then
+      LEVEL_VALUES+=("major")
+      LEVEL_LABELS+=("major")
+    fi
+  else
+    if ! is_in_trust_list "$NPM_FILE" "$NPM_MINOR_DESC" "$NAME" \
+      && ! is_in_trust_list "$NPM_FILE" "$NPM_MAJOR_DESC" "$NAME"; then
+      LEVEL_VALUES+=("minor")
+      LEVEL_LABELS+=("minor")
+    fi
+    if ! is_in_trust_list "$NPM_FILE" "$NPM_MAJOR_DESC" "$NAME"; then
+      LEVEL_VALUES+=("major")
+      LEVEL_LABELS+=("major")
+    fi
+  fi
+}
+
+pick_level() {
+  local selected i count
+  available_levels
+  count=${#LEVEL_VALUES[@]}
+
+  if [ "$count" -eq 0 ]; then
+    if [ "$KIND" = "gem" ]; then
+      nothing_to_do "$(bold "$NAME") : déjà entièrement couvert (patch, minor et major). Aucune action nécessaire."
+    else
+      nothing_to_do "$(bold "$NAME") : déjà dans la liste de confiance. Aucune action nécessaire."
+    fi
+  elif [ "$count" -eq 1 ]; then
+    LEVEL="${LEVEL_VALUES[0]}"
+    info "Niveau applicable : $(bold "${LEVEL_LABELS[0]}")."
+  else
+    choose selected "Quel niveau de mise à jour veux-tu autoriser en automerge ?" "${LEVEL_LABELS[@]}"
+    for i in "${!LEVEL_LABELS[@]}"; do
+      if [ "${LEVEL_LABELS[$i]}" = "$selected" ]; then
+        LEVEL="${LEVEL_VALUES[$i]}"
+        break
+      fi
+    done
+    info "Niveau demandé : $(bold "$LEVEL")."
+  fi
 }
 
 handle_gem_minor() {
-  if ! is_minor_excluded "$GEMS_FILE" "$NAME"; then
-    nothing_to_do "$(bold "$NAME") est déjà couvert par défaut en minor (wildcard bundler). Rien à faire 🎉"
-  fi
-
   info "$(bold "$NAME") est actuellement EXCLU du wildcard d'automerge minor."
   choose UNEXCLUDE "Veux-tu retirer cette exclusion (réautoriser l'automerge minor) ?" "oui" "non"
   if [ "$UNEXCLUDE" != "oui" ]; then
@@ -275,6 +344,9 @@ handle_gem_major() {
   else
     read_major "Version majeure ACTUELLE (ex: 7) :" cur
     read_major "Version majeure CIBLE (ex: 8) :" target
+    if has_targeted_major_rule "$GEMS_FILE" "$NAME" "$cur" "$target"; then
+      nothing_to_do "$(bold "$NAME") a déjà une règle pour la montée ${cur}.x → ${target}.x. Rien à faire."
+    fi
     info "On limitera l'automerge à la montée $(bold "${cur}.x → ${target}.x") uniquement ; le reste restera en review manuelle."
     step "J'ajoute la règle ciblée dans preset/automergeRecommendedGems.json…"
     add_targeted_major_rule "$GEMS_FILE" "bundler" "$NAME" "$cur" "$target"
@@ -284,16 +356,7 @@ handle_gem_major() {
   RESULT_FILE="$GEMS_FILE"
 }
 
-handle_npm_patch() {
-  nothing_to_do "$(bold "$NAME") est déjà couvert : tous les patches npm sont automergés globalement. Rien à faire 🎉"
-}
-
 handle_npm_minor() {
-  if is_in_trust_list "$NPM_FILE" "$NPM_MINOR_DESC" "$NAME" \
-    || is_in_trust_list "$NPM_FILE" "$NPM_MAJOR_DESC" "$NAME"; then
-    nothing_to_do "$(bold "$NAME") est déjà dans la liste de confiance (minor déjà couvert). Rien à faire."
-  fi
-
   info "J'ajoute $(bold "$NAME") aux packages de confiance automergés en minor/patch (pas en major)."
   step "Écriture dans preset/automergeRecommendedNPM.json…"
   add_to_named_rule "$NPM_FILE" "$NPM_MINOR_DESC" "$NAME"
@@ -316,6 +379,9 @@ handle_npm_major() {
   else
     read_major "Version majeure ACTUELLE (ex: 4) :" cur
     read_major "Version majeure CIBLE (ex: 5) :" target
+    if has_targeted_major_rule "$NPM_FILE" "$NAME" "$cur" "$target"; then
+      nothing_to_do "$(bold "$NAME") a déjà une règle pour la montée ${cur}.x → ${target}.x. Rien à faire."
+    fi
     info "On limitera l'automerge à la montée $(bold "${cur}.x → ${target}.x") uniquement ; le reste restera en review manuelle."
     step "J'ajoute la règle ciblée dans preset/automergeRecommendedNPM.json…"
     add_targeted_major_rule "$NPM_FILE" "npm" "$NAME" "$cur" "$target"
@@ -346,14 +412,11 @@ echo
 read_nonempty "Nom exact du package ?" NAME
 info "Package : $(bold "$NAME")."
 
-choose LEVEL "Quel niveau de mise à jour veux-tu autoriser en automerge ?" "patch" "minor" "major"
-info "Niveau demandé : $(bold "$LEVEL")."
+pick_level
 
 case "$KIND:$LEVEL" in
-  gem:patch) handle_gem_patch ;;
   gem:minor) handle_gem_minor ;;
   gem:major) handle_gem_major ;;
-  npm:patch) handle_npm_patch ;;
   npm:minor) handle_npm_minor ;;
   npm:major) handle_npm_major ;;
 esac
