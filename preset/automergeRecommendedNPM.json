@@ -13,10 +13,7 @@
       "description": "Automerge des packages de confiance, y compris en majeure",
       "matchManagers": ["npm"],
       "automerge": true,
-      "matchPackageNames": [
-        "lint-staged",
-        "uuid"
-      ]
+      "matchPackageNames": ["lint-staged", "uuid"]
     },
     {
       "description": "Automerge des packages de confiance, sauf en majeure",
@@ -55,7 +52,8 @@
         "react-syntax-highlighter",
         "react-select",
         "@lottiefiles/dotlottie-react",
-        "swiper"
+        "swiper",
+        "@forge/react"
       ]
     },
     {
