@@ -13,7 +13,14 @@
       "description": "Automerge des packages de confiance, y compris en majeure",
       "matchManagers": ["npm"],
       "automerge": true,
-      "matchPackageNames": ["lint-staged", "uuid", "@forge/api"]
+      "matchPackageNames": [
+        "lint-staged",
+        "uuid",
+        "@forge/api",
+        "@forge/bridge",
+        "@forge/react",
+        "@forge/resolver"
+      ]
     },
     {
       "description": "Automerge des packages de confiance, sauf en majeure",
