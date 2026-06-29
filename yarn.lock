@@ -663,7 +663,7 @@ __metadata:
     "@eslint/eslintrc": "npm:3.3.5"
     cspell: "npm:10.0.1"
     eslint: "npm:10.6.0"
-    markdown-magic: "npm:4.10.4"
+    markdown-magic: "npm:4.10.5"
     markdown-magic-package-json: "npm:2.0.2"
     markdown-magic-subpackage-list: "npm:1.1.2"
     npm-run-all2: "npm:9.0.2"
@@ -3441,22 +3441,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"comment-block-replacer@npm:0.1.23":
-  version: 0.1.23
-  resolution: "comment-block-replacer@npm:0.1.23"
+"comment-block-replacer@npm:0.1.24":
+  version: 0.1.24
+  resolution: "comment-block-replacer@npm:0.1.24"
   dependencies:
-    comment-block-transformer: "npm:0.8.4"
+    comment-block-transformer: "npm:0.8.5"
     is-valid-path: "npm:^0.1.1"
-  checksum: 10/81c0f0717dcc09480e0bb7d61a4c06a6cb93bfd6a709055fb4e5fb8fecff5cd4398c5bd67cf639d758c4c58a1f72326bd532f6ba083620023b490617ee06b6ac
+  checksum: 10/4f025d750b7e73335bf88464d678107e0c7a08997b019d0fcf14dacc7be6ba2b7e548a4818fe3c8e6239852829dfba7b9e98eb63bb87914e0c697c610786a640
   languageName: node
   linkType: hard
 
-"comment-block-transformer@npm:0.8.4":
-  version: 0.8.4
-  resolution: "comment-block-transformer@npm:0.8.4"
+"comment-block-transformer@npm:0.8.5":
+  version: 0.8.5
+  resolution: "comment-block-transformer@npm:0.8.5"
   dependencies:
     comment-block-parser: "npm:1.6.4"
-  checksum: 10/605435183c231f9d1ce1723fc9c063d5aed52c3b88d2bf1d570130b512e18d8cca4ce8216c58f5e753ee947e5d59afcaa3de6e5effcc88ef7e5017c961566eed
+  checksum: 10/f26e1c098eaa6f335593ec3d4e673b7692664238edb370f2c3901c7a49acb28c3a449f600d541b629fe9317640ca96ff9601d88bff95b4ef0a47027bddb97910
   languageName: node
   linkType: hard
 
@@ -5889,16 +5889,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-magic@npm:4.10.4":
-  version: 4.10.4
-  resolution: "markdown-magic@npm:4.10.4"
+"markdown-magic@npm:4.10.5":
+  version: 4.10.5
+  resolution: "markdown-magic@npm:4.10.5"
   dependencies:
     "@davidwells/dx-args": "npm:0.2.2"
     "@davidwells/md-utils": "npm:0.0.53"
     color-convert: "npm:^2.0.1"
     comment-block-parser: "npm:1.6.4"
-    comment-block-replacer: "npm:0.1.23"
-    comment-block-transformer: "npm:0.8.4"
+    comment-block-replacer: "npm:0.1.24"
+    comment-block-transformer: "npm:0.8.5"
     globrex: "npm:^0.1.2"
     gray-matter: "npm:^4.0.3"
     is-glob: "npm:^4.0.3"
@@ -5915,7 +5915,7 @@ __metadata:
     markdown: cli.js
     md-magic: cli.js
     mdm: cli.js
-  checksum: 10/2754a44d36fc9fd98428e33a82a3a3ce425ba99360f19de64ae58066b5382d8cd8971711675b73f04818c595ceaff4913012c6764bab48fb4cc6454bebba25e0
+  checksum: 10/94198a846696388e070256186c9717766b783adeba27530653d6059ea4ea9a2c89c2d874bb9ac55252485fddf44a9570a51bcabef6c59e90950d90cb35d7e8aa
   languageName: node
   linkType: hard
 
