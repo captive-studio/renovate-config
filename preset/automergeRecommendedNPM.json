@@ -19,7 +19,8 @@
         "@forge/api",
         "@forge/bridge",
         "@forge/react",
-        "@forge/resolver"
+        "@forge/resolver",
+        "@forge/cli"
       ]
     },
     {
