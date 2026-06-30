@@ -105,7 +105,47 @@ recap() {
   else
     printf '     %s✓ formaté%s  %s(validation à relancer : npm run test:renovate-config)%s\n' "$C_GREEN" "$C_RESET" "$C_DIM" "$C_RESET"
   fi
-  printf '     👉  pense à committer %s(gitmoji + français)%s\n' "$C_DIM" "$C_RESET"
+  echo
+}
+
+commit_message() {
+  printf '🔧 Autorise %s en automerge : %s' "$NAME" "$RESULT_DETAIL"
+}
+
+commit_changes() {
+  local file="$1"
+  local relfile="${file#"$ROOT_DIR"/}"
+  local message
+  message="$(commit_message)"
+
+  # En CI / mode non interactif (tests), on ne touche pas à git.
+  if [ -n "${CI:-}" ] || [ ! -t 0 ]; then
+    info "Pense à committer $(bold "$relfile") $(printf '%s(gitmoji + français)%s' "$C_DIM" "$C_RESET")."
+    return 0
+  fi
+
+  choose DO_COMMIT "Veux-tu créer le commit maintenant ?" "oui" "non"
+  if [ "$DO_COMMIT" != "oui" ]; then
+    info "Pas de commit. Pense à committer $(bold "$relfile") $(printf '%s(gitmoji + français)%s' "$C_DIM" "$C_RESET")."
+    return 0
+  fi
+
+  ( cd "$ROOT_DIR" && git add -- "$file" )
+  if ( cd "$ROOT_DIR" && git diff --cached --quiet -- "$file" ); then
+    info "Aucun changement à committer (le fichier est déjà à jour)."
+    return 0
+  fi
+
+  step "Commit en cours…"
+  ( cd "$ROOT_DIR" && git commit --quiet -m "$message" -- "$file" )
+  local hash
+  hash="$( cd "$ROOT_DIR" && git rev-parse --short HEAD )"
+  ok "Commit créé."
+
+  echo
+  printf '%s  Commit %s%s  %s%s%s\n' "$C_BOLD" "$hash" "$C_RESET" "$C_DIM" "$message" "$C_RESET"
+  echo
+  ( cd "$ROOT_DIR" && git --no-pager show --stat --patch --color HEAD -- "$file" )
   echo
 }
 
@@ -121,6 +161,7 @@ apply_changes() {
   format_and_validate "$RESULT_FILE"
   finish_animation
   recap "$NAME" "$KIND" "$RESULT_DETAIL" "$RESULT_FILE"
+  commit_changes "$RESULT_FILE"
 }
 
 read_nonempty() {
