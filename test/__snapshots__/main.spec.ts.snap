@@ -39,6 +39,7 @@ exports[`Configuration snapshot > base.json 1`] = `
     ":pinAllExceptPeerDependencies",
     "workarounds:all",
   ],
+  "internalChecksAsSuccess": true,
   "onboarding": false,
   "packageRules": [
     {
