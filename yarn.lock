@@ -663,7 +663,7 @@ __metadata:
     "@eslint/eslintrc": "npm:3.3.5"
     cspell: "npm:10.0.1"
     eslint: "npm:10.6.0"
-    markdown-magic: "npm:4.10.5"
+    markdown-magic: "npm:4.11.0"
     markdown-magic-package-json: "npm:2.0.2"
     markdown-magic-subpackage-list: "npm:1.1.2"
     npm-run-all2: "npm:9.0.2"
@@ -5889,9 +5889,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-magic@npm:4.10.5":
-  version: 4.10.5
-  resolution: "markdown-magic@npm:4.10.5"
+"markdown-magic@npm:4.11.0":
+  version: 4.11.0
+  resolution: "markdown-magic@npm:4.11.0"
   dependencies:
     "@davidwells/dx-args": "npm:0.2.2"
     "@davidwells/md-utils": "npm:0.0.53"
@@ -5915,7 +5915,7 @@ __metadata:
     markdown: cli.js
     md-magic: cli.js
     mdm: cli.js
-  checksum: 10/94198a846696388e070256186c9717766b783adeba27530653d6059ea4ea9a2c89c2d874bb9ac55252485fddf44a9570a51bcabef6c59e90950d90cb35d7e8aa
+  checksum: 10/15d9b8fcac5581caaca770960ecfc445881adb6d05f4ad78ad57f550d944abf9ba1c5b34f4f8e1dd720f56802b4910a7fe57c5f3594821b0ed2cc09352ca4a62
   languageName: node
   linkType: hard
 
