@@ -2797,15 +2797,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-import-attributes@npm:^1.9.5":
-  version: 1.9.5
-  resolution: "acorn-import-attributes@npm:1.9.5"
-  peerDependencies:
-    acorn: ^8
-  checksum: 10/8bfbfbb6e2467b9b47abb4d095df717ab64fce2525da65eabee073e85e7975fb3a176b6c8bba17c99a7d8ede283a10a590272304eb54a93c4aa1af9790d47a8b
-  languageName: node
-  linkType: hard
-
 "acorn-jsx@npm:^5.3.2":
   version: 5.3.2
   resolution: "acorn-jsx@npm:5.3.2"
@@ -4003,7 +3994,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-module-lexer@npm:^2.0.0":
+"es-module-lexer@npm:^2.0.0, es-module-lexer@npm:^2.2.0":
   version: 2.3.0
   resolution: "es-module-lexer@npm:2.3.0"
   checksum: 10/daf73d870758116a84ba5801ec297c891837f482bb0b9836a431e5b71965a544e909d9cb6a5887f7e08d23dd20ad13838e569c7029413da88402b9ea567f3afe
@@ -5134,14 +5125,13 @@ __metadata:
   linkType: hard
 
 "import-in-the-middle@npm:^3.0.0":
-  version: 3.2.0
-  resolution: "import-in-the-middle@npm:3.2.0"
+  version: 3.3.0
+  resolution: "import-in-the-middle@npm:3.3.0"
   dependencies:
-    acorn: "npm:^8.15.0"
-    acorn-import-attributes: "npm:^1.9.5"
     cjs-module-lexer: "npm:^2.2.0"
+    es-module-lexer: "npm:^2.2.0"
     module-details-from-path: "npm:^1.0.4"
-  checksum: 10/81f99afd4d9fa9b24152f5a9cad7e40ff90db0f1335454562486ec534561b5d77ee2be783f217c12a92aa8b9d44baf80cedfa8854200546a09a24ba31940af5e
+  checksum: 10/c933cb64de7e562d3856e69041fc517c55e39a629751c444a0e9051af7522feb73e71f1d818f2190689a236da8eca0034336d403d262524f9680c6cb3df0acb5
   languageName: node
   linkType: hard
 
