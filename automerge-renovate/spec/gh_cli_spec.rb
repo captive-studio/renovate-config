@@ -10,11 +10,11 @@ RSpec.describe AutomergeRenovate::GhCli do
     it "liste les PR ouvertes de l'auteur app/renovate sur le repo" do
       payload = [
         { "number" => 414, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
-          "statusCheckRollup" => [], },
+          "statusCheckRollup" => [], "url" => "https://github.com/captive-studio/groove-application/pull/414", },
       ].to_json
       allow(gh).to receive(:run)
         .with("pr", "list", "--repo", "captive-studio/groove-application", "--author", "app/renovate",
-              "--state", "open", "--json", "number,body,mergeStateStatus,statusCheckRollup")
+              "--state", "open", "--json", "number,body,mergeStateStatus,statusCheckRollup,url")
         .and_return(payload)
 
       prs = gh.open_renovate_prs("captive-studio/groove-application")
@@ -22,7 +22,7 @@ RSpec.describe AutomergeRenovate::GhCli do
       expect(prs).to eq(
         [
           { "number" => 414, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
-            "statusCheckRollup" => [], },
+            "statusCheckRollup" => [], "url" => "https://github.com/captive-studio/groove-application/pull/414", },
         ]
       )
     end

@@ -22,7 +22,7 @@ RSpec.describe AutomergeRenovate::Runner do
 
       expect(results).to eq(
         [
-          { repo: "captive-studio/groove-application", number: 414, action: :merge, strategy: :rebase },
+          { repo: "captive-studio/groove-application", number: 414, url: nil, action: :merge, strategy: :rebase },
         ]
       )
       expect(gh).to have_received(:merge).with("captive-studio/groove-application", 414, :rebase)
@@ -38,7 +38,7 @@ RSpec.describe AutomergeRenovate::Runner do
       results = runner.run([ "captive-studio/cae-application" ])
 
       expect(results).to eq(
-        [ { repo: "captive-studio/cae-application", number: 1008, action: :rebase_requested } ]
+        [ { repo: "captive-studio/cae-application", number: 1008, url: nil, action: :rebase_requested } ]
       )
       expect(gh).to have_received(:update_body).with(
         "captive-studio/cae-application", 1008,
@@ -46,9 +46,26 @@ RSpec.describe AutomergeRenovate::Runner do
       )
     end
 
+    it "inclut l'URL de la PR dans le résultat, pour les PR nécessitant une décision" do
+      pr = { "number" => 42, "body" => "🚦 **Automerge**: Disabled by config.",
+             "mergeStateStatus" => "CLEAN", "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ],
+             "url" => "https://github.com/captive-studio/monocle/pull/42", }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+
+      results = runner.run([ "captive-studio/monocle" ])
+
+      expect(results).to eq(
+        [
+          { repo: "captive-studio/monocle", number: 42, action: :skip, reason: "automerge désactivé",
+            needs_decision: true, url: "https://github.com/captive-studio/monocle/pull/42", },
+        ]
+      )
+    end
+
     it "n'appelle ni merge ni update_body quand la PR est ignorée" do
       pr = { "number" => 42, "body" => "🚦 **Automerge**: Disabled by config.",
-             "mergeStateStatus" => "CLEAN", "statusCheckRollup" => [], }
+             "mergeStateStatus" => "CLEAN", "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
       allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
       allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
       allow(gh).to receive(:merge)
@@ -57,7 +74,7 @@ RSpec.describe AutomergeRenovate::Runner do
       results = runner.run([ "captive-studio/monocle" ])
 
       expect(results).to eq(
-        [ { repo: "captive-studio/monocle", number: 42, action: :skip, reason: "automerge désactivé" } ]
+        [ { repo: "captive-studio/monocle", number: 42, url: nil, action: :skip, reason: "automerge désactivé" } ]
       )
       expect(gh).not_to have_received(:merge)
       expect(gh).not_to have_received(:update_body)
@@ -75,7 +92,7 @@ RSpec.describe AutomergeRenovate::Runner do
 
       expect(results).to eq(
         [
-          { repo: "captive-studio/groove-application", number: 414, action: :skip,
+          { repo: "captive-studio/groove-application", number: 414, url: nil, action: :skip,
             reason: "GraphQL: Merge already in progress", },
         ]
       )
@@ -99,7 +116,7 @@ RSpec.describe AutomergeRenovate::Runner do
 
       expect(repos_seen).to eq([ "captive-studio/groove-application" ])
       expect(results_seen).to eq(
-        [ { repo: "captive-studio/groove-application", number: 414, action: :merge, strategy: :rebase } ]
+        [ { repo: "captive-studio/groove-application", number: 414, url: nil, action: :merge, strategy: :rebase } ]
       )
     end
   end

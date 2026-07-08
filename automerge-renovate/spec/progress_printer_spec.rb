@@ -54,5 +54,16 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
 
       expect(out.string).to include("1 fusionnée(s), 0 rebase demandé(s), 0 ignorée(s)")
     end
+
+    it "affiche les PR nécessitant une décision manuelle" do
+      progress.summary(
+        [
+          { repo: "r1", number: 42, action: :skip, reason: "automerge désactivé", needs_decision: true,
+            url: "https://github.com/captive-studio/monocle/pull/42", },
+        ]
+      )
+
+      expect(out.string).to include("https://github.com/captive-studio/monocle/pull/42")
+    end
   end
 end
