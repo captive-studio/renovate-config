@@ -57,10 +57,10 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
       expect(progress).to have_received(:repos_found).with(1)
       expect(progress).to have_received(:repo).with("captive-studio/monocle")
       expect(progress).to have_received(:result).with(
-        { repo: "captive-studio/monocle", number: 7, action: :merge, strategy: :rebase }
+        { repo: "captive-studio/monocle", number: 7, url: nil, action: :merge, strategy: :rebase }
       )
       expect(progress).to have_received(:summary).with(
-        [ { repo: "captive-studio/monocle", number: 7, action: :merge, strategy: :rebase } ]
+        [ { repo: "captive-studio/monocle", number: 7, url: nil, action: :merge, strategy: :rebase } ]
       )
     end
   end
