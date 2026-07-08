@@ -42,7 +42,7 @@ RSpec.describe AutomergeRenovate::PrDecision do
 
       decision = described_class.new(pr, merge_settings).call
 
-      expect(decision).to eq(action: :skip, reason: "checks non verts")
+      expect(decision).to eq(action: :skip, reason: "checks non verts", needs_investigation: true)
     end
 
     it "ignore la PR en cas de conflit (mergeStateStatus autre que CLEAN/BEHIND)" do

@@ -65,5 +65,16 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
 
       expect(out.string).to include("https://github.com/captive-studio/monocle/pull/42")
     end
+
+    it "affiche les PR à checks rouges à investiguer" do
+      progress.summary(
+        [
+          { repo: "r1", number: 7, action: :skip, reason: "checks non verts", needs_investigation: true,
+            url: "https://github.com/captive-studio/groove-application/pull/7", },
+        ]
+      )
+
+      expect(out.string).to include("https://github.com/captive-studio/groove-application/pull/7")
+    end
   end
 end
