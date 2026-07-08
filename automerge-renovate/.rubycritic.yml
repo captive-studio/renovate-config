@@ -1,0 +1,4 @@
+minimum_score: 96
+no_browser: true
+paths:
+  - lib

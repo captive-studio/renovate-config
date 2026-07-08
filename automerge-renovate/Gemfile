@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+ruby File.read(File.join(__dir__, ".tool-versions")).match(/^ruby (.+)$/)[1].strip
+
+gem "thor", "1.5.0"
+gem "tty-prompt", "0.23.1"
+gem "tty-spinner", "0.9.3"
+gem "pastel", "0.8.0"
+gem "dotenv", "3.2.0"
+
+group :development, :test do
+  gem "rubocop-config-captive", "2.3.1", require: false
+end
+
+group :test do
+  gem "rspec", "3.13.2"
+  gem "simplecov", "0.22.0", require: false
+  gem "rubycritic", "5.0.0", require: false
+end
