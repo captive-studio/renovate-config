@@ -1,0 +1,18 @@
+inherit_gem:
+  rubocop-config-captive:
+    - config/default.yml
+
+# CLI — pas de Rails runtime
+Rails/Exit:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+# Contextes RSpec en français
+RSpec/ContextWording:
+  Enabled: false
+
+# Pas de contraintes de version sur les dépendances internes
+Bundler/GemVersion:
+  Enabled: false

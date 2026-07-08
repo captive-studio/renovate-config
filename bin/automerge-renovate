@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Délègue à l'outil Ruby autonome dans automerge-renovate/
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR/automerge-renovate" && exec bin/automerge-renovate "$@"

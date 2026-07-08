@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
+require "bundler/setup"
+require "dotenv"
+Dotenv.load(File.expand_path("../.env", __dir__))
+
+require "automerge_renovate/cli"
+
+$PROGRAM_NAME = "automerge-renovate"
+AutomergeRenovate::Cli.start(ARGV)
