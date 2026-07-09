@@ -190,6 +190,18 @@ Bon à savoir :
 
 ---
 
+## 🤖 Fusionner les PR Renovate en attente (CLI)
+
+Pour la routine hebdomadaire de maintenance : fusionne automatiquement les PR Renovate déjà prêtes (automerge activé, checks verts) des repos listés dans le ticket Jira de la semaine, et relance les checks CI rouges.
+
+```sh
+bin/automerge-renovate automerge
+```
+
+👉 **Documentation complète** (installation, variables d'environnement, architecture, pièges connus) : [`automerge-renovate/README.md`](automerge-renovate/README.md).
+
+---
+
 ## 📚 Documentation complémentaire
 
 * [Documentation officielle Renovate](https://docs.renovatebot.com/)
