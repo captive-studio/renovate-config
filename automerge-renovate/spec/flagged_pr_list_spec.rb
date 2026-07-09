@@ -27,5 +27,16 @@ RSpec.describe AutomergeRenovate::FlaggedPrList do
       expect(list.to_s).to include("Décisions à prendre")
       expect(list.to_s).to include("https://github.com/captive-studio/monocle/pull/42")
     end
+
+    it "mentionne le rerun déclenché quand la PR le porte" do
+      results = [
+        { repo: "r1", number: 7, action: :skip, reason: "checks non verts", needs_investigation: true,
+          rerun_triggered: true, url: "https://github.com/captive-studio/monocle/pull/7", },
+      ]
+
+      list = described_class.new(results, flag: :needs_investigation, header: "peu importe", pastel: pastel)
+
+      expect(list.to_s).to include("https://github.com/captive-studio/monocle/pull/7 (rerun déclenché)")
+    end
   end
 end

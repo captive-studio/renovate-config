@@ -62,4 +62,13 @@ RSpec.describe AutomergeRenovate::ChecksEvaluator do
       expect(described_class.new(checks).all_green?).to be(false)
     end
   end
+
+  describe "#red_checks" do
+    it "retourne uniquement les checks non verts" do
+      green = { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "SUCCESS" }
+      red = { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "FAILURE" }
+
+      expect(described_class.new([ green, red ]).red_checks).to eq([ red ])
+    end
+  end
 end
