@@ -63,6 +63,27 @@ RSpec.describe AutomergeRenovate::Runner do
       )
     end
 
+    it "redéclenche les checks rouges d'une PR à investiguer et le signale dans le résultat" do
+      pr = { "number" => 7, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
+             "statusCheckRollup" => [
+               { "conclusion" => "FAILURE",
+                 "detailsUrl" => "https://github.com/captive-studio/monocle/actions/runs/123/job/1", },
+             ], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+      allow(gh).to receive(:rerun_failed_jobs)
+
+      results = runner.run([ "captive-studio/monocle" ])
+
+      expect(gh).to have_received(:rerun_failed_jobs).with("captive-studio/monocle", "123")
+      expect(results).to eq(
+        [
+          { repo: "captive-studio/monocle", number: 7, url: nil, action: :skip, reason: "checks non verts",
+            needs_investigation: true, rerun_triggered: true, },
+        ]
+      )
+    end
+
     it "n'appelle ni merge ni update_body quand la PR est ignorée" do
       pr = { "number" => 42, "body" => "🚦 **Automerge**: Disabled by config.",
              "mergeStateStatus" => "CLEAN", "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }

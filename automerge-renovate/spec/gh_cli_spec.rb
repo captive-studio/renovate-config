@@ -64,6 +64,16 @@ RSpec.describe AutomergeRenovate::GhCli do
     end
   end
 
+  describe "#rerun_failed_jobs" do
+    it "redéclenche les jobs en échec d'un run GitHub Actions" do
+      allow(gh).to receive(:run)
+        .with("run", "rerun", "28921381928", "--repo", "captive-studio/groove-application", "--failed")
+        .and_return("")
+
+      expect { gh.rerun_failed_jobs("captive-studio/groove-application", "28921381928") }.not_to raise_error
+    end
+  end
+
   describe "#run" do
     it "exécute gh via Open3 et retourne sa sortie standard en cas de succès" do
       status = instance_double(Process::Status, success?: true)
