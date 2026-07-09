@@ -8,6 +8,10 @@
       "prBodyNotes": [
         "ATTENTION : verifier que Expo Go est bien disponible pour la version du SDK Expo mise a jour avant de merger cette PR."
       ],
+      "postUpgradeTasks": {
+        "commands": ["npx expo install --fix"],
+        "executionMode": "branch"
+      },
       "matchPackagePatterns": [
         "^(@expo|expo)($|[-/])",
         "^(@react|react)($|[-/])",
@@ -24,11 +28,9 @@
         "jest",
         "react",
         "react-dom",
-        "react-native",
         "react-native-screens",
         "react-native-svg",
-        "react-native-webview",
-        "react-native-worklets"
+        "react-native-webview"
       ]
     },
     {
@@ -40,13 +42,16 @@
     {
       "description": "Ne pas mettre à jour les deps verrouillées par Expo",
       "matchPackageNames": [
+        "@babel/core",
         "@react-native-community/netinfo",
         "@react-navigation/bottom-tabs",
         "@react-navigation/native",
         "@shopify/flash-list",
+        "react-native",
         "react-native-safe-area-context",
         "react-native-reanimated",
-        "react-native-gesture-handler"
+        "react-native-gesture-handler",
+        "react-native-worklets"
       ],
       "enabled": false
     }
