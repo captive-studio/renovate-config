@@ -20,7 +20,8 @@
         "@forge/bridge",
         "@forge/react",
         "@forge/resolver",
-        "@forge/cli"
+        "@forge/cli",
+        "eslint-config-expo"
       ]
     },
     {
