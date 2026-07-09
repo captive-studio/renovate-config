@@ -21,7 +21,8 @@
         "@forge/react",
         "@forge/resolver",
         "@forge/cli",
-        "eslint-config-expo"
+        "eslint-config-expo",
+        "@testing-library/react-native"
       ]
     },
     {
