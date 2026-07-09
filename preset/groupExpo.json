@@ -17,6 +17,7 @@
         "^(@react|react)($|[-/])",
         "@sentry/react-native",
         "@types/react",
+        "babel-preset-expo",
         "jest"
       ],
       "ignoreDeps": [
