@@ -22,7 +22,8 @@
         "@forge/resolver",
         "@forge/cli",
         "eslint-config-expo",
-        "@testing-library/react-native"
+        "@testing-library/react-native",
+        "typescript"
       ]
     },
     {
