@@ -45,14 +45,14 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :skip, reason: "checks non verts", needs_investigation: true)
     end
 
-    it "ignore la PR en cas de conflit (mergeStateStatus autre que CLEAN/BEHIND)" do
-      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CONFLICTING",
+    it "demande un rebase en cas de conflit (DIRTY) : Renovate résout en régénérant la branche" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "DIRTY",
              "statusCheckRollup" => [], }
       merge_settings = { "allow_rebase_merge" => true }
 
       decision = described_class.new(pr, merge_settings).call
 
-      expect(decision).to eq(action: :skip, reason: "mergeStateStatus: CONFLICTING")
+      expect(decision).to eq(action: :rebase_requested)
     end
 
     it "fusionne la PR quand tout est au vert, avec la stratégie autorisée par le repo" do

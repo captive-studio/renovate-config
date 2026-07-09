@@ -88,5 +88,16 @@ RSpec.describe AutomergeRenovate::GhCli do
 
       expect { gh.run("pr", "list") }.to raise_error("gh pr list failed: boom")
     end
+
+    it "force l'UTF-8 même si l'encodage externe par défaut du process est US-ASCII" do
+      json_with_emoji = JSON.generate(body: "🚦 Enabled.").force_encoding("US-ASCII")
+      status = instance_double(Process::Status, success?: true)
+      allow(Open3).to receive(:capture3).with("gh", "pr", "list").and_return([ json_with_emoji, "", status ])
+
+      result = gh.run("pr", "list")
+
+      expect(result.encoding).to eq(Encoding::UTF_8)
+      expect(JSON.parse(result)).to eq("body" => "🚦 Enabled.")
+    end
   end
 end
