@@ -1,9 +1,13 @@
-import { describe, test, expect, beforeEach, afterEach } from 'vitest';
+import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, rmSync, cpSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+// Chaque test spawn un vrai sous-processus (bash + prettier + renovate-config-validator) :
+// sous contention CPU (ex: run-p avec d'autres suites), 5000ms est parfois trop juste.
+vi.setConfig({ testTimeout: 15000 });
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CLI = join(ROOT, 'bin', 'autorise-dependance');

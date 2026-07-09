@@ -62,7 +62,7 @@ format_and_validate() {
   step "Validation de la config Renovate…"
   local out rc
   set +e
-  out="$( cd "$ROOT_DIR" && RENOVATE_CONFIG_FILE="$file" npm exec -- renovate-config-validator 2>&1 )"
+  out="$( cd "$ROOT_DIR" && RENOVATE_CONFIG_FILE="$file" npm exec --offline -- renovate-config-validator 2>&1 )"
   rc=$?
   set -e
   if [ "$rc" -eq 0 ]; then
