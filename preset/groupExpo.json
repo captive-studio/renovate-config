@@ -5,7 +5,6 @@
       "groupName": "Expo & React Native core",
       "matchManagers": ["npm"],
       "addLabels": ["warning"],
-      "minimumReleaseAge": "45 days",
       "prBodyNotes": [
         "ATTENTION : verifier que Expo Go est bien disponible pour la version du SDK Expo mise a jour avant de merger cette PR."
       ],
@@ -34,6 +33,12 @@
         "react-native-svg",
         "react-native-webview"
       ]
+    },
+    {
+      "description": "Attendre 45 jours avant de merger une mise a jour majeure d'Expo",
+      "matchPackagePatterns": ["^(@expo|expo)($|[-/])"],
+      "matchUpdateTypes": ["major"],
+      "minimumReleaseAge": "45 days"
     },
     {
       "matchPackageNames": ["expo"],
