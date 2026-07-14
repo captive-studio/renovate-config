@@ -597,7 +597,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:1.1.2"
     npm-run-all2: "npm:9.0.2"
     prettier: "npm:3.9.5"
-    renovate: "npm:43.258.1"
+    renovate: "npm:43.259.3"
     vitest: "npm:4.1.10"
   languageName: unknown
   linkType: soft
@@ -2076,10 +2076,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pgp@npm:1.3.14":
-  version: 1.3.14
-  resolution: "@renovatebot/pgp@npm:1.3.14"
-  checksum: 10/0f288fb1c16f3eb3db6c373133e641c826a3edc06420b59a6f389f3cac5f06915f7e4c95b57c4af9f537ea68687b47eca35e825d0186f98115ad9eeec5096609
+"@renovatebot/pgp@npm:1.3.15":
+  version: 1.3.15
+  resolution: "@renovatebot/pgp@npm:1.3.15"
+  checksum: 10/96ca44f07e71eea092c8c2aaae30459fd594125f4e60af5e54affe6e23a46094f5b903021d2b2e3bc4a18a699a1fdb1126a94804512bd55256427fa98611278c
   languageName: node
   linkType: hard
 
@@ -3940,7 +3940,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^4.2.0, entities@npm:^4.4.0":
+"entities@npm:^4.2.0, entities@npm:^4.5.0":
   version: 4.5.0
   resolution: "entities@npm:4.5.0"
   checksum: 10/ede2a35c9bce1aeccd055a1b445d41c75a14a2bb1cd22e242f20cf04d236cdcd7f9c859eb83f76885327bfae0c25bf03303665ee1ce3d47c5927b98b0e3e3d48
@@ -4521,18 +4521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:11.3.5":
-  version: 11.3.5
-  resolution: "fs-extra@npm:11.3.5"
-  dependencies:
-    graceful-fs: "npm:^4.2.0"
-    jsonfile: "npm:^6.0.1"
-    universalify: "npm:^2.0.0"
-  checksum: 10/dc8408818eec8b03efad8742d079ecab749a2f7bc9f208e429b447fcac7632fae52e09312d6d42218efe7e2efa97f03ff232d639ade4aa7fcd8c00ebe9ad0c0c
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^11.3.5, fs-extra@npm:^11.3.6":
+"fs-extra@npm:11.3.6, fs-extra@npm:^11.3.5, fs-extra@npm:^11.3.6":
   version: 11.3.6
   resolution: "fs-extra@npm:11.3.6"
   dependencies:
@@ -5699,7 +5688,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"linkify-it@npm:^5.0.1":
+"linkify-it@npm:^5.0.2":
   version: 5.0.2
   resolution: "linkify-it@npm:5.0.2"
   dependencies:
@@ -5814,19 +5803,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it@npm:14.2.0":
-  version: 14.2.0
-  resolution: "markdown-it@npm:14.2.0"
+"markdown-it@npm:14.3.0":
+  version: 14.3.0
+  resolution: "markdown-it@npm:14.3.0"
   dependencies:
     argparse: "npm:^2.0.1"
-    entities: "npm:^4.4.0"
-    linkify-it: "npm:^5.0.1"
+    entities: "npm:^4.5.0"
+    linkify-it: "npm:^5.0.2"
     mdurl: "npm:^2.0.0"
     punycode.js: "npm:^2.3.1"
     uc.micro: "npm:^2.1.0"
   bin:
     markdown-it: bin/markdown-it.mjs
-  checksum: 10/f5cdb7ca9c8115114137201590b2697ee6ca69d2d4701a0313696629d5de4022525eedcad31800263c70f04dfba0a8eae835b6aa84b65e94ae32d63d04e66211
+  checksum: 10/16afbae804e7ea10474389918e31036c438d00bacabb340e57769a84d8a3068f37814736483a645b6ad69e138aa491c3cac83d261b630bd6d2f6af6139c5d18b
   languageName: node
   linkType: hard
 
@@ -7363,9 +7352,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.258.1":
-  version: 43.258.1
-  resolution: "renovate@npm:43.258.1"
+"renovate@npm:43.259.3":
+  version: 43.259.3
+  resolution: "renovate@npm:43.259.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -7399,7 +7388,7 @@ __metadata:
     "@renovatebot/good-enough-parser": "npm:2.0.1"
     "@renovatebot/osv-offline": "npm:3.0.8"
     "@renovatebot/pep440": "npm:5.0.0"
-    "@renovatebot/pgp": "npm:1.3.14"
+    "@renovatebot/pgp": "npm:1.3.15"
     "@renovatebot/ruby-semver": "npm:5.0.0"
     "@sindresorhus/is": "npm:8.1.0"
     "@yarnpkg/core": "npm:4.9.0"
@@ -7429,7 +7418,7 @@ __metadata:
     execa: "npm:8.0.1"
     find-packages: "npm:10.0.4"
     find-up: "npm:8.0.0"
-    fs-extra: "npm:11.3.5"
+    fs-extra: "npm:11.3.6"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
@@ -7448,7 +7437,7 @@ __metadata:
     klona: "npm:2.0.6"
     lru-cache: "npm:11.5.1"
     luxon: "npm:3.7.2"
-    markdown-it: "npm:14.2.0"
+    markdown-it: "npm:14.3.0"
     markdown-table: "npm:3.0.4"
     minimatch: "npm:10.2.5"
     moo: "npm:0.5.3"
@@ -7494,7 +7483,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/d2a8f4416d08bade19e65c911a28dda76baf011e6f52976e5f60b6dad1d4953ecf137ad1d188cf7088b2750599bed3de757bcada915dc002275726414227bc59
+  checksum: 10/d9cd7f41b806f0fdbfea514b213517b8577717b13a37afba5c4169d7b4230e2592b9c26c0dce1232d09bccba6db63ff4364dac9d9082af871cbc4d351013c2b7
   languageName: node
   linkType: hard
 
