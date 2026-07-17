@@ -597,7 +597,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:1.1.2"
     npm-run-all2: "npm:9.0.2"
     prettier: "npm:3.9.5"
-    renovate: "npm:43.263.5"
+    renovate: "npm:43.263.9"
     vitest: "npm:4.1.10"
   languageName: unknown
   linkType: soft
@@ -5757,10 +5757,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:11.5.1":
-  version: 11.5.1
-  resolution: "lru-cache@npm:11.5.1"
-  checksum: 10/02c4f73967d91fb101f4accf8ebac9e0541e08e16d987bdb9e9737f13e5f2c4bc33c593b98ec30e4486bf899bc97edb36fbd133684b36087336559e41edafdea
+"lru-cache@npm:11.5.2, lru-cache@npm:^11.0.0, lru-cache@npm:^11.1.0":
+  version: 11.5.2
+  resolution: "lru-cache@npm:11.5.2"
+  checksum: 10/122789c66605ddf29df58ff279e9e2c9499499d0b80b895ec524496f14bcde045d1582e3e38008f3457226d98067556719573b352119d6be8bdb1f8849f85681
   languageName: node
   linkType: hard
 
@@ -5768,13 +5768,6 @@ __metadata:
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 10/e6e90267360476720fa8e83cc168aa2bf0311f3f2eea20a6ba78b90a885ae72071d9db132f40fda4129c803e7dcec3a6b6a6fbb44ca90b081630b810b5d6a41a
-  languageName: node
-  linkType: hard
-
-"lru-cache@npm:^11.0.0, lru-cache@npm:^11.1.0":
-  version: 11.5.2
-  resolution: "lru-cache@npm:11.5.2"
-  checksum: 10/122789c66605ddf29df58ff279e9e2c9499499d0b80b895ec524496f14bcde045d1582e3e38008f3457226d98067556719573b352119d6be8bdb1f8849f85681
   languageName: node
   linkType: hard
 
@@ -7352,9 +7345,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.263.5":
-  version: 43.263.5
-  resolution: "renovate@npm:43.263.5"
+"renovate@npm:43.263.9":
+  version: 43.263.9
+  resolution: "renovate@npm:43.263.9"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -7435,7 +7428,7 @@ __metadata:
     jsonata: "npm:2.2.1"
     jsonc-weaver: "npm:0.2.4"
     klona: "npm:2.0.6"
-    lru-cache: "npm:11.5.1"
+    lru-cache: "npm:11.5.2"
     luxon: "npm:3.7.2"
     markdown-it: "npm:14.3.0"
     markdown-table: "npm:3.0.4"
@@ -7483,7 +7476,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/2144d4504ee988905d33e523e181e8ad451206e7da0d7feac66115e2f9555cedf647f2ce6ab0687f76486c5dca6340b72496db22154296dc6170c0fdf75200cd
+  checksum: 10/a8f02c82d1271a290cc051a5a60f2bd39e8a3669d3ba4b1edc9c5bdf90acc1b3bcc0baa3d118baf8574b13b32a9ae978fe192f677b189e7a2ce455ed597ab24c
   languageName: node
   linkType: hard
 
