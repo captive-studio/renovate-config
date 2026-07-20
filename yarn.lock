@@ -594,7 +594,7 @@ __metadata:
     eslint: "npm:10.7.0"
     markdown-magic: "npm:4.11.0"
     markdown-magic-package-json: "npm:2.0.2"
-    markdown-magic-subpackage-list: "npm:1.1.2"
+    markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.2"
     prettier: "npm:3.9.5"
     renovate: "npm:43.269.2"
@@ -5814,12 +5814,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-magic-subpackage-list@npm:1.1.2":
-  version: 1.1.2
-  resolution: "markdown-magic-subpackage-list@npm:1.1.2"
+"markdown-magic-subpackage-list@npm:2.1.0":
+  version: 2.1.0
+  resolution: "markdown-magic-subpackage-list@npm:2.1.0"
   peerDependencies:
-    markdown-magic: ">=0.1 <=2.x"
-  checksum: 10/3faf72aa316279f89aa14397f5716e66019222dbc578155930fc3b8dba548048d6ce1b343a47e30e3b195777d9c3c10f3065aa5c04a12fe8e4d278378fbc9a27
+    markdown-magic: ^4
+  checksum: 10/7e83b6cd2bd1dcafd1f7dac04e3f3d6742e9e6c7d2796515f6879ef2e0ead893c1ef4e262dcfadbdd00defb0c572f0d4443f717ff852122aa9fef5e04d2c04e3
   languageName: node
   linkType: hard
 
