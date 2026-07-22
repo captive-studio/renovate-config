@@ -66,5 +66,23 @@ RSpec.describe AutomergeRenovate::FailedChecksRerunner do
 
       expect(result).to eq(decision.merge(rerun_triggered: false))
     end
+
+    it "redéclenche aussi le job en échec pour une PR désactivée avec des checks rouges" do
+      pr = {
+        "statusCheckRollup" => [
+          {
+            "__typename" => "CheckRun", "conclusion" => "FAILURE",
+            "detailsUrl" => "https://github.com/captive-studio/monocle/actions/runs/456/job/1",
+          },
+        ],
+      }
+      decision = { action: :skip, reason: "automerge désactivé", needs_decision_red: true }
+      allow(gh).to receive(:rerun_failed_jobs)
+
+      result = rerunner.call("captive-studio/monocle", pr, decision)
+
+      expect(gh).to have_received(:rerun_failed_jobs).with("captive-studio/monocle", "456")
+      expect(result).to eq(decision.merge(rerun_triggered: true))
+    end
   end
 end

@@ -76,5 +76,33 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
 
       expect(out.string).to include("https://github.com/captive-studio/groove-application/pull/7")
     end
+
+    it "affiche les PR désactivées à checks rouges, entre les décisions et les investigations" do
+      progress.summary(
+        [
+          { repo: "r1", number: 822, action: :skip, reason: "automerge désactivé", needs_decision_red: true,
+            url: "https://github.com/captive-studio/monocle/pull/822", },
+        ]
+      )
+
+      expect(out.string).to include("Décisions à prendre (checks rouges, automerge désactivé)")
+      expect(out.string).to include("https://github.com/captive-studio/monocle/pull/822")
+    end
+
+    it "liste les décisions (checks rouges) avant les investigations dans le résumé" do
+      progress.summary(
+        [
+          { repo: "r1", number: 822, action: :skip, reason: "automerge désactivé", needs_decision_red: true,
+            url: "https://github.com/captive-studio/monocle/pull/822", },
+          { repo: "r1", number: 7, action: :skip, reason: "checks non verts", needs_investigation: true,
+            url: "https://github.com/captive-studio/groove-application/pull/7", },
+        ]
+      )
+
+      decisions_red_index = out.string.index("Décisions à prendre (checks rouges, automerge désactivé)")
+      investigations_index = out.string.index("PR à investiguer")
+
+      expect(decisions_red_index).to be < investigations_index
+    end
   end
 end

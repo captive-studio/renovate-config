@@ -95,10 +95,34 @@ RSpec.describe AutomergeRenovate::Runner do
       results = runner.run([ "captive-studio/monocle" ])
 
       expect(results).to eq(
-        [ { repo: "captive-studio/monocle", number: 42, url: nil, action: :skip, reason: "automerge désactivé" } ]
+        [
+          { repo: "captive-studio/monocle", number: 42, url: nil, action: :skip, reason: "automerge désactivé",
+            needs_decision_red: true, rerun_triggered: false, },
+        ]
       )
       expect(gh).not_to have_received(:merge)
       expect(gh).not_to have_received(:update_body)
+    end
+
+    it "redéclenche les checks rouges d'une PR désactivée et le signale dans le résultat" do
+      pr = { "number" => 822, "body" => "🚦 **Automerge**: Disabled by config.", "mergeStateStatus" => "CLEAN",
+             "statusCheckRollup" => [
+               { "conclusion" => "FAILURE",
+                 "detailsUrl" => "https://github.com/captive-studio/monocle/actions/runs/456/job/1", },
+             ], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+      allow(gh).to receive(:rerun_failed_jobs)
+
+      results = runner.run([ "captive-studio/monocle" ])
+
+      expect(gh).to have_received(:rerun_failed_jobs).with("captive-studio/monocle", "456")
+      expect(results).to eq(
+        [
+          { repo: "captive-studio/monocle", number: 822, url: nil, action: :skip, reason: "automerge désactivé",
+            needs_decision_red: true, rerun_triggered: true, },
+        ]
+      )
     end
 
     it "continue sur les autres PR quand gh échoue sur l'une d'elles" do
