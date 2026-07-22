@@ -195,7 +195,7 @@ GEM
       virtus (~> 2.0)
     securerandom (0.4.1)
     sexp_processor (4.17.5)
-    simplecov (1.0.1)
+    simplecov (1.0.2)
     thor (1.5.0)
     thread_safe (0.3.6)
     tty-color (0.6.0)
@@ -234,7 +234,7 @@ DEPENDENCIES
   rspec (= 3.13.2)
   rubocop-config-captive (= 2.3.1)
   rubycritic (= 5.0.0)
-  simplecov (= 1.0.1)
+  simplecov (= 1.0.2)
   thor (= 1.5.0)
   tty-prompt (= 0.23.1)
   tty-spinner (= 0.9.3)
@@ -307,7 +307,7 @@ CHECKSUMS
   rubycritic (5.0.0) sha256=7f3877556d7f52bf0980496b7c907a827a9592ba690b80a593403a60bd6cfb42
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   sexp_processor (4.17.5) sha256=ae2b48ba98353d5d465ce8759836b7a05f2e12c5879fcd14d7815b026de32f0e
-  simplecov (1.0.1) sha256=419d93c40484159d20b40e26e9a83cdd4c3afa2f3fd443bb8946c301cd658d75
+  simplecov (1.0.2) sha256=c6459434efe4b948b46477cc2df2faa73ab365f83a33c7c17f81262f4f7f1244
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   thread_safe (0.3.6) sha256=9ed7072821b51c57e8d6b7011a8e282e25aeea3a4065eab326e43f66f063b05a
   tty-color (0.6.0) sha256=6f9c37ca3a4e2367fb2e6d09722762647d6f455c111f05b59f35730eeb24332a
