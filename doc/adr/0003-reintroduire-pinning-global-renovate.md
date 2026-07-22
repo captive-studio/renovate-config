@@ -36,8 +36,8 @@ Concrètement :
 
 Cela signifie que, pour les projets qui étendent :
 
-- `github>Captive-Studio/renovate-config:application`, ou
-- `github>Captive-Studio/renovate-config:library`,
+- `github>captive-studio/renovate-config:application`, ou
+- `github>captive-studio/renovate-config:library`,
 
 Renovate va normaliser les contraintes de version supportées en **versions exactes** dans les PR.
 

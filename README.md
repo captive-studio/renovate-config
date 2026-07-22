@@ -1,6 +1,6 @@
 # 🧰 Captive Renovate Configuration
 
-*(@Captive-Studio/renovate-config)*
+*(@captive-studio/renovate-config)*
 
 [![License][license-image]][license-url]
 
@@ -76,7 +76,7 @@ Configurer Renovate pour :
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>Captive-Studio/renovate-config:application"
+    "github>captive-studio/renovate-config:application"
   ]
 }
 ```
@@ -88,7 +88,7 @@ Configurer Renovate pour :
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>Captive-Studio/renovate-config:library"
+    "github>captive-studio/renovate-config:library"
   ]
 }
 ```
@@ -107,9 +107,9 @@ Utilisez des références personnelles (`@prenom.nom`) ou d’équipe (`@NomEqui
 ```diff
 {
   "extends": [
-    "github>Captive-Studio/renovate-config:...",
+    "github>captive-studio/renovate-config:...",
 -   // configuration standard
-+   "github>Captive-Studio/renovate-config:rate-limited"
++   "github>captive-studio/renovate-config:rate-limited"
   ]
 }
 ```
@@ -159,8 +159,8 @@ Maintenir le nombre de dépendances obsolètes aussi proche de zéro que possibl
 ```diff
 {
   "extends": [
-    "github>Captive-Studio/renovate-config:...",
--   "github>Captive-Studio/renovate-config:rate-limited"
+    "github>captive-studio/renovate-config:...",
+-   "github>captive-studio/renovate-config:rate-limited"
 +   // suppression de la limitation
   ]
 }

@@ -5,7 +5,7 @@
     {
       "matchUpdateTypes": ["major", "minor", "patch"],
       "matchSourceUrls": [
-        "https://github.com/Captive-Studio/es-project-config"
+        "https://github.com/captive-studio/es-project-config"
       ],
       "automerge": true
     },

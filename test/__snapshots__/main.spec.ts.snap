@@ -5,7 +5,7 @@ exports[`Configuration snapshot > application.json 1`] = `
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default configuration for an application",
   "extends": [
-    "github>Captive-Studio/renovate-config:recommended",
+    "github>captive-studio/renovate-config:recommended",
   ],
 }
 `;
@@ -15,8 +15,8 @@ exports[`Configuration snapshot > applicationLegacy.json 1`] = `
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default configuration for a legacy application. No automerge is done and concurrency is limited",
   "extends": [
-    "github>Captive-Studio/renovate-config:base",
-    "github>Captive-Studio/renovate-config//preset/groupRecommended",
+    "github>captive-studio/renovate-config:base",
+    "github>captive-studio/renovate-config//preset/groupRecommended",
     ":pinDevDependencies",
   ],
   "prConcurrentLimit": 10,
@@ -31,9 +31,10 @@ exports[`Configuration snapshot > base.json 1`] = `
   "description": "Default base configuration for all Captive projects.",
   "extends": [
     "github>w5s/renovate-config:_base",
-    "github>Captive-Studio/renovate-config//preset/commit",
-    "github>Captive-Studio/renovate-config//preset/schedule",
-    "github>Captive-Studio/renovate-config//preset/automergeBase",
+    "github>captive-studio/renovate-config//preset/commit",
+    "github>captive-studio/renovate-config//preset/schedule",
+    "github>captive-studio/renovate-config//preset/automergeBase",
+    "github>captive-studio/renovate-config//preset/ghcr",
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     ":pinAllExceptPeerDependencies",
@@ -82,7 +83,7 @@ exports[`Configuration snapshot > library.json 1`] = `
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default configuration for a library",
   "extends": [
-    "github>Captive-Studio/renovate-config:recommended",
+    "github>captive-studio/renovate-config:recommended",
     ":pinOnlyDevDependencies",
   ],
 }

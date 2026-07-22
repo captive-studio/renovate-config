@@ -35,7 +35,7 @@ On construit un outil CLI autonome, dans ce repo (`renovate-config`), qui automa
 
 ### Extraction de la liste des repos
 
-- Parsing de la description du ticket : extraction de toutes les URLs `github.com/{org}/{repo}` présentes (sous forme de liens Markdown), quelle que soit la casse ou l'org (le ticket peut inclure un repo hors `Captive-Studio`, ex. `Guitguitou/as-monaco-beachvolley`). Aucune règle de filtrage par org dans le code : le ticket Jira, maintenu à la main chaque semaine, est la seule source de vérité sur les repos à traiter.
+- Parsing de la description du ticket : extraction de toutes les URLs `github.com/{org}/{repo}` présentes (sous forme de liens Markdown), quelle que soit la casse ou l'org (le ticket peut inclure un repo hors `captive-studio`, ex. `Guitguitou/as-monaco-beachvolley`). Aucune règle de filtrage par org dans le code : le ticket Jira, maintenu à la main chaque semaine, est la seule source de vérité sur les repos à traiter.
 
 ### Sélection des PR à traiter
 
@@ -75,5 +75,5 @@ Le ticket Jira décrit 3 étapes ; cet outil ne couvre que la première :
 
 - Un token API Jira dédié doit être créé et stocké (variable d'environnement) - à faire une fois, à renouveler si Atlassian le révoque.
 - Le format du corps des PR Renovate (`🚦 **Automerge**: Enabled.`, checkbox `rebase-check`) est un détail d'implémentation de Renovate/Mend : si Renovate change ce format un jour, le parsing cassera silencieusement (à surveiller via le rapport : si plus aucune PR n'est jamais reconnue comme automergeable, c'est le premier suspect).
-- Le repo `Guitguitou/as-monaco-beachvolley` étant hors org Captive-Studio, il faut s'assurer que le token `gh` utilisé a bien les droits d'écriture dessus (sinon la fusion échouera pour ce repo spécifiquement, ce qui sera visible dans le rapport final sans bloquer les autres repos).
+- Le repo `Guitguitou/as-monaco-beachvolley` étant hors org captive-studio, il faut s'assurer que le token `gh` utilisé a bien les droits d'écriture dessus (sinon la fusion échouera pour ce repo spécifiquement, ce qui sera visible dans le rapport final sans bloquer les autres repos).
 - Pas de dry-run : toute évolution du comportement de sélection/fusion doit être testée unitairement (RSpec) avant d'être exécutée en conditions réelles, puisqu'il n'y a pas de garde-fou d'exécution.
