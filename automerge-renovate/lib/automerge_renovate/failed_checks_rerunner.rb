@@ -11,7 +11,7 @@ module AutomergeRenovate
     end
 
     def call(repo, pr, decision)
-      return decision unless decision[:needs_investigation]
+      return decision unless decision[:needs_investigation] || decision[:needs_decision_red]
 
       run_ids = run_ids_for(pr)
       return decision.merge(rerun_triggered: false) if run_ids.empty?

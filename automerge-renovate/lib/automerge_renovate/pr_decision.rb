@@ -20,7 +20,7 @@ module AutomergeRenovate
           return { action: :skip, reason: "automerge désactivé", needs_decision: true }
         end
 
-        return { action: :skip, reason: "automerge désactivé" }
+        return { action: :skip, reason: "automerge désactivé", needs_decision_red: true }
       end
 
       return { action: :rebase_requested } if merge_state_status == "BEHIND"

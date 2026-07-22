@@ -5,14 +5,14 @@ require "automerge_renovate/pr_decision"
 
 RSpec.describe AutomergeRenovate::PrDecision do
   describe "#call" do
-    it "ignore la PR quand l'automerge est désactivé et que les checks ne sont pas (tous) verts" do
+    it "signale needs_decision_red quand l'automerge est désactivé et que les checks ne sont pas (tous) verts" do
       pr = { "body" => "🚦 **Automerge**: Disabled by config.", "mergeStateStatus" => "CLEAN",
              "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
       merge_settings = { "allow_rebase_merge" => true }
 
       decision = described_class.new(pr, merge_settings).call
 
-      expect(decision).to eq(action: :skip, reason: "automerge désactivé")
+      expect(decision).to eq(action: :skip, reason: "automerge désactivé", needs_decision_red: true)
     end
 
     it "signale needs_decision quand l'automerge est désactivé mais que les checks sont verts" do
