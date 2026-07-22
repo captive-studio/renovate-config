@@ -7,9 +7,9 @@
   ],
   "description": "Recommended configuration",
   "extends": [
-    "github>Captive-Studio/renovate-config:base",
-    "github>Captive-Studio/renovate-config//preset/groupRecommended",
-    "github>Captive-Studio/renovate-config//preset/captivePlatformWorkflows",
+    "github>captive-studio/renovate-config:base",
+    "github>captive-studio/renovate-config//preset/groupRecommended",
+    "github>captive-studio/renovate-config//preset/captivePlatformWorkflows",
   ],
   "packageRules": [
     {

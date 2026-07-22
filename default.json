@@ -1,4 +1,4 @@
 {
   "description": "Alias for :base",
-  "extends": ["github>Captive-Studio/renovate-config:base"]
+  "extends": ["github>captive-studio/renovate-config:base"]
 }

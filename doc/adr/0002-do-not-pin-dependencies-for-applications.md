@@ -18,7 +18,7 @@ La configuration fournie pinait les versions :
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default configuration for an application",
   "extends": [
-    "github>Captive-Studio/renovate-config:base",
+    "github>captive-studio/renovate-config:base",
     ":pinAllExceptPeerDependencies"
   ]
 }
@@ -51,7 +51,7 @@ Ce qui devient plus simple ou plus difficile à faire, ainsi que les risques int
 
 Depuis la rédaction de cet ADR, la configuration partagée a évolué. Le preset `recommended` étend désormais directement le preset intégré de Renovate `:pinAllExceptPeerDependencies`.
 
-Concrètement, cela signifie que les projets qui étendent `github>Captive-Studio/renovate-config:application` ou `github>Captive-Studio/renovate-config:library` verront Renovate convertir les ranges de versions supportées en versions exactes dans les PR :
+Concrètement, cela signifie que les projets qui étendent `github>captive-studio/renovate-config:application` ou `github>captive-studio/renovate-config:library` verront Renovate convertir les ranges de versions supportées en versions exactes dans les PR :
 
 ```json
 // package.json (npm)

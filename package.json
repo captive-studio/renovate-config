@@ -8,13 +8,13 @@
     "config",
     "dependencies"
   ],
-  "homepage": "https://github.com/Captive-Studio/renovate-config/blob/main#readme",
+  "homepage": "https://github.com/captive-studio/renovate-config/blob/main#readme",
   "bugs": {
-    "url": "https://github.com/Captive-Studio/renovate-config.git/issues"
+    "url": "https://github.com/captive-studio/renovate-config.git/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Captive-Studio/renovate-config.git"
+    "url": "git@github.com:captive-studio/renovate-config.git"
   },
   "license": "MIT",
   "author": "Julien Polo <julien.polo@gmail.com>",
