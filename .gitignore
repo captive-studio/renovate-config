@@ -1,5 +1,4 @@
 # BEGIN ### Typescript ###
-lib/
 *.tsbuildinfo
 typings/
 # END ### Typescript ###
@@ -137,9 +136,6 @@ Temporary Items
 # BEGIN ### ESLint ###
 .eslintcache
 # END ### ESLint ###
-
-# Build directory
-lib/
 
 # mrm tester
 _tester
