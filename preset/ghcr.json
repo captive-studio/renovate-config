@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "GHCR n'expose pas encore de release timestamps (https://github.com/renovatebot/renovate/issues/39064). Avec internalChecksFilter=strict et minimumReleaseAgeBehaviour=timestamp-required (défaut), renovate ne crée jamais la PR. On force minimumReleaseAge=0 days et minimumReleaseAgeBehaviour=timestamp-optional pour que l'absence de timestamp ne bloque pas la mise à jour.",
+      "matchPackageNames": ["ghcr.io/**"],
+      "minimumReleaseAge": "0 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    }
+  ]
+}

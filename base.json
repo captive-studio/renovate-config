@@ -7,6 +7,7 @@
     "github>Captive-Studio/renovate-config//preset/commit",
     "github>Captive-Studio/renovate-config//preset/schedule",
     "github>Captive-Studio/renovate-config//preset/automergeBase",
+    "github>Captive-Studio/renovate-config//preset/ghcr",
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     ":pinAllExceptPeerDependencies",
