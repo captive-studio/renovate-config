@@ -4,7 +4,18 @@
     {
       "groupName": "Tamagui",
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["@tamagui", "tamagui"]
+      "matchPackagePatterns": ["@tamagui", "tamagui"],
+      "prBodyNotes": [
+        "Pour la mise à jour de Tamagui, il faut lancer :",
+        "",
+        "```",
+        "npm install",
+        "npx tamagui build",
+        "npm run build:web",
+        "```",
+        "",
+        "Commit ensuite le fichier de config Tamagui généré, et vérifie qu'il ne reste plus aucune dépendance Tamagui pointant vers l'ancienne version dans le `package.json`."
+      ]
     }
   ]
 }
