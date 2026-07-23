@@ -38,7 +38,8 @@
       "description": "Attendre 45 jours avant de merger une mise a jour majeure d'Expo",
       "matchPackagePatterns": ["^(@expo|expo)($|[-/])"],
       "matchUpdateTypes": ["major"],
-      "minimumReleaseAge": "45 days"
+      "minimumReleaseAge": "45 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
       "matchPackageNames": ["expo"],

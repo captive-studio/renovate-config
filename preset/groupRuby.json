@@ -11,6 +11,7 @@
         "ghcr.io/captive-studio/ruby-ci"
       ],
       "minimumReleaseAge": "3 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
       "automerge": true
     }
   ]

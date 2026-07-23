@@ -6,7 +6,8 @@
       "groupName": "[NPM] Alveole",
       "matchManagers": ["npm"],
       "matchPackagePrefixes": ["@alveole/"],
-      "minimumReleaseAge": "1 day"
+      "minimumReleaseAge": "1 day",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
       "matchUpdateTypes": ["minor", "patch"],
