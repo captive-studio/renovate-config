@@ -597,7 +597,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.2"
     prettier: "npm:3.9.6"
-    renovate: "npm:43.277.1"
+    renovate: "npm:43.278.5"
     vitest: "npm:4.1.10"
   languageName: unknown
   linkType: soft
@@ -7379,9 +7379,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.277.1":
-  version: 43.277.1
-  resolution: "renovate@npm:43.277.1"
+"renovate@npm:43.278.5":
+  version: 43.278.5
+  resolution: "renovate@npm:43.278.5"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -7400,6 +7400,7 @@ __metadata:
     "@opentelemetry/instrumentation-bunyan": "npm:0.65.0"
     "@opentelemetry/instrumentation-http": "npm:0.220.0"
     "@opentelemetry/instrumentation-redis": "npm:0.68.0"
+    "@opentelemetry/otlp-transformer": "npm:0.220.0"
     "@opentelemetry/resource-detector-aws": "npm:2.20.0"
     "@opentelemetry/resource-detector-azure": "npm:0.28.0"
     "@opentelemetry/resource-detector-gcp": "npm:0.55.0"
@@ -7510,7 +7511,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/43e10a19eb2788317201b386bbfefccff25788410b34d08398654da4e3d1efe7797fe2bcc647d9787adf0917aefa265197454f951ccc9ca9aa03b2d592104505
+  checksum: 10/8f33044619b23eabb4cec6acd227dfba2ca372c4cda909919aaca778c490d107b565d4abd44c1f1e714333e6a113ea0567d3380744dc0591e0ad4e1c68f13d58
   languageName: node
   linkType: hard
 
