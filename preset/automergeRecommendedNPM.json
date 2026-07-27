@@ -91,6 +91,14 @@
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "description": "Automerge chromium-edge-launcher en major pour 1.x → 2.x uniquement",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["chromium-edge-launcher"],
+      "matchCurrentVersion": "/^1\\./",
+      "allowedVersions": ">=2.0.0 <3.0.0",
+      "automerge": true
     }
   ]
 }
