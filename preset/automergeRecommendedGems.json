@@ -41,6 +41,13 @@
       "matchCurrentVersion": "/^1\\./",
       "allowedVersions": ">=2.0.0 <3.0.0",
       "automerge": true
+    },
+    {
+      "description": "Automerge simplecov en major (toutes versions)",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["simplecov"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
     }
   ]
 }
