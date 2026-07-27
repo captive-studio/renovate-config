@@ -51,6 +51,7 @@ exports[`Configuration snapshot > base.json 1`] = `
         "major",
       ],
       "minimumReleaseAge": "7 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
     },
     {
       "matchDepTypes": [
@@ -60,6 +61,7 @@ exports[`Configuration snapshot > base.json 1`] = `
         "minor",
       ],
       "minimumReleaseAge": "2 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
     },
     {
       "matchDepTypes": [
@@ -69,6 +71,7 @@ exports[`Configuration snapshot > base.json 1`] = `
         "patch",
       ],
       "minimumReleaseAge": "2 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
     },
   ],
   "platformAutomerge": true,
