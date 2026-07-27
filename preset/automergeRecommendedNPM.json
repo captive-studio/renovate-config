@@ -107,6 +107,14 @@
       "matchCurrentVersion": "/^3\\./",
       "allowedVersions": ">=4.0.0 <5.0.0",
       "automerge": true
+    },
+    {
+      "description": "Automerge @fullcalendar/core en major pour 6.x → 7.x uniquement",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@fullcalendar/core"],
+      "matchCurrentVersion": "/^6\\./",
+      "allowedVersions": ">=7.0.0 <8.0.0",
+      "automerge": true
     }
   ]
 }
