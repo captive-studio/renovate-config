@@ -74,7 +74,36 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
         ]
       )
 
+      expect(out.string).to include("PR à investiguer (checks rouges)")
       expect(out.string).to include("https://github.com/captive-studio/groove-application/pull/7")
+    end
+
+    it "affiche les PR dont les checks sont en cours (jaune)" do
+      progress.summary(
+        [
+          { repo: "r1", number: 12, action: :skip, reason: "checks en attente", needs_wait: true,
+            url: "https://github.com/captive-studio/groove-application/pull/12", },
+        ]
+      )
+
+      expect(out.string).to include("PR en attente (checks jaune)")
+      expect(out.string).to include("https://github.com/captive-studio/groove-application/pull/12")
+    end
+
+    it "liste les investigations (rouges) avant les attentes (jaune) dans le résumé" do
+      progress.summary(
+        [
+          { repo: "r1", number: 7, action: :skip, reason: "checks non verts", needs_investigation: true,
+            url: "https://github.com/captive-studio/groove-application/pull/7", },
+          { repo: "r1", number: 12, action: :skip, reason: "checks en attente", needs_wait: true,
+            url: "https://github.com/captive-studio/groove-application/pull/12", },
+        ]
+      )
+
+      investigations_index = out.string.index("PR à investiguer")
+      wait_index = out.string.index("PR en attente")
+
+      expect(investigations_index).to be < wait_index
     end
 
     it "affiche les PR désactivées à checks rouges, entre les décisions et les investigations" do

@@ -71,4 +71,39 @@ RSpec.describe AutomergeRenovate::ChecksEvaluator do
       expect(described_class.new([ green, red ]).red_checks).to eq([ red ])
     end
   end
+
+  describe "#any_red?" do
+    it "retourne true quand un check a échoué (conclusion FAILURE)" do
+      checks = [{ "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "FAILURE" }]
+
+      expect(described_class.new(checks).any_red?).to be(true)
+    end
+
+    it "retourne false quand un CheckRun est en cours (conclusion nil)" do
+      checks = [{ "__typename" => "CheckRun", "status" => "IN_PROGRESS", "conclusion" => nil }]
+
+      expect(described_class.new(checks).any_red?).to be(false)
+    end
+
+    it "retourne false quand un StatusContext est en attente (state PENDING)" do
+      checks = [{ "__typename" => "StatusContext", "context" => "renovate/stability-days", "state" => "PENDING" }]
+
+      expect(described_class.new(checks).any_red?).to be(false)
+    end
+
+    it "retourne true si un check est rouge parmi un check en cours" do
+      checks = [
+        { "__typename" => "CheckRun", "status" => "IN_PROGRESS", "conclusion" => nil },
+        { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "FAILURE" },
+      ]
+
+      expect(described_class.new(checks).any_red?).to be(true)
+    end
+
+    it "retourne false quand tous les checks sont verts" do
+      checks = [{ "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "SUCCESS" }]
+
+      expect(described_class.new(checks).any_red?).to be(false)
+    end
+  end
 end

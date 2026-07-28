@@ -40,6 +40,7 @@ module AutomergeRenovate
       print_flagged(results, :needs_decision, decision_header)
       print_flagged(results, :needs_decision_red, "⚠ Décisions à prendre (checks rouges, automerge désactivé) :")
       print_flagged(results, :needs_investigation, "⚠ PR à investiguer (checks rouges) :")
+      print_flagged(results, :needs_wait, "⚠ PR en attente (checks jaune) :")
     end
 
     private

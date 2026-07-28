@@ -35,7 +35,7 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :rebase_requested)
     end
 
-    it "ignore la PR quand un check n'est pas vert" do
+    it "ignore la PR quand un check a échoué (rouge)" do
       pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
              "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
       merge_settings = { "allow_rebase_merge" => true }
@@ -43,6 +43,16 @@ RSpec.describe AutomergeRenovate::PrDecision do
       decision = described_class.new(pr, merge_settings).call
 
       expect(decision).to eq(action: :skip, reason: "checks non verts", needs_investigation: true)
+    end
+
+    it "met la PR en attente quand les checks sont en cours sans échec (jaune)" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
+             "statusCheckRollup" => [ { "status" => "IN_PROGRESS", "conclusion" => nil } ], }
+      merge_settings = { "allow_rebase_merge" => true }
+
+      decision = described_class.new(pr, merge_settings).call
+
+      expect(decision).to eq(action: :skip, reason: "checks en attente", needs_wait: true)
     end
 
     it "demande un rebase en cas de conflit (DIRTY) : Renovate résout en régénérant la branche" do

@@ -25,7 +25,7 @@ module AutomergeRenovate
 
       return { action: :rebase_requested } if merge_state_status == "BEHIND"
       unless checks_green?
-        return { action: :skip, reason: "checks non verts", needs_investigation: true }
+        return pending_checks_result
       end
       return { action: :rebase_requested } unless merge_state_status == "CLEAN"
 
@@ -41,8 +41,20 @@ module AutomergeRenovate
       AutomergeStatus.new(@pr["body"]).enabled?
     end
 
+    def pending_checks_result
+      if checks_evaluator.any_red?
+        { action: :skip, reason: "checks non verts", needs_investigation: true }
+      else
+        { action: :skip, reason: "checks en attente", needs_wait: true }
+      end
+    end
+
     def checks_green?
-      ChecksEvaluator.new(@pr["statusCheckRollup"]).all_green?
+      checks_evaluator.all_green?
+    end
+
+    def checks_evaluator
+      @checks_evaluator ||= ChecksEvaluator.new(@pr["statusCheckRollup"])
     end
   end
 end
