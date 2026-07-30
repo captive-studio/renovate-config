@@ -35,6 +35,7 @@ exports[`Configuration snapshot > base.json 1`] = `
     "github>captive-studio/renovate-config//preset/schedule",
     "github>captive-studio/renovate-config//preset/automergeBase",
     "github>captive-studio/renovate-config//preset/ghcr",
+    "github>captive-studio/renovate-config//preset/digest",
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     ":pinAllExceptPeerDependencies",

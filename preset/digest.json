@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Un update de digest est résolu via getDigest(), qui ne retourne qu'un SHA : l'update produit n'a pas de releaseTimestamp. Avec minimumReleaseAgeBehaviour=timestamp-required (défaut), le check renovate/stability-days reste pending à vie et l'automerge ne se déclenche jamais. On passe en timestamp-optional pour que l'absence de timestamp ne bloque plus, sans toucher au minimumReleaseAge hérité : là où un timestamp existe, le gating par âge continue de s'appliquer.",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    }
+  ]
+}
