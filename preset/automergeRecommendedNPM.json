@@ -64,7 +64,8 @@
         "react-select",
         "@lottiefiles/dotlottie-react",
         "swiper",
-        "@forge/react"
+        "@forge/react",
+        "axios"
       ]
     },
     {
