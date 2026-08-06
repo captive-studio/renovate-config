@@ -48,6 +48,14 @@
       "matchPackageNames": ["simplecov"],
       "matchUpdateTypes": ["major"],
       "automerge": true
+    },
+    {
+      "description": "Automerge gibbon en major pour 3.x → 4.x uniquement",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["gibbon"],
+      "matchCurrentVersion": "/^3\\./",
+      "allowedVersions": ">=4.0.0 <5.0.0",
+      "automerge": true
     }
   ]
 }
