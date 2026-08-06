@@ -23,7 +23,8 @@
         "@forge/cli",
         "eslint-config-expo",
         "@testing-library/react-native",
-        "typescript"
+        "typescript",
+        "jsdom"
       ]
     },
     {
