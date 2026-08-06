@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "adf_to_text"
+require_relative "errors"
 require_relative "jira_http"
 
 module AutomergeRenovate
@@ -9,6 +10,8 @@ module AutomergeRenovate
     PROJECT = "FAC"
     SUMMARY_FILTER = "Maintenance Renovate"
     FIELDS = %w[summary description].freeze
+    NOT_FOUND_MESSAGE = %(Aucun ticket "#{SUMMARY_FILTER}" trouvé dans le projet #{PROJECT} ) \
+                        "(token Jira expiré ou ticket absent ?)"
 
     def initialize(site:, email:, token:, http: nil)
       @http = http || JiraHttp.new(site: site, email: email, token: token)
@@ -16,7 +19,10 @@ module AutomergeRenovate
 
     def find_latest_ticket
       response = @http.post("/rest/api/3/search/jql", jql: jql, maxResults: 1, fields: FIELDS)
-      to_ticket(response["issues"].first)
+      issue = response["issues"].first
+      raise TicketNotFoundError, NOT_FOUND_MESSAGE unless issue
+
+      to_ticket(issue)
     end
 
     def find_ticket(key)

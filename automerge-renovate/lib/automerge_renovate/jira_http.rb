@@ -2,6 +2,7 @@
 
 require "net/http"
 require "json"
+require_relative "errors"
 
 module AutomergeRenovate
   # Transport HTTP authentifié (Basic Auth) vers l'API REST Jira.
@@ -31,8 +32,14 @@ module AutomergeRenovate
       req.basic_auth(@email, @token)
       req["Accept"] = "application/json"
       uri = req.uri
-      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(req) }
-      JSON.parse(response.body)
+      parse(Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(req) })
+    end
+
+    def parse(response)
+      body = response.body.dup.force_encoding(Encoding::UTF_8)
+      return JSON.parse(body) if response.code.start_with?("2")
+
+      raise HttpError, "Jira a répondu #{response.code} : #{body}"
     end
   end
 end

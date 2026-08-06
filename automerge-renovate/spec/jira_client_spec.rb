@@ -23,6 +23,15 @@ RSpec.describe AutomergeRenovate::JiraClient do
       expect(client.find_latest_ticket).to eq(key: "FAC-2514", description: "1. Traiter les PR...")
     end
 
+    it "lève une erreur explicite quand la recherche ne renvoie aucun ticket" do
+      allow(http).to receive(:post).and_return({ "issues" => [], "isLast" => true })
+
+      expect { client.find_latest_ticket }
+        .to raise_error(AutomergeRenovate::TicketNotFoundError,
+          'Aucun ticket "Maintenance Renovate" trouvé dans le projet FAC ' \
+          "(token Jira expiré ou ticket absent ?)")
+    end
+
     it "interroge le nouvel endpoint search/jql (POST) du projet FAC trié par date de création décroissante" do
       allow(http).to receive(:post)
         .with(

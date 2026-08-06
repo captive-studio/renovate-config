@@ -8,7 +8,7 @@ RSpec.describe AutomergeRenovate::JiraHttp do
 
   describe "#get" do
     it "envoie une requête HTTP authentifiée en Basic Auth et parse la réponse JSON" do
-      fake_response = instance_double(Net::HTTPResponse, body: '{"ok":true}')
+      fake_response = instance_double(Net::HTTPResponse, code: "200", body: '{"ok":true}')
       fake_http = instance_double(Net::HTTP, request: fake_response)
       allow(Net::HTTP).to receive(:start)
         .with("captive-team.atlassian.net", 443, use_ssl: true)
@@ -25,9 +25,35 @@ RSpec.describe AutomergeRenovate::JiraHttp do
     end
   end
 
+  describe "réponse en erreur" do
+    it "lève une erreur explicite mentionnant le code HTTP et le corps de la réponse" do
+      fake_response = instance_double(Net::HTTPResponse, code: "401",
+        body: "Client must be authenticated to access this resource.")
+      fake_http = instance_double(Net::HTTP, request: fake_response)
+      allow(Net::HTTP).to receive(:start).and_yield(fake_http)
+
+      expect { http.get("/rest/api/3/myself", {}) }
+        .to raise_error(AutomergeRenovate::HttpError,
+          "Jira a répondu 401 : Client must be authenticated to access this resource.")
+    end
+  end
+
+  describe "corps de réponse en encodage binaire" do
+    it "restitue le message d'erreur accentué renvoyé par Jira" do
+      body = %({"errorMessages":["Le ticket n'existe pas ou vous n'êtes pas autorisé."]}).dup.force_encoding(Encoding::ASCII_8BIT)
+      fake_response = instance_double(Net::HTTPResponse, code: "404", body: body)
+      fake_http = instance_double(Net::HTTP, request: fake_response)
+      allow(Net::HTTP).to receive(:start).and_yield(fake_http)
+
+      expect { http.get("/rest/api/3/issue/FAC-1", {}) }
+        .to raise_error(AutomergeRenovate::HttpError,
+          %(Jira a répondu 404 : {"errorMessages":["Le ticket n'existe pas ou vous n'êtes pas autorisé."]}))
+    end
+  end
+
   describe "#post" do
     it "envoie une requête POST JSON authentifiée en Basic Auth et parse la réponse" do
-      fake_response = instance_double(Net::HTTPResponse, body: '{"issues":[]}')
+      fake_response = instance_double(Net::HTTPResponse, code: "200", body: '{"issues":[]}')
       fake_http = instance_double(Net::HTTP, request: fake_response)
       allow(Net::HTTP).to receive(:start)
         .with("captive-team.atlassian.net", 443, use_ssl: true)
