@@ -65,7 +65,8 @@
         "@lottiefiles/dotlottie-react",
         "swiper",
         "@forge/react",
-        "axios"
+        "axios",
+        "pdfjs-dist"
       ]
     },
     {
