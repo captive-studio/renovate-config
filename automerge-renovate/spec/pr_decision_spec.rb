@@ -55,6 +55,16 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :rebase_requested)
     end
 
+    it "demande un rebase en cas de conflit (DIRTY) même quand les checks sont rouges" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "DIRTY",
+             "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
+      merge_settings = { "allow_rebase_merge" => true }
+
+      decision = described_class.new(pr, merge_settings).call
+
+      expect(decision).to eq(action: :rebase_requested)
+    end
+
     it "fusionne la PR quand tout est au vert, avec la stratégie autorisée par le repo" do
       pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
              "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
