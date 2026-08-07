@@ -8,10 +8,6 @@
       "prBodyNotes": [
         "ATTENTION : verifier que Expo Go est bien disponible pour la version du SDK Expo mise a jour avant de merger cette PR."
       ],
-      "postUpgradeTasks": {
-        "commands": ["npx expo install --fix"],
-        "executionMode": "branch"
-      },
       "matchPackagePatterns": [
         "^(@expo|expo)($|[-/])",
         "^(@react|react)($|[-/])",
