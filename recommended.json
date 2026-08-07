@@ -27,7 +27,7 @@
       "automerge": true
     },
     {
-      "matchManagers": ["docker"],
+      "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },

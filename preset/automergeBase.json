@@ -4,6 +4,7 @@
     "github>w5s/renovate-config//preset/automergeRecommended",
     "github>captive-studio/renovate-config//preset/automergeRecommendedGems",
     "github>captive-studio/renovate-config//preset/automergeRecommendedNPM",
+    "github>captive-studio/renovate-config//preset/automergeRecommendedDocker",
     "github>captive-studio/renovate-config//preset/automergeTest",
     "github>captive-studio/renovate-config//preset/automergePatches",
     "github>captive-studio/renovate-config//preset/automergeToolVersions"

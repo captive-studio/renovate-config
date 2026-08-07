@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Automerge Docker images de confiance",
+  "packageRules": [
+    {
+      "description": "Automerge des images de confiance, y compris en majeure",
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "matchPackageNames": []
+    },
+    {
+      "description": "Automerge des images de confiance, sauf en majeure",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "matchPackageNames": []
+    }
+  ]
+}
