@@ -3,12 +3,11 @@
 require_relative "automerge_status"
 require_relative "checks_evaluator"
 require_relative "merge_strategy_picker"
+require_relative "rebase_need"
 
 module AutomergeRenovate
   # Décide de l'action à appliquer à une PR Renovate donnée (merge, rebase, ou skip + raison).
   class PrDecision
-    # Statuts que Renovate corrige en régénérant la branche : retard sur la base, ou conflit.
-    REBASABLE_STATUSES = %w[BEHIND DIRTY].freeze
     REBASE_REQUESTED = { action: :rebase_requested }.freeze
     RED_CHECKS_SKIP = {
       action: :skip, reason: "checks non verts", needs_investigation: true,
@@ -34,10 +33,8 @@ module AutomergeRenovate
       @pr["mergeStateStatus"]
     end
 
-    # GitHub ne renvoie BEHIND que si la branche de base exige d'être à jour ; sans ce réglage,
-    # le retard réel ne se lit que dans le compte de commits d'écart.
     def rebase_needed?
-      REBASABLE_STATUSES.include?(merge_state_status) || @pr["behindBy"].to_i.positive?
+      RebaseNeed.new(@pr).needed?
     end
 
     # Une PR à rebaser dont l'automerge est désactivé reste une décision humaine : on la rebase
