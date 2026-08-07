@@ -35,6 +35,27 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :rebase_requested)
     end
 
+    it "demande un rebase sur une branche en retard même si l'automerge est désactivé, " \
+       "en la gardant dans les décisions à prendre" do
+      pr = { "body" => "🚦 **Automerge**: Disabled by config.", "mergeStateStatus" => "UNSTABLE",
+             "behindBy" => 4, "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
+      merge_settings = { "allow_rebase_merge" => true }
+
+      decision = described_class.new(pr, merge_settings).call
+
+      expect(decision).to eq(action: :rebase_requested, needs_decision: true)
+    end
+
+    it "demande un rebase quand la branche est en retard, même avec des checks rouges" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNSTABLE",
+             "behindBy" => 4, "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
+      merge_settings = { "allow_rebase_merge" => true }
+
+      decision = described_class.new(pr, merge_settings).call
+
+      expect(decision).to eq(action: :rebase_requested)
+    end
+
     it "ignore la PR quand un check n'est pas vert" do
       pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
              "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }

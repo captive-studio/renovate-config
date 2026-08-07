@@ -5,7 +5,7 @@ require "open3"
 
 module AutomergeRenovate
   class GhCli
-    FIELDS = "number,body,mergeStateStatus,statusCheckRollup,url"
+    FIELDS = "number,body,mergeStateStatus,statusCheckRollup,url,baseRefName,headRefName"
 
     def open_renovate_prs(repo)
       output = run("pr", "list", "--repo", repo, "--author", "app/renovate",
@@ -16,6 +16,10 @@ module AutomergeRenovate
     def merge_settings(repo)
       JSON.parse(run("api", "repos/#{repo}"))
         .slice("allow_rebase_merge", "allow_squash_merge", "allow_merge_commit")
+    end
+
+    def behind_by(repo, base, head)
+      JSON.parse(run("api", "repos/#{repo}/compare/#{base}...#{head}")).fetch("behind_by")
     end
 
     def merge(repo, number, strategy)

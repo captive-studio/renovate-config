@@ -20,8 +20,8 @@ module AutomergeRenovate
     end
 
     def call
+      return rebase_decision if rebase_needed?
       return automerge_disabled_skip unless automerge_enabled?
-      return REBASE_REQUESTED if REBASABLE_STATUSES.include?(merge_state_status)
       return RED_CHECKS_SKIP unless checks_green?
       return REBASE_REQUESTED unless merge_state_status == "CLEAN"
 
@@ -32,6 +32,20 @@ module AutomergeRenovate
 
     def merge_state_status
       @pr["mergeStateStatus"]
+    end
+
+    # GitHub ne renvoie BEHIND que si la branche de base exige d'être à jour ; sans ce réglage,
+    # le retard réel ne se lit que dans le compte de commits d'écart.
+    def rebase_needed?
+      REBASABLE_STATUSES.include?(merge_state_status) || @pr["behindBy"].to_i.positive?
+    end
+
+    # Une PR à rebaser dont l'automerge est désactivé reste une décision humaine : on la rebase
+    # pour la rendre décidable, sans la sortir de la liste.
+    def rebase_decision
+      return REBASE_REQUESTED if automerge_enabled?
+
+      REBASE_REQUESTED.merge(needs_decision: true)
     end
 
     def automerge_disabled_skip

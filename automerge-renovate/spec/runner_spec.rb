@@ -9,6 +9,8 @@ RSpec.describe AutomergeRenovate::Runner do
 
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
 
+  before(:each) { allow(gh).to receive(:behind_by).and_return(0) }
+
   describe "#run" do
     it "fusionne une PR prête et retourne le résultat de l'action" do
       pr = { "number" => 414, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
@@ -42,6 +44,28 @@ RSpec.describe AutomergeRenovate::Runner do
       )
       expect(gh).to have_received(:update_body).with(
         "captive-studio/cae-application", 1008,
+        "🚦 **Automerge**: Enabled.\n- [x] <!-- rebase-check -->coche-moi"
+      )
+    end
+
+    it "coche la case rebase quand la branche est en retard sans que GitHub la marque BEHIND" do
+      pr = { "number" => 1103, "body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi",
+             "mergeStateStatus" => "UNSTABLE", "baseRefName" => "main",
+             "headRefName" => "renovate/openai-7.x",
+             "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/cae-application").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/cae-application").and_return({})
+      allow(gh).to receive(:behind_by)
+        .with("captive-studio/cae-application", "main", "renovate/openai-7.x").and_return(4)
+      allow(gh).to receive(:update_body)
+
+      results = runner.run([ "captive-studio/cae-application" ])
+
+      expect(results).to eq(
+        [ { repo: "captive-studio/cae-application", number: 1103, url: nil, action: :rebase_requested } ]
+      )
+      expect(gh).to have_received(:update_body).with(
+        "captive-studio/cae-application", 1103,
         "🚦 **Automerge**: Enabled.\n- [x] <!-- rebase-check -->coche-moi"
       )
     end

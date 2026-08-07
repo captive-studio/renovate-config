@@ -11,8 +11,11 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
 
   let(:jira) { instance_double(AutomergeRenovate::JiraClient) }
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
+
   let(:progress) { instance_double(AutomergeRenovate::ProgressPrinter, searching: nil, ticket_found: nil,
     repos_found: nil, repo: nil, result: nil, summary: nil) }
+
+  before(:each) { allow(gh).to receive(:behind_by).and_return(0) }
 
   describe "#run" do
     it "utilise le dernier ticket Jira quand aucune clé n'est fournie" do

@@ -14,7 +14,8 @@ RSpec.describe AutomergeRenovate::GhCli do
       ].to_json
       allow(gh).to receive(:run)
         .with("pr", "list", "--repo", "captive-studio/groove-application", "--author", "app/renovate",
-              "--state", "open", "--json", "number,body,mergeStateStatus,statusCheckRollup,url")
+              "--state", "open", "--json",
+              "number,body,mergeStateStatus,statusCheckRollup,url,baseRefName,headRefName")
         .and_return(payload)
 
       prs = gh.open_renovate_prs("captive-studio/groove-application")
@@ -41,6 +42,18 @@ RSpec.describe AutomergeRenovate::GhCli do
       expect(settings).to eq(
         "allow_rebase_merge" => true, "allow_squash_merge" => false, "allow_merge_commit" => true
       )
+    end
+  end
+
+  describe "#behind_by" do
+    it "retourne le nombre de commits de retard de la branche sur sa base" do
+      allow(gh).to receive(:run)
+        .with("api", "repos/captive-studio/cae-application/compare/main...renovate/openai-7.x")
+        .and_return({ "behind_by" => 4, "ahead_by" => 1 }.to_json)
+
+      behind = gh.behind_by("captive-studio/cae-application", "main", "renovate/openai-7.x")
+
+      expect(behind).to eq(4)
     end
   end
 

@@ -3,6 +3,7 @@
 require_relative "pr_decision"
 require_relative "decision_executor"
 require_relative "failed_checks_rerunner"
+require_relative "branch_gap"
 
 module AutomergeRenovate
   class Runner
@@ -10,6 +11,7 @@ module AutomergeRenovate
       @gh = gh
       @executor = DecisionExecutor.new(gh: gh)
       @rerunner = FailedChecksRerunner.new(gh: gh)
+      @branch_gap = BranchGap.new(gh: gh)
     end
 
     def run(repos, on_repo: ->(_repo) { }, on_result: ->(_result) { })
@@ -29,6 +31,7 @@ module AutomergeRenovate
     end
 
     def handle(repo, pr, merge_settings)
+      pr = @branch_gap.call(repo, pr)
       decision = PrDecision.new(pr, merge_settings).call
       decision = @executor.call(repo, pr, decision)
       decision = @rerunner.call(repo, pr, decision)
