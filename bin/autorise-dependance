@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #
-# CLI interactive pour autoriser/automerger une gem Ruby ou un package npm
-# dans la configuration Renovate de Captive.
+# CLI interactive pour autoriser/automerger une gem Ruby, un package npm
+# ou une image Docker dans la configuration Renovate de Captive.
 #
 # Écrit dans :
-#   - preset/automergeRecommendedGems.json  (gems Ruby / manager bundler)
-#   - preset/automergeRecommendedNPM.json   (packages npm)
+#   - preset/automergeRecommendedGems.json   (gems Ruby / manager bundler)
+#   - preset/automergeRecommendedNPM.json    (packages npm)
+#   - preset/automergeRecommendedDocker.json (images Docker / datasource docker)
 #
 # Puis valide (renovate-config-validator) et formate (npm run format).
 #
@@ -18,6 +19,7 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 PRESET_DIR="${ADD_DEPENDENCY_PRESET_DIR:-$ROOT_DIR/preset}"
 GEMS_FILE="$PRESET_DIR/automergeRecommendedGems.json"
 NPM_FILE="$PRESET_DIR/automergeRecommendedNPM.json"
+DOCKER_FILE="$PRESET_DIR/automergeRecommendedDocker.json"
 
 VALIDATED="non"
 RESULT_FILE=""
@@ -25,6 +27,8 @@ RESULT_DETAIL=""
 
 NPM_MINOR_DESC="Automerge des packages de confiance, sauf en majeure"
 NPM_MAJOR_DESC="Automerge des packages de confiance, y compris en majeure"
+DOCKER_MINOR_DESC="Automerge des images de confiance, sauf en majeure"
+DOCKER_MAJOR_DESC="Automerge des images de confiance, y compris en majeure"
 
 if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then
   C_RESET=$'\033[0m'; C_BOLD=$'\033[1m'
@@ -303,6 +307,34 @@ add_targeted_major_rule() {
   ' --arg name "$name" --arg manager "$manager" --arg cur "$cur" --arg target "$target" --arg next "$next"
 }
 
+add_docker_major_all_rule() {
+  local file="$1" name="$2"
+  jq_write "$file" '
+    .packageRules += [{
+      description: ("Automerge " + $name + " en major (toutes versions)"),
+      matchDatasources: ["docker"],
+      matchPackageNames: [$name],
+      matchUpdateTypes: ["major"],
+      automerge: true
+    }]
+  ' --arg name "$name"
+}
+
+add_docker_targeted_major_rule() {
+  local file="$1" name="$2" cur="$3" target="$4"
+  local next=$((target + 1))
+  jq_write "$file" '
+    .packageRules += [{
+      description: ("Automerge " + $name + " en major pour " + $cur + ".x → " + $target + ".x uniquement"),
+      matchDatasources: ["docker"],
+      matchPackageNames: [$name],
+      matchCurrentVersion: ("/^" + $cur + "\\./"),
+      allowedVersions: (">=" + $target + ".0.0 <" + $next + ".0.0"),
+      automerge: true
+    }]
+  ' --arg name "$name" --arg cur "$cur" --arg target "$target" --arg next "$next"
+}
+
 # Section : Handlers métier
 
 available_levels() {
@@ -315,6 +347,17 @@ available_levels() {
       LEVEL_LABELS+=("minor (retirer l'exclusion)")
     fi
     if ! has_major_all_rule "$GEMS_FILE" "$NAME" && ! has_gem_unrestricted_automerge "$GEMS_FILE" "$NAME"; then
+      LEVEL_VALUES+=("major")
+      LEVEL_LABELS+=("major")
+    fi
+  elif [ "$KIND" = "docker" ]; then
+    if ! is_in_trust_list "$DOCKER_FILE" "$DOCKER_MINOR_DESC" "$NAME" \
+      && ! is_in_trust_list "$DOCKER_FILE" "$DOCKER_MAJOR_DESC" "$NAME"; then
+      LEVEL_VALUES+=("minor")
+      LEVEL_LABELS+=("minor")
+    fi
+    if ! is_in_trust_list "$DOCKER_FILE" "$DOCKER_MAJOR_DESC" "$NAME" \
+      && ! has_major_all_rule "$DOCKER_FILE" "$NAME"; then
       LEVEL_VALUES+=("major")
       LEVEL_LABELS+=("major")
     fi
@@ -339,6 +382,8 @@ pick_level() {
   if [ "$count" -eq 0 ]; then
     if [ "$KIND" = "gem" ]; then
       nothing_to_do "$(bold "$NAME") : déjà entièrement couvert (patch, minor et major). Aucune action nécessaire."
+    elif [ "$KIND" = "docker" ]; then
+      nothing_to_do "$(bold "$NAME") : déjà dans la liste de confiance Docker. Aucune action nécessaire."
     else
       nothing_to_do "$(bold "$NAME") : déjà dans la liste de confiance. Aucune action nécessaire."
     fi
@@ -432,18 +477,56 @@ handle_npm_major() {
   RESULT_FILE="$NPM_FILE"
 }
 
+handle_docker_minor() {
+  info "J'ajoute $(bold "$NAME") aux images de confiance automergées en minor/patch (pas en major)."
+  step "Écriture dans preset/automergeRecommendedDocker.json…"
+  add_to_named_rule "$DOCKER_FILE" "$DOCKER_MINOR_DESC" "$NAME"
+  RESULT_FILE="$DOCKER_FILE"
+  RESULT_DETAIL="minor/patch automerge"
+}
+
+handle_docker_major() {
+  local cur target
+  choose SCOPE "Pour les majors de $(printf '%s' "$NAME"), on accepte…" "tous les majors" "uniquement une montée ciblée (ex: 7.x → 8.x)"
+
+  if [[ "$SCOPE" == tous* ]]; then
+    if is_in_trust_list "$DOCKER_FILE" "$DOCKER_MAJOR_DESC" "$NAME" || has_major_all_rule "$DOCKER_FILE" "$NAME"; then
+      nothing_to_do "$(bold "$NAME") est déjà automergé en major (tous). Rien à faire."
+    fi
+    info "On autorisera l'automerge de TOUS les majors de $(bold "$NAME")."
+    step "Écriture dans preset/automergeRecommendedDocker.json…"
+    add_to_named_rule "$DOCKER_FILE" "$DOCKER_MAJOR_DESC" "$NAME"
+    RESULT_DETAIL="major : toutes versions"
+  else
+    read_major "Version majeure ACTUELLE (ex: 7) :" cur
+    read_major "Version majeure CIBLE (ex: 8) :" target
+    if has_targeted_major_rule "$DOCKER_FILE" "$NAME" "$cur" "$target"; then
+      nothing_to_do "$(bold "$NAME") a déjà une règle pour la montée ${cur}.x → ${target}.x. Rien à faire."
+    fi
+    info "On limitera l'automerge à la montée $(bold "${cur}.x → ${target}.x") uniquement ; le reste restera en review manuelle."
+    step "J'ajoute la règle ciblée dans preset/automergeRecommendedDocker.json…"
+    add_docker_targeted_major_rule "$DOCKER_FILE" "$NAME" "$cur" "$target"
+    RESULT_DETAIL="major ciblé : ${cur}.x → ${target}.x"
+  fi
+
+  RESULT_FILE="$DOCKER_FILE"
+}
+
 # Section : Main
 
 sep
 printf '%s  Renovate — ajout d'\''une dépendance%s\n' "$C_BOLD" "$C_RESET"
-printf '%s  Autorise/automerge une gem Ruby ou un package npm.%s\n' "$C_DIM" "$C_RESET"
+printf '%s  Autorise/automerge une gem Ruby, un package npm ou une image Docker.%s\n' "$C_DIM" "$C_RESET"
 sep
 
-choose TYPE "De quel type de dépendance s'agit-il ?" "gem (Ruby / bundler)" "package npm"
+choose TYPE "De quel type de dépendance s'agit-il ?" "gem (Ruby / bundler)" "package npm" "image Docker"
 
 if [[ "$TYPE" == gem* ]]; then
   KIND="gem"
   info "OK, gem Ruby. Rappel : les patches & minors sont DÉJÀ automergés par défaut chez nous (wildcard bundler)."
+elif [[ "$TYPE" == image* ]]; then
+  KIND="docker"
+  info "OK, image Docker."
 else
   KIND="npm"
   info "OK, package npm. Rappel : les patches npm sont DÉJÀ automergés globalement."
@@ -456,10 +539,12 @@ info "Package : $(bold "$NAME")."
 pick_level
 
 case "$KIND:$LEVEL" in
-  gem:minor) handle_gem_minor ;;
-  gem:major) handle_gem_major ;;
-  npm:minor) handle_npm_minor ;;
-  npm:major) handle_npm_major ;;
+  gem:minor)    handle_gem_minor ;;
+  gem:major)    handle_gem_major ;;
+  npm:minor)    handle_npm_minor ;;
+  npm:major)    handle_npm_major ;;
+  docker:minor) handle_docker_minor ;;
+  docker:major) handle_docker_major ;;
 esac
 
 apply_changes
