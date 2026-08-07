@@ -6,7 +6,7 @@
       "description": "Automerge des images de confiance, y compris en majeure",
       "matchDatasources": ["docker"],
       "automerge": true,
-      "matchPackageNames": []
+      "matchPackageNames": ["redis"]
     },
     {
       "description": "Automerge des images de confiance, sauf en majeure",
