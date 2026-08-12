@@ -69,7 +69,8 @@
         "axios",
         "pdfjs-dist",
         "@lucide/lab",
-        "@vueuse/core"
+        "@vueuse/core",
+        "idle-timeout"
       ]
     },
     {
