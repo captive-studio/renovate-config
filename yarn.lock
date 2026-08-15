@@ -486,7 +486,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.6"
-    renovate: "npm:44.25.0"
+    renovate: "npm:44.26.3"
     vitest: "npm:4.1.10"
   languageName: unknown
   linkType: soft
@@ -6905,6 +6905,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pend@npm:~1.2.0":
+  version: 1.2.0
+  resolution: "pend@npm:1.2.0"
+  checksum: 10/6c72f5243303d9c60bd98e6446ba7d30ae29e3d56fdb6fae8767e8ba6386f33ee284c97efe3230a0d0217e2b1723b8ab490b1bbf34fcbb2180dbc8a9de47850d
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
@@ -7143,9 +7150,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.25.0":
-  version: 44.25.0
-  resolution: "renovate@npm:44.25.0"
+"renovate@npm:44.26.3":
+  version: 44.26.3
+  resolution: "renovate@npm:44.26.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1095.0"
     "@aws-sdk/client-ec2": "npm:3.1095.0"
@@ -7266,6 +7273,7 @@ __metadata:
     validate-npm-package-name: "npm:7.0.2"
     xmldoc: "npm:2.0.3"
     yaml: "npm:2.9.0"
+    yauzl: "npm:3.4.0"
     zod: "npm:4.4.3"
   dependenciesMeta:
     openpgp:
@@ -7275,7 +7283,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/12129775b8167edbc62e09da07dfe199f8d4e77a53262bf438a099c2aef5ec054f8202a9425081bd8e829752be5aaa1526fc49e944af14e43c645266cf2dbd4a
+  checksum: 10/b36a3fc723017b46a95cb803462d5d5da27143298e7fa604d3cf9359d05e89bbb82be4d876b17094affd8fb887a6c269a1a639f9102a182000905fe06658c520
   languageName: node
   linkType: hard
 
@@ -8555,6 +8563,15 @@ __metadata:
     y18n: "npm:^5.0.5"
     yargs-parser: "npm:^20.2.2"
   checksum: 10/4ea83fae599077207a663d07c3b8de5d6879e7030bef3ebcddd1e6f9ed63f6622b04c84bf9c2121df626d25f3e2d832a6573e47343a75f05d982df2b60d5e9bd
+  languageName: node
+  linkType: hard
+
+"yauzl@npm:3.4.0":
+  version: 3.4.0
+  resolution: "yauzl@npm:3.4.0"
+  dependencies:
+    pend: "npm:~1.2.0"
+  checksum: 10/76c1ca208478135dcd0b9f8baaa2e40a761652e0ec793c5a6bdeb973118f9720adc487f388e8394b4cfb73ae1976083ff58be4ea0ec60e060ffc9cf232db2c0a
   languageName: node
   linkType: hard
 
