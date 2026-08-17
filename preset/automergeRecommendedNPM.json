@@ -70,7 +70,8 @@
         "pdfjs-dist",
         "@lucide/lab",
         "@vueuse/core",
-        "idle-timeout"
+        "idle-timeout",
+        "kube-prometheus-stack"
       ]
     },
     {
