@@ -56,6 +56,13 @@
       "matchCurrentVersion": "/^3\\./",
       "allowedVersions": ">=4.0.0 <5.0.0",
       "automerge": true
+    },
+    {
+      "description": "Automerge mailkick en major (toutes versions)",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["mailkick"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
     }
   ]
 }
