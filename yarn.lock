@@ -486,7 +486,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.6"
-    renovate: "npm:44.31.0"
+    renovate: "npm:44.32.5"
     vitest: "npm:4.1.10"
   languageName: unknown
   linkType: soft
@@ -5267,19 +5267,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-morph@npm:^0.3.3":
+"jsonc-morph@npm:^0.3.5":
   version: 0.3.5
   resolution: "jsonc-morph@npm:0.3.5"
   checksum: 10/81f4c55aa24808d255bf6af7b451b5b005fcc7c61f5f8fdb681bc72ca51de0dff189e2768935274aacce6c33614364a4191fa8880d0ba2dfc03030a1493f0e35
   languageName: node
   linkType: hard
 
-"jsonc-weaver@npm:0.2.4":
-  version: 0.2.4
-  resolution: "jsonc-weaver@npm:0.2.4"
+"jsonc-weaver@npm:0.3.1":
+  version: 0.3.1
+  resolution: "jsonc-weaver@npm:0.3.1"
   dependencies:
-    jsonc-morph: "npm:^0.3.3"
-  checksum: 10/f8be3d2882f67856a1d916d8a34483d912637d954747eb97b2e37f69713ba83ae6fa1ae2eb94286d072f2eb10d3cc1630a966a1ac32f7bb25c59d4a7da6d7cac
+    jsonc-morph: "npm:^0.3.5"
+  checksum: 10/fe2b20cc234262b3b472e3de2e5c271c8765c390ef154e5fa8914df87b393c784ea38633f1ceb379f2a90dcc784e30b88ca9bd577d669696e2603deb1a4849e5
   languageName: node
   linkType: hard
 
@@ -6992,12 +6992,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:8.7.1":
-  version: 8.7.1
-  resolution: "protobufjs@npm:8.7.1"
+"protobufjs@npm:8.7.2":
+  version: 8.7.2
+  resolution: "protobufjs@npm:8.7.2"
   dependencies:
     long: "npm:^5.3.2"
-  checksum: 10/d1dc68b973152aacb10376d17de77c323d42b5fc6925dfe0ffcc44b02825f3b817e80f64142939ff997545ef6d2e7b20bcc126763b3949e8d90d2f2a3430c15d
+  checksum: 10/868113c527dd57d8bb6f2ee2b561e895e68fecec0895fd859e6d232be9976dfd0a3c4a9083f7bc4af99a0eca1bcaec75092645a5b9bfeabf4fb196fdeee11c6a
   languageName: node
   linkType: hard
 
@@ -7150,9 +7150,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.31.0":
-  version: 44.31.0
-  resolution: "renovate@npm:44.31.0"
+"renovate@npm:44.32.5":
+  version: 44.32.5
+  resolution: "renovate@npm:44.32.5"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1095.0"
     "@aws-sdk/client-ec2": "npm:3.1095.0"
@@ -7232,7 +7232,7 @@ __metadata:
     json-stringify-pretty-compact: "npm:4.0.0"
     json5: "npm:2.2.3"
     jsonata: "npm:2.2.1"
-    jsonc-weaver: "npm:0.2.4"
+    jsonc-weaver: "npm:0.3.1"
     klona: "npm:2.0.6"
     lru-cache: "npm:11.5.2"
     luxon: "npm:3.7.2"
@@ -7250,7 +7250,7 @@ __metadata:
     p-throttle: "npm:8.1.0"
     parse-link-header: "npm:2.0.0"
     prettier: "npm:3.8.1"
-    protobufjs: "npm:8.7.1"
+    protobufjs: "npm:8.7.2"
     punycode: "npm:2.3.1"
     re2: "npm:1.26.1"
     remark: "npm:15.0.1"
@@ -7283,7 +7283,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/92569c6c5ffde5380c491c2f2e7674d4ea07b3da95d0dc867d6806d77feb2d7bc18e4883936e5826a03c4768893b3d44f24db9d2013adc8e8e99a1ec527ad8ac
+  checksum: 10/bb414e8a7860f17362a16d3490fa8958fc2c1ec63325d59dbc3cb4e1bb6ad2b0dfe14d0bf20c938549c27e42fc9cd977c8de16b788c28040057af64018663d40
   languageName: node
   linkType: hard
 
