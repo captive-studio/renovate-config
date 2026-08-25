@@ -16,6 +16,7 @@
   ],
   "onboarding": false,
   "internalChecksAsSuccess": true,
+  "skipArtifactsUpdate": true,
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
