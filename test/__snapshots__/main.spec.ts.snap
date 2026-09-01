@@ -43,7 +43,6 @@ exports[`Configuration snapshot > base.json 1`] = `
   ],
   "internalChecksAsSuccess": true,
   "onboarding": false,
-  "skipArtifactsUpdate": true,
   "packageRules": [
     {
       "matchDepTypes": [
@@ -79,6 +78,7 @@ exports[`Configuration snapshot > base.json 1`] = `
   "platformAutomerge": true,
   "prConcurrentLimit": 5,
   "prHourlyLimit": 0,
+  "skipArtifactsUpdate": true,
   "updateNotScheduled": true,
 }
 `;
