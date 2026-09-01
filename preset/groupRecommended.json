@@ -19,6 +19,7 @@
     "github>captive-studio/renovate-config//preset/groupWebpack",
     "github>captive-studio/renovate-config//preset/groupTamagui",
     "github>captive-studio/renovate-config//preset/groupExpo",
-    "github>captive-studio/renovate-config//preset/groupAlveole"
+    "github>captive-studio/renovate-config//preset/groupAlveole",
+    "github>captive-studio/renovate-config//preset/groupLottie"
   ]
 }

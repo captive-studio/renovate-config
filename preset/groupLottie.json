@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "Lottie",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": [
+        "lottie-react-native",
+        "@lottiefiles/dotlottie-react"
+      ]
+    }
+  ]
+}

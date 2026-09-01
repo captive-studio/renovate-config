@@ -71,7 +71,8 @@
         "@lucide/lab",
         "@vueuse/core",
         "idle-timeout",
-        "kube-prometheus-stack"
+        "kube-prometheus-stack",
+        "lottie-react-native"
       ]
     },
     {
