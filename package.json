@@ -62,7 +62,7 @@
   "devDependencies": {
     "@captive/cspell-config": "2.4.21",
     "@eslint/eslintrc": "3.3.6",
-    "cspell": "10.1.1",
+    "cspell": "10.2.0",
     "eslint": "10.9.1",
     "markdown-magic": "4.11.0",
     "markdown-magic-package-json": "2.0.2",
