@@ -77,6 +77,13 @@
       "matchPackageNames": ["sentry-ruby"],
       "matchUpdateTypes": ["major"],
       "automerge": true
+    },
+    {
+      "description": "Automerge sentry-sidekiq en major (toutes versions)",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["sentry-sidekiq"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
     }
   ]
 }
