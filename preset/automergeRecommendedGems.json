@@ -70,6 +70,13 @@
       "matchPackageNames": ["sentry-rails"],
       "matchUpdateTypes": ["major"],
       "automerge": true
+    },
+    {
+      "description": "Automerge sentry-ruby en major (toutes versions)",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["sentry-ruby"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
     }
   ]
 }
