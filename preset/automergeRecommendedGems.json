@@ -63,6 +63,13 @@
       "matchPackageNames": ["mailkick"],
       "matchUpdateTypes": ["major"],
       "automerge": true
+    },
+    {
+      "description": "Automerge sentry-rails en major (toutes versions)",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["sentry-rails"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
     }
   ]
 }
