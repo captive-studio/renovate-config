@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.6"
-    renovate: "npm:44.66.1"
+    renovate: "npm:44.67.2"
     vitest: "npm:4.1.11"
   languageName: unknown
   linkType: soft
@@ -5158,10 +5158,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:7.0.7":
-  version: 7.0.7
-  resolution: "ignore@npm:7.0.7"
-  checksum: 10/4d3d443f0b42866b696680f7943997ccd834a06f5576b1ba92c54fbb0d919afc457b5bb6fa76182af65db0ad65ca5bab2b62469e982e86ed6b0db4c717c9bc53
+"ignore@npm:7.0.8":
+  version: 7.0.8
+  resolution: "ignore@npm:7.0.8"
+  checksum: 10/100573dc4ab73ffe0f2231194850a45c6687ac74deb3dce1050add0f849e42d5e530acf59d5612c959afdb83149dec92cfcaf8b44f02d7b57b03fb46fbe9cbc3
   languageName: node
   linkType: hard
 
@@ -7496,9 +7496,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.66.1":
-  version: 44.66.1
-  resolution: "renovate@npm:44.66.1"
+"renovate@npm:44.67.2":
+  version: 44.67.2
+  resolution: "renovate@npm:44.67.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1117.0"
     "@aws-sdk/client-ec2": "npm:3.1117.0"
@@ -7574,7 +7574,7 @@ __metadata:
     got: "npm:14.6.6"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.9"
-    ignore: "npm:7.0.7"
+    ignore: "npm:7.0.8"
     ini: "npm:6.0.0"
     json-dup-key-validator: "npm:1.0.3"
     json-stringify-pretty-compact: "npm:4.0.0"
@@ -7632,7 +7632,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/0f188d17fe26ef2ab55fd23662b4b28e18b88722b8b5869ee4e600c1ecac7459245945307cf0fbdcbd5a89dfdca248410c5e9a40d33247e6f32a5845a1de0d1a
+  checksum: 10/58878382399f0eeaebc2cf490157eb181cf8bcd488f66dfbdb4130f69eb1edc0f31472c86ccf96132e1041dfe8b7ecdd38a762b2d55ef0c942e4a8a622cc64b9
   languageName: node
   linkType: hard
 
