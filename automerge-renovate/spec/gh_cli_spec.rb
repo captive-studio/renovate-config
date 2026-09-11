@@ -67,6 +67,24 @@ RSpec.describe AutomergeRenovate::GhCli do
     end
   end
 
+  describe "#merged?" do
+    it "indique que la PR est fusionnée quand son état GitHub est MERGED" do
+      allow(gh).to receive(:run)
+        .with("pr", "view", "414", "--repo", "captive-studio/groove-application", "--json", "state")
+        .and_return({ "state" => "MERGED" }.to_json)
+
+      expect(gh.merged?("captive-studio/groove-application", 414)).to be(true)
+    end
+
+    it "indique que la PR n'est pas encore fusionnée sinon" do
+      allow(gh).to receive(:run)
+        .with("pr", "view", "414", "--repo", "captive-studio/groove-application", "--json", "state")
+        .and_return({ "state" => "OPEN" }.to_json)
+
+      expect(gh.merged?("captive-studio/groove-application", 414)).to be(false)
+    end
+  end
+
   describe "#update_body" do
     it "édite le corps de la PR" do
       allow(gh).to receive(:run)

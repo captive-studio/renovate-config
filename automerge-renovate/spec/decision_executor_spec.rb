@@ -11,12 +11,27 @@ RSpec.describe AutomergeRenovate::DecisionExecutor do
   let(:pr) { { "number" => 414, "body" => "🚦 **Automerge**: Enabled." } }
 
   describe "#call" do
-    it "fusionne la PR quand la décision est :merge" do
+    it "fusionne la PR quand la décision est :merge, et attend que le merge soit effectif" do
       allow(gh).to receive(:merge)
+      allow(gh).to receive(:merged?).and_return(true)
 
       decision = executor.call("captive-studio/groove-application", pr, { action: :merge, strategy: :rebase })
 
       expect(gh).to have_received(:merge).with("captive-studio/groove-application", 414, :rebase)
+      expect(gh).to have_received(:merged?).with("captive-studio/groove-application", 414)
+      expect(decision).to eq(action: :merge, strategy: :rebase)
+    end
+
+    it "patiente entre deux vérifications tant que le merge n'est pas effectif" do
+      allow(gh).to receive(:merge)
+      allow(gh).to receive(:merged?).and_return(false, false, true)
+      sleeper = instance_double(Proc, call: nil)
+
+      executor = described_class.new(gh: gh, sleeper: sleeper)
+      decision = executor.call("captive-studio/groove-application", pr, { action: :merge, strategy: :rebase })
+
+      expect(gh).to have_received(:merged?).exactly(3).times
+      expect(sleeper).to have_received(:call).with(2).twice
       expect(decision).to eq(action: :merge, strategy: :rebase)
     end
 

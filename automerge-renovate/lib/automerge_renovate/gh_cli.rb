@@ -26,6 +26,11 @@ module AutomergeRenovate
       run("pr", "merge", number.to_s, "--repo", repo, "--#{strategy}")
     end
 
+    def merged?(repo, number)
+      payload = run("pr", "view", number.to_s, "--repo", repo, "--json", "state")
+      JSON.parse(payload).fetch("state") == "MERGED"
+    end
+
     def update_body(repo, number, body)
       run("pr", "edit", number.to_s, "--repo", repo, "--body", body)
     end

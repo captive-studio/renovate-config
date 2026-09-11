@@ -9,7 +9,10 @@ RSpec.describe AutomergeRenovate::Runner do
 
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
 
-  before(:each) { allow(gh).to receive(:behind_by).and_return(0) }
+  before(:each) do
+    allow(gh).to receive(:behind_by).and_return(0)
+    allow(gh).to receive(:merged?).and_return(true)
+  end
 
   describe "#run" do
     it "fusionne une PR prête et retourne le résultat de l'action" do
