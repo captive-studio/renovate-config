@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.6"
-    renovate: "npm:44.69.14"
+    renovate: "npm:44.70.2"
     vitest: "npm:4.1.11"
   languageName: unknown
   linkType: soft
@@ -2309,13 +2309,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sindresorhus/is@npm:^7.0.1":
-  version: 7.2.0
-  resolution: "@sindresorhus/is@npm:7.2.0"
-  checksum: 10/d4f93d0fae3a799e1cb1cf31cdcc77f087f4203e2659e25afd7296493d9b4d430f37c4193404f56658d220a7467928fd2b29946dc141218bf42a2d2ebf8597fb
-  languageName: node
-  linkType: hard
-
 "@smithy/core@npm:^3.33.2, @smithy/core@npm:^3.33.3":
   version: 3.33.3
   resolution: "@smithy/core@npm:3.33.3"
@@ -2981,13 +2974,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"azure-devops-node-api@npm:15.1.3":
-  version: 15.1.3
-  resolution: "azure-devops-node-api@npm:15.1.3"
+"azure-devops-node-api@npm:17.0.0":
+  version: 17.0.0
+  resolution: "azure-devops-node-api@npm:17.0.0"
   dependencies:
     tunnel: "npm:0.0.6"
-    typed-rest-client: "npm:2.1.0"
-  checksum: 10/4e5f10ce6306beccebcfe616ce30e99edbcb8a1675c4644f4f2f0763eb250cb1c2b68718a838af78d0ee272b5fd0e30506b68be721d25e1078eeb62d073b770a
+    typed-rest-client: "npm:3.1.0"
+  checksum: 10/26045c4580f05da1350b86a232115ec6f7673100679bc17e86d5c68d88519772b6317bd86e4d711f0f185d95c68050c383cf98cb8e046fdb4c8f8fa3ce284528
   languageName: node
   linkType: hard
 
@@ -3176,7 +3169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cacheable-request@npm:^13.0.12, cacheable-request@npm:^13.0.18":
+"cacheable-request@npm:^13.0.18":
   version: 13.0.19
   resolution: "cacheable-request@npm:13.0.19"
   dependencies:
@@ -4561,13 +4554,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data-encoder@npm:^4.0.2":
-  version: 4.1.0
-  resolution: "form-data-encoder@npm:4.1.0"
-  checksum: 10/a3f5a2f50d8832b9d39a36acce04ac388290982a944d0a8aac9735a50d1fb3276b1e40e3a9bce9eeb8bb17f6ab6f91a5ec1d65c6ee2603d83f1b9caad6b7ded2
-  languageName: node
-  linkType: hard
-
 "formdata-polyfill@npm:^4.0.10":
   version: 4.0.10
   resolution: "formdata-polyfill@npm:4.0.10"
@@ -4937,23 +4923,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:14.6.6":
-  version: 14.6.6
-  resolution: "got@npm:14.6.6"
+"got@npm:15.0.5":
+  version: 15.0.5
+  resolution: "got@npm:15.0.5"
   dependencies:
-    "@sindresorhus/is": "npm:^7.0.1"
+    "@sindresorhus/is": "npm:^8.0.0"
     byte-counter: "npm:^0.1.0"
     cacheable-lookup: "npm:^7.0.0"
-    cacheable-request: "npm:^13.0.12"
+    cacheable-request: "npm:^13.0.18"
+    chunk-data: "npm:^0.1.0"
     decompress-response: "npm:^10.0.0"
-    form-data-encoder: "npm:^4.0.2"
     http2-wrapper: "npm:^2.2.1"
-    keyv: "npm:^5.5.3"
-    lowercase-keys: "npm:^3.0.0"
-    p-cancelable: "npm:^4.0.1"
+    keyv: "npm:^5.6.0"
+    lowercase-keys: "npm:^4.0.1"
     responselike: "npm:^4.0.2"
-    type-fest: "npm:^4.26.1"
-  checksum: 10/b11f0fa719921da9fe6304250584eb59dca737b9bc8f846b43c1305442271ece1635adb0bb5db115db63c22c11f408bb7dd73e9bb8fb310449b9ee2b366b47d5
+    type-fest: "npm:^5.6.0"
+    uint8array-extras: "npm:^1.5.0"
+  checksum: 10/b45f3f8d8ef233d4132a9bab4727ddbed1fdf40d5e2a14d6a39410077813b8734037607db54fe8702d3fc809546ce98ba26bdb291de5ef9f8b51672f8c2897d2
   languageName: node
   linkType: hard
 
@@ -5636,7 +5622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"keyv@npm:^5.5.3, keyv@npm:^5.6.0":
+"keyv@npm:^5.6.0":
   version: 5.6.0
   resolution: "keyv@npm:5.6.0"
   dependencies:
@@ -6998,13 +6984,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-cancelable@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "p-cancelable@npm:4.0.1"
-  checksum: 10/64de7b0be4c8bacc006488e0e90aa66fbcceb4da4f6fb84584573145f015f9650fe6ac26470897b3e82a3b528f6c60ea276b84cc315e35c45e9f12dec062a295
-  languageName: node
-  linkType: hard
-
 "p-filter@npm:^2.1.0":
   version: 2.1.0
   resolution: "p-filter@npm:2.1.0"
@@ -7391,7 +7370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.10.3":
+"qs@npm:6.15.3":
   version: 6.15.3
   resolution: "qs@npm:6.15.3"
   dependencies:
@@ -7509,9 +7488,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.69.14":
-  version: 44.69.14
-  resolution: "renovate@npm:44.69.14"
+"renovate@npm:44.70.2":
+  version: 44.70.2
+  resolution: "renovate@npm:44.70.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1117.0"
     "@aws-sdk/client-ec2": "npm:3.1117.0"
@@ -7558,7 +7537,7 @@ __metadata:
     agentkeepalive: "npm:4.6.0"
     async-mutex: "npm:0.5.0"
     aws4: "npm:1.13.2"
-    azure-devops-node-api: "npm:15.1.3"
+    azure-devops-node-api: "npm:17.0.0"
     bunyan: "npm:1.8.15"
     cacache: "npm:20.0.4"
     changelog-filename-regex: "npm:2.0.1"
@@ -7584,7 +7563,7 @@ __metadata:
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
     google-auth-library: "npm:10.9.1"
-    got: "npm:14.6.6"
+    got: "npm:15.0.5"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.9"
     ignore: "npm:7.0.8"
@@ -7645,7 +7624,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/6ca6e0dab4d2713cfdc0d2b77bdb4d492f3481091000970974a8802e96dea17fbac19a73bace29ae82a3dbb17721d2e9a93681764d12331c8db1b5a09fd231a9
+  checksum: 10/2af98c9f9b39c2e57e8a35982f9078f621aebe06ec8aa173abaccd3961fb86f4dc8cbd79a52211855c725287699bf83ddfb2950fd989c4c5843ea1699797e825
   languageName: node
   linkType: hard
 
@@ -8368,13 +8347,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^4.26.1":
-  version: 4.41.0
-  resolution: "type-fest@npm:4.41.0"
-  checksum: 10/617ace794ac0893c2986912d28b3065ad1afb484cad59297835a0807dc63286c39e8675d65f7de08fafa339afcb8fe06a36e9a188b9857756ae1e92ee8bda212
-  languageName: node
-  linkType: hard
-
 "type-fest@npm:^5.6.0":
   version: 5.8.0
   resolution: "type-fest@npm:5.8.0"
@@ -8391,16 +8363,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typed-rest-client@npm:2.1.0":
-  version: 2.1.0
-  resolution: "typed-rest-client@npm:2.1.0"
+"typed-rest-client@npm:3.1.0":
+  version: 3.1.0
+  resolution: "typed-rest-client@npm:3.1.0"
   dependencies:
     des.js: "npm:^1.1.0"
     js-md4: "npm:^0.3.2"
-    qs: "npm:^6.10.3"
+    qs: "npm:6.15.3"
     tunnel: "npm:0.0.6"
-    underscore: "npm:^1.12.1"
-  checksum: 10/601da14aea1ede39c80067445e3e675ed86fb68d434aa4986767a64dfa14a0d9829ff93042246a134407d2e85f6d0c5fb7b675dc3a9b83425b5c7f3c4c4a8209
+    underscore: "npm:^1.13.8"
+  checksum: 10/58bfccb022006f62bbf2f9b9768b52effc461da4d667a2c2bdd1856b537395b66edf1a644e7c888969c1e4883b0580a76c327411813329e2495316737989b2aa
   languageName: node
   linkType: hard
 
@@ -8436,7 +8408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"underscore@npm:^1.12.1":
+"underscore@npm:^1.13.8":
   version: 1.13.8
   resolution: "underscore@npm:1.13.8"
   checksum: 10/b50ac5806d059cc180b1bd9adea6f7ed500021f4dc782dfc75d66a90337f6f0506623c1b37863f4a9bf64ffbeb5769b638a54b7f2f5966816189955815953139
