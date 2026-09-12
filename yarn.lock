@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.6"
-    renovate: "npm:44.74.1"
+    renovate: "npm:44.75.2"
     vitest: "npm:4.1.11"
   languageName: unknown
   linkType: soft
@@ -2075,9 +2075,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/client@npm:5.12.1":
-  version: 5.12.1
-  resolution: "@redis/client@npm:5.12.1"
+"@redis/client@npm:6.2.1":
+  version: 6.2.1
+  resolution: "@redis/client@npm:6.2.1"
   dependencies:
     cluster-key-slot: "npm:1.1.2"
   peerDependencies:
@@ -2088,7 +2088,7 @@ __metadata:
       optional: true
     "@opentelemetry/api":
       optional: true
-  checksum: 10/6e7ac59761201ca0cb5eeff78e18b67eb0db2071b6bf3306d08697999a244329dd01a4d521963eb134da87c8ef6689ed52648f5fc15d6d2cd84a77cd5f3351c4
+  checksum: 10/ebee48006a32cf3403a5bab50d8342b868de51bfddea398dfde0566a6f63d6569f7914777e7306499eb9f4ffb7c4b6dd2f24657fc77a68dc82e4efa705ea29b4
   languageName: node
   linkType: hard
 
@@ -6816,13 +6816,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:9.0.2":
-  version: 9.0.2
-  resolution: "node-html-parser@npm:9.0.2"
+"node-html-parser@npm:9.0.3":
+  version: 9.0.3
+  resolution: "node-html-parser@npm:9.0.3"
   dependencies:
     css-select: "npm:^5.1.0"
     entities: "npm:^8.0.0"
-  checksum: 10/407b040c804d32968d94c59a9b35e989298f5b598962fe61c86d198e7e95cea11308ff8469a7a69bfe05ed5c90554958cd75d3894ced5ed8df0a0e372866552f
+  checksum: 10/a199bd44be1c6337ceba5e30f0e68e63c8931912ebfb6deda76e5cdd617bb456d81e4cdd95481f5c6f0d8a3464299f51a942a026fad00cfd6bc8ab6c19d0a7d6
   languageName: node
   linkType: hard
 
@@ -7482,9 +7482,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.74.1":
-  version: 44.74.1
-  resolution: "renovate@npm:44.74.1"
+"renovate@npm:44.75.2":
+  version: 44.75.2
+  resolution: "renovate@npm:44.75.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1117.0"
     "@aws-sdk/client-ec2": "npm:3.1117.0"
@@ -7516,7 +7516,7 @@ __metadata:
     "@opentelemetry/semantic-conventions": "npm:1.43.0"
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
-    "@redis/client": "npm:5.12.1"
+    "@redis/client": "npm:6.2.1"
     "@renovatebot/detect-tools": "npm:4.0.14"
     "@renovatebot/good-enough-parser": "npm:2.0.1"
     "@renovatebot/osv-offline": "npm:3.0.10"
@@ -7576,7 +7576,7 @@ __metadata:
     moo: "npm:0.5.3"
     ms: "npm:2.1.3"
     neotraverse: "npm:1.0.1"
-    node-html-parser: "npm:9.0.2"
+    node-html-parser: "npm:9.0.3"
     openpgp: "npm:6.3.1"
     p-all: "npm:5.0.1"
     p-map: "npm:7.0.7"
@@ -7618,7 +7618,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/00ca6a773ca001bb428739859506a1a554e425ccbc234f2bb36206021ba1391f53ec1aa7c98983384602b3b0cdffc9a6c30e9fa0b9802263c4686399722a2537
+  checksum: 10/432012f6156c420712774a92bebd5af8dd214357f1f361f2c7993830649c544ef6f159d3324fca7a74a0ca45b87769c2ba315f57021da7c48aa4b379e41f14ca
   languageName: node
   linkType: hard
 
