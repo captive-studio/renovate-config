@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.6"
-    renovate: "npm:44.78.0"
+    renovate: "npm:44.79.6"
     vitest: "npm:4.1.11"
   languageName: unknown
   linkType: soft
@@ -3481,6 +3481,13 @@ __metadata:
     array-timsort: "npm:^1.0.3"
     esprima: "npm:^4.0.1"
   checksum: 10/c3c17487b4e92eb358205ef44d8250c9facb07b344f3d0477678a88763a0f540df1f366e45bcb453b5f1942127abe74fae0c3e94bb56ae559f90d3e2d373e5e6
+  languageName: node
+  linkType: hard
+
+"common-tags@npm:1.8.2":
+  version: 1.8.2
+  resolution: "common-tags@npm:1.8.2"
+  checksum: 10/c665d0f463ee79dda801471ad8da6cb33ff7332ba45609916a508ad3d77ba07ca9deeb452e83f81f24c2b081e2c1315347f23d239210e63d1c5e1a0c7c019fe2
   languageName: node
   linkType: hard
 
@@ -7482,9 +7489,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.78.0":
-  version: 44.78.0
-  resolution: "renovate@npm:44.78.0"
+"renovate@npm:44.79.6":
+  version: 44.79.6
+  resolution: "renovate@npm:44.79.6"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1117.0"
     "@aws-sdk/client-ec2": "npm:3.1117.0"
@@ -7537,6 +7544,7 @@ __metadata:
     changelog-filename-regex: "npm:2.0.1"
     clean-git-ref: "npm:2.0.1"
     commander: "npm:15.0.0"
+    common-tags: "npm:1.8.2"
     croner: "npm:10.0.1"
     cronstrue: "npm:3.24.0"
     deepmerge: "npm:4.3.1"
@@ -7618,7 +7626,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/7ac17573e85d08b939a34e375f2a7983b3e9b7a4ed555340714250a7ab3f3ef2555b61f356e998d791eca7a7923d4887ac0b18bbddc4d9be569c3bbec7151377
+  checksum: 10/a08b5e0d100adf68d785b08d42423a0913f6426a20887bc9746178d653947e017120b17e65c50dab4a871cd088b62279f13b0daedeafd61bc99b9b76a9ee64c4
   languageName: node
   linkType: hard
 
