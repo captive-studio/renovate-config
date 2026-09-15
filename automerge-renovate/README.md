@@ -52,6 +52,12 @@ bin/automerge-renovate automerge
 
 # Rejoue un ticket précis (test, ou ticket passé)
 bin/automerge-renovate automerge FAC-2514
+
+# Ne traite qu'un seul repo parmi ceux du ticket (rejeu ciblé)
+bin/automerge-renovate automerge --repo captive-studio/nom-du-projet
+
+# Combinable avec un ticket précis
+bin/automerge-renovate automerge FAC-2514 --repo captive-studio/nom-du-projet
 ```
 
 L'outil affiche sa progression en direct (recherche du ticket → repos trouvés → chaque PR traitée), puis un récapitulatif et les deux listes ci-dessus. Aucun mode `--dry-run` : il agit dès son lancement.
@@ -81,6 +87,7 @@ L'outil suit un pipeline simple : **Jira → repos → PR → décision → acti
 | `JiraClient` / `JiraHttp` | Dernier ticket par JQL, ou ticket précis par clé |
 | `AdfToText` | Convertit la description Jira (format ADF) en texte exploitable |
 | `RepoUrlExtractor` | Extrait les repos `github.com/org/repo` de la description du ticket |
+| `RepoFilter` | Restreint la liste des repos du ticket à un seul si `--repo` (org/repo) est fourni, ou lève une erreur s'il est absent du ticket |
 | `GhCli` | Wrapper autour du CLI `gh` (liste les PR, merge, édite le corps, relance des jobs) |
 | `PrDecision` | Décide de l'action pour une PR : merge, rebase demandé, ou skip + raison |
 | `AutomergeStatus` | Automerge activé ou non, d'après le corps de la PR |

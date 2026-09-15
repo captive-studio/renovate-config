@@ -78,7 +78,6 @@ exports[`Configuration snapshot > base.json 1`] = `
   "platformAutomerge": true,
   "prConcurrentLimit": 5,
   "prHourlyLimit": 0,
-  "skipArtifactsUpdate": true,
   "updateNotScheduled": true,
 }
 `;

@@ -9,4 +9,7 @@ module AutomergeRenovate
 
   # La recherche JQL n'a remonté aucun ticket de maintenance à traiter.
   class TicketNotFoundError < Error; end
+
+  # Le repo demandé en filtre n'est pas listé dans le ticket (typo, ou repo pas encore ajouté).
+  class RepoNotInTicketError < Error; end
 end
