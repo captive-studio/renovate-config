@@ -13,9 +13,11 @@ module AutomergeRenovate
 
     desc "automerge [TICKET_KEY]",
       "Fusionne les PR Renovate prêtes des repos listés dans le ticket Jira de maintenance"
+    method_option :repo, type: :string,
+      desc: "Ne traite que ce repo (org/nom-repo) parmi ceux listés dans le ticket"
     def automerge(ticket_key = nil)
       command = AutomergeCommand.new(jira: jira, gh: GhCli.new, progress: ProgressPrinter.new)
-      command.run(ticket_key: ticket_key)
+      command.run(ticket_key: ticket_key, repo: options[:repo])
     end
 
     private

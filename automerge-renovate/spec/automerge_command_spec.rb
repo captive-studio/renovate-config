@@ -69,5 +69,33 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
         [ { repo: "captive-studio/monocle", number: 7, url: nil, action: :merge, strategy: :rebase } ]
       )
     end
+
+    it "ne traite que le repo demandé quand l'option --repo est fournie" do
+      allow(jira).to receive(:find_latest_ticket).and_return(
+        key: "FAC-1",
+        description: "* [https://github.com/captive-studio/monocle/pulls](https://github.com/captive-studio/monocle/pulls)\n" \
+          "* [https://github.com/captive-studio/vesta/pulls](https://github.com/captive-studio/vesta/pulls)"
+      )
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/vesta").and_return([])
+      allow(gh).to receive(:merge_settings).with("captive-studio/vesta").and_return({})
+
+      command.run(repo: "captive-studio/vesta")
+
+      expect(progress).to have_received(:repos_found).with(1)
+      expect(progress).to have_received(:repo).with("captive-studio/vesta")
+    end
+
+    it "lève une erreur sans appeler gh quand le repo demandé n'est pas dans le ticket" do
+      allow(jira).to receive(:find_latest_ticket).and_return(
+        key: "FAC-1",
+        description: "* [https://github.com/captive-studio/monocle/pulls](https://github.com/captive-studio/monocle/pulls)"
+      )
+
+      expect(gh).not_to receive(:open_renovate_prs)
+
+      expect { command.run(repo: "captive-studio/inconnu") }.to raise_error(
+        AutomergeRenovate::RepoNotInTicketError, /captive-studio\/inconnu/
+      )
+    end
   end
 end

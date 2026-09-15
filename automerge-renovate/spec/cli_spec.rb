@@ -24,13 +24,21 @@ RSpec.describe AutomergeRenovate::Cli do
         gh: kind_of(AutomergeRenovate::GhCli),
         progress: kind_of(AutomergeRenovate::ProgressPrinter)
       )
-      expect(command).to have_received(:run).with(ticket_key: "FAC-2000")
+      expect(command).to have_received(:run).with(ticket_key: "FAC-2000", repo: nil)
     end
 
     it "délègue avec ticket_key à nil quand aucune clé n'est fournie" do
       cli.automerge
 
-      expect(command).to have_received(:run).with(ticket_key: nil)
+      expect(command).to have_received(:run).with(ticket_key: nil, repo: nil)
+    end
+
+    it "transmet le repo demandé via l'option --repo" do
+      cli = described_class.new([], repo: "captive-studio/monocle")
+
+      cli.automerge("FAC-2000")
+
+      expect(command).to have_received(:run).with(ticket_key: "FAC-2000", repo: "captive-studio/monocle")
     end
   end
 end
