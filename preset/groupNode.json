@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Image node-ci custom : regroupée avec la version de Node du projet pour que le langage et l'image de CI montent dans une seule PR, sans quoi un projet peut tourner sur une image dont le Node ne correspond plus à son .tool-versions",
+      "groupName": "Node (CI and Lang)",
+      "matchPackageNames": [
+        "node",
+        "nodejs",
+        "node-version",
+        "docker.io/library/node",
+        "ghcr.io/captive-studio/node-ci"
+      ],
+      "minimumReleaseAge": "3 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "automerge": true
+    }
+  ]
+}
