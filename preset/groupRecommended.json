@@ -14,6 +14,7 @@
     "github>captive-studio/renovate-config//preset/groupRswagMonorepo",
     "github>captive-studio/renovate-config//preset/groupRuby",
     "github>captive-studio/renovate-config//preset/groupActionsRunner",
+    "github>captive-studio/renovate-config//preset/groupNode",
     "github>captive-studio/renovate-config//preset/groupDevise",
     "github>captive-studio/renovate-config//preset/groupSentryRubyMonorepo",
     "github>captive-studio/renovate-config//preset/groupWebpack",
