@@ -16,6 +16,7 @@
   ],
   "onboarding": false,
   "internalChecksAsSuccess": true,
+  "transitiveRemediation": true,
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
