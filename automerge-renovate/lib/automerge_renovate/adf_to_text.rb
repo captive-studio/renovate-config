@@ -4,14 +4,24 @@ module AutomergeRenovate
   # Convertit une description Jira au format ADF (Atlassian Document Format) en texte
   # exploitable par RepoUrlExtractor. Les chaînes déjà en texte brut passent inchangées.
   module AdfToText
+    CARD_TYPES = %w[inlineCard blockCard].freeze
+
     def self.convert(node)
       return node unless node.is_a?(Hash)
 
-      node["type"] == "text" ? text_node(node) : children_text(node)
+      return text_node(node) if node["type"] == "text"
+      return card_node(node) if CARD_TYPES.include?(node["type"])
+
+      children_text(node)
     end
 
     def self.children_text(node)
       (node["content"] || []).map { |child| convert(child) }.join("\n")
+    end
+
+    def self.card_node(node)
+      href = node["attrs"]["url"]
+      "[#{href}](#{href})"
     end
 
     def self.text_node(node)

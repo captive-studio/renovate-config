@@ -27,6 +27,20 @@ RSpec.describe AutomergeRenovate::AdfToText do
       )
     end
 
+    it "reconstitue un lien Markdown depuis une smart link (inlineCard)" do
+      href = "https://github.com/captive-studio/captive-images/pulls"
+      node = { "type" => "inlineCard", "attrs" => { "url" => href } }
+
+      expect(described_class.convert(node)).to eq("[#{href}](#{href})")
+    end
+
+    it "reconstitue un lien Markdown depuis une smart link en bloc (blockCard)" do
+      href = "https://github.com/Guitguitou/as-monaco-beachvolley/pulls"
+      node = { "type" => "blockCard", "attrs" => { "url" => href } }
+
+      expect(described_class.convert(node)).to eq("[#{href}](#{href})")
+    end
+
     it "agrège récursivement le contenu d'un document ADF avec une liste de liens" do
       href = "https://github.com/Captive-Studio/groove-application/pulls"
       doc = {
