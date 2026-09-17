@@ -38,12 +38,6 @@
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
-      "matchPackageNames": ["expo"],
-      "prBodyNotes": [
-        "⚠️ Vous pouvez clore cette PR. La mise à jour de Expo Go est une mise à jour facturable (au même titre que les mises à jour de Rails)"
-      ]
-    },
-    {
       "description": "Ne pas mettre à jour les deps verrouillées par Expo",
       "matchPackageNames": [
         "@babel/core",
@@ -55,7 +49,8 @@
         "react-native-safe-area-context",
         "react-native-reanimated",
         "react-native-gesture-handler",
-        "react-native-worklets"
+        "react-native-worklets",
+        "react-native-keyboard-controller"
       ],
       "enabled": false
     }
