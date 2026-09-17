@@ -50,7 +50,8 @@
         "react-native-reanimated",
         "react-native-gesture-handler",
         "react-native-worklets",
-        "react-native-keyboard-controller"
+        "react-native-keyboard-controller",
+        "lottie-react-native"
       ],
       "enabled": false
     }
