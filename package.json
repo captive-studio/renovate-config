@@ -72,7 +72,7 @@
     "renovate": "44.108.2",
     "vitest": "5.0.1"
   },
-  "packageManager": "yarn@4.18.0",
+  "packageManager": "yarn@4.18.1",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=6.0.0",
