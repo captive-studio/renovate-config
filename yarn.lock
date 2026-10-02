@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.9"
-    renovate: "npm:44.119.1"
+    renovate: "npm:44.122.1"
     vitest: "npm:5.0.3"
   languageName: unknown
   linkType: soft
@@ -2042,15 +2042,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/detect-tools@npm:4.0.20":
-  version: 4.0.20
-  resolution: "@renovatebot/detect-tools@npm:4.0.20"
+"@renovatebot/detect-tools@npm:4.0.21":
+  version: 4.0.21
+  resolution: "@renovatebot/detect-tools@npm:4.0.21"
   dependencies:
-    fs-extra: "npm:^11.4.0"
+    fs-extra: "npm:^11.4.1"
     toml-eslint-parser: "npm:^1.0.3"
     upath: "npm:^3.0.8"
     zod: "npm:^4.6.5"
-  checksum: 10/9b79515568f089f9e538ee01cac3c66d362f10841b40f41fe6a1bf9489ef8e7922f4c44b3065d065e4d8913b8453fb19a51d341035ed39cf5423b2ef800574cc
+  checksum: 10/0c949fac351ba91677fd2d24f5cfd6f7f309060a2a50fc2280985756fc0a39c356640419025242a3c7cd522de59b33f79d01b4aba11ca8b6d15a094a44542e9a
   languageName: node
   linkType: hard
 
@@ -2066,26 +2066,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/osv-offline-db@npm:3.0.11":
-  version: 3.0.11
-  resolution: "@renovatebot/osv-offline-db@npm:3.0.11"
+"@renovatebot/osv-offline-db@npm:3.0.12":
+  version: 3.0.12
+  resolution: "@renovatebot/osv-offline-db@npm:3.0.12"
   dependencies:
     debug: "npm:^4.4.3"
-  checksum: 10/8e508a8bc1dee0ed19eec1a03d858a26702638a98900943681f2244f769256075445f61a733e743d651e7246b4a22e41194fd40c3ef18d657c975a5f082ae53d
+  checksum: 10/6badeed8ab3b5ab0d3731c6f4d1a0c35eb4729582ef12b7a715cf24f186840b60d65dc0eeed21e33fe1c7e9c7d7f7dcc67a725617fc0dd66f628694d0f507a1c
   languageName: node
   linkType: hard
 
-"@renovatebot/osv-offline@npm:3.0.11":
-  version: 3.0.11
-  resolution: "@renovatebot/osv-offline@npm:3.0.11"
+"@renovatebot/osv-offline@npm:3.0.12":
+  version: 3.0.12
+  resolution: "@renovatebot/osv-offline@npm:3.0.12"
   dependencies:
-    "@renovatebot/osv-offline-db": "npm:3.0.11"
+    "@renovatebot/osv-offline-db": "npm:3.0.12"
     adm-zip: "npm:~0.6.1"
     debug: "npm:^4.4.3"
-    fs-extra: "npm:^11.4.0"
+    fs-extra: "npm:^11.4.1"
     got: "npm:^15.1.0"
     luxon: "npm:^3.7.2"
-  checksum: 10/0228a89a0e4e7cb4e24bf61f92af49804c889914aa1c250ef98d4576dda69f1df886bd660a3bee38ee38641c533fac12f82b82feea4b79f759416c397ecf8b13
+  checksum: 10/6d52c5f98f02eec677b5def0460a2dd6aa13f6117c338a19fe81ea7c2ebeb2290f9ecd2fc62af68ddcfc913025f69f792a27d57417dd34a53624277c4814e01a
   languageName: node
   linkType: hard
 
@@ -4380,18 +4380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:11.4.0":
-  version: 11.4.0
-  resolution: "fs-extra@npm:11.4.0"
-  dependencies:
-    graceful-fs: "npm:^4.2.0"
-    jsonfile: "npm:^6.0.1"
-    universalify: "npm:^2.0.0"
-  checksum: 10/a1bd91076fe9de9114bd037a433f1f498857eb3f0cf778e647fd00dc5984374dee5e088854de3d6ca77cd9f11554a85f6f016a6004d0838bbc7cd722e33601ce
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^11.4.0":
+"fs-extra@npm:11.4.1, fs-extra@npm:^11.4.1":
   version: 11.4.1
   resolution: "fs-extra@npm:11.4.1"
   dependencies:
@@ -4930,10 +4919,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:7.0.9":
-  version: 7.0.9
-  resolution: "ignore@npm:7.0.9"
-  checksum: 10/0364b6e5895a2e3b187654048de07c3369b4d106f51f8c0294c823f717aaf92d4f42d138e52d6d498bfc71f123eddb9d1fdb01977fd1cf1f29cc4f5ceaca2d77
+"ignore@npm:7.0.10":
+  version: 7.0.10
+  resolution: "ignore@npm:7.0.10"
+  checksum: 10/c26f212207562a0db9cf39638631fb5ac86aef180b67c3d4b89b950109e65aa294c7f05a35aba2885b771a029e9edb28e7fa0c3f74e86beae7daa2939d92a018
   languageName: node
   linkType: hard
 
@@ -6869,15 +6858,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.9.8":
-  version: 3.9.8
-  resolution: "prettier@npm:3.9.8"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10/4ac262aaf9a5e221b02cc17447ebe7aa9689be59b85ab9de8152cd7422fb363ed3e09da6df585fa19ab1fc6cffebdc3ea34db1a75c978536aeba3f87bfd06ab3
-  languageName: node
-  linkType: hard
-
 "prettier@npm:3.9.9":
   version: 3.9.9
   resolution: "prettier@npm:3.9.9"
@@ -7096,9 +7076,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.119.1":
-  version: 44.119.1
-  resolution: "renovate@npm:44.119.1"
+"renovate@npm:44.122.1":
+  version: 44.122.1
+  resolution: "renovate@npm:44.122.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1117.0"
     "@aws-sdk/client-ec2": "npm:3.1117.0"
@@ -7131,9 +7111,9 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.2.1"
-    "@renovatebot/detect-tools": "npm:4.0.20"
+    "@renovatebot/detect-tools": "npm:4.0.21"
     "@renovatebot/good-enough-parser": "npm:2.0.1"
-    "@renovatebot/osv-offline": "npm:3.0.11"
+    "@renovatebot/osv-offline": "npm:3.0.12"
     "@renovatebot/pep440": "npm:5.0.1"
     "@renovatebot/pgp": "npm:2.0.2"
     "@renovatebot/ruby-semver": "npm:5.0.0"
@@ -7166,7 +7146,7 @@ __metadata:
     execa: "npm:10.0.1"
     find-packages: "npm:10.0.4"
     find-up: "npm:8.0.0"
-    fs-extra: "npm:11.4.0"
+    fs-extra: "npm:11.4.1"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
@@ -7175,7 +7155,7 @@ __metadata:
     got: "npm:16.0.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.9"
-    ignore: "npm:7.0.9"
+    ignore: "npm:7.0.10"
     ini: "npm:6.0.0"
     json-dup-key-validator: "npm:1.0.3"
     json-stringify-pretty-compact: "npm:4.0.0"
@@ -7198,7 +7178,7 @@ __metadata:
     p-queue: "npm:9.3.3"
     p-throttle: "npm:8.1.1"
     parse-link-header: "npm:2.0.0"
-    prettier: "npm:3.9.8"
+    prettier: "npm:3.9.9"
     protobufjs: "npm:8.8.0"
     punycode: "npm:2.3.1"
     re2: "npm:1.26.1"
@@ -7233,7 +7213,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/ec8c52eb501e4ffeefddcd27f44f8050ccf8912dd12487a4a44ccb2b3016a1844905d339c2375e29e3ef47f32ebaf3984a2827180bf9ffcc4a7dfcb4877b56a9
+  checksum: 10/b5c686871fa0570b35fbac94c1354d6b7ac9921864c932ff4a17d1c61f466381f1760c4f07ec9dd54ab1e2dda8bd47f5a0d819f9a04d844d37115ddaf7d3aa8a
   languageName: node
   linkType: hard
 
