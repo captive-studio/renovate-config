@@ -92,6 +92,14 @@
       "matchCurrentVersion": "/^2\\./",
       "allowedVersions": ">=3.0.0 <4.0.0",
       "automerge": true
+    },
+    {
+      "description": "Automerge ransack en major pour 4.x → 5.x uniquement (ruptures : échappement LIKE, combinators normalisés, retrait du monkey patch ActionView)",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["ransack"],
+      "matchCurrentVersion": "/^4\\./",
+      "allowedVersions": ">=5.0.0 <6.0.0",
+      "automerge": true
     }
   ]
 }
