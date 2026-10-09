@@ -435,11 +435,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime-corejs3@npm:^7.14.9":
-  version: 7.29.7
-  resolution: "@babel/runtime-corejs3@npm:7.29.7"
+  version: 7.29.10
+  resolution: "@babel/runtime-corejs3@npm:7.29.10"
   dependencies:
     core-js-pure: "npm:^3.48.0"
-  checksum: 10/982cc2b085c9d2885bc1682a0e581c21b72e93a2c7e87793da00596851ac65cf2cce16906edcee62e155f581ae7ef4aa9e1f8e3ffde35c8cb2c390abb99164c6
+  checksum: 10/9b82595ec6b4c6544a4d047e6efc1faa24d1f5b349b590bd2a5b6c2065f0c1e84dfa5f0d39ebf7a910e6e5edcb5858a43c2009aaa8c12c7e96265e607ece33df
   languageName: node
   linkType: hard
 
@@ -4491,13 +4491,13 @@ __metadata:
   linkType: hard
 
 "gcp-metadata@npm:^9.0.0":
-  version: 9.0.4
-  resolution: "gcp-metadata@npm:9.0.4"
+  version: 9.1.0
+  resolution: "gcp-metadata@npm:9.1.0"
   dependencies:
     gaxios: "npm:^7.1.3"
     google-logging-utils: "npm:^2.0.0"
     json-bigint: "npm:^1.0.0"
-  checksum: 10/4107c73785e8abe0a64e29fc1d3ebe04240c7ad0c8801cf6dc18c0279945d058c8efe14f2851f5099a13a278f30b264aa771d93d2fb5c7025cc390ed72ffa33b
+  checksum: 10/2bc7d5614ffcee387d323e77085843f5913be45599971636cea4615afa008bd774f325abfee25138d9f4b82ce2cb4446aeb1d79064859e99e81e1707e3850c27
   languageName: node
   linkType: hard
 
