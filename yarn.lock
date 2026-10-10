@@ -1297,12 +1297,12 @@ __metadata:
   linkType: hard
 
 "@grpc/grpc-js@npm:^1.14.3":
-  version: 1.14.5
-  resolution: "@grpc/grpc-js@npm:1.14.5"
+  version: 1.14.6
+  resolution: "@grpc/grpc-js@npm:1.14.6"
   dependencies:
     "@grpc/proto-loader": "npm:^0.8.0"
     "@js-sdsl/ordered-map": "npm:^4.4.2"
-  checksum: 10/3be7fe0105c94e83e8a18b895fd534290cf3a26712940e95e0149b869da775a59551dafd60fd6c17213d3032b83fbfa64c6c2c9a0f569f6ef5968607174b7d79
+  checksum: 10/cd1bf7fc031139f383fc7d6b45238608144ab673684602705537242023b2c51eb3382ae0b76c8d5533724848e8e63a196874ee74f05aff8b60dc2fe9aedf84a2
   languageName: node
   linkType: hard
 
@@ -2202,12 +2202,12 @@ __metadata:
   linkType: hard
 
 "@smithy/core@npm:^3.33.2, @smithy/core@npm:^3.33.3, @smithy/core@npm:^3.35.0":
-  version: 3.35.1
-  resolution: "@smithy/core@npm:3.35.1"
+  version: 3.35.2
+  resolution: "@smithy/core@npm:3.35.2"
   dependencies:
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/92c28a9b77b5c23ba6a2b32f1dda2a8bb2456151bf3640594c35af73d28cbfeb47bf4cc60c0b62e37a8983e01cc48712a0bf9888465d176d1842e7c8593cfe8a
+  checksum: 10/16c9355ddbaaf486cdb0371c430d89cdfc29b86a072f9ab55f1aef910a6061068e83f02e5a14170dfc88e6929947fbbc4f17e5ff8760522b20acbd76652eca06
   languageName: node
   linkType: hard
 
@@ -4229,9 +4229,9 @@ __metadata:
   linkType: hard
 
 "fast-equals@npm:^6.0.2":
-  version: 6.1.0
-  resolution: "fast-equals@npm:6.1.0"
-  checksum: 10/1195c389f539c357b4c770e03c8e4fadb5e7ec45a88a6e4212366bfbd1f4aa6bbdf35baba9e22e6b5238db754ca339f21e2b02e5967566709cc036005aecd0f6
+  version: 6.1.1
+  resolution: "fast-equals@npm:6.1.1"
+  checksum: 10/3ae7be4591190687bab1fb2e13bd405f718c93a8f1c6469c337c2169e507ea58f252e9299af9ccf4d1dd782645b0af995581b8fc29dba3a2fc6a7a251bf61033
   languageName: node
   linkType: hard
 
