@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.150.1"
+    renovate: "npm:44.151.2"
     vitest: "npm:5.0.3"
   languageName: unknown
   linkType: soft
@@ -2075,9 +2075,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.118.4":
-  version: 13.118.4
-  resolution: "@renovatebot/base-image@npm:13.118.4"
+"@renovatebot/base-image@npm:13.119.2":
+  version: 13.119.2
+  resolution: "@renovatebot/base-image@npm:13.119.2"
   dependencies:
     "@containerbase/base": "npm:14.31.2"
   peerDependencies:
@@ -2085,7 +2085,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/23ed65ec1306947f62fe50135fcc0d56e41f362fe434543943630874874a99f8c683d068fbb29c9ea150a826d1b35f602c4b2719dfbd392b9343751bf58499ad
+  checksum: 10/a8acfdafa4d7f82a1e15dc54f021655dbbe95045d3be8850ebe518c2c2ed4235e388fd9c45083ca0d2233d832b62ed6427c569c7b7a007e9ab73148099863783
   languageName: node
   linkType: hard
 
@@ -3326,12 +3326,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:3.27.0":
-  version: 3.27.0
-  resolution: "cronstrue@npm:3.27.0"
+"cronstrue@npm:3.29.0":
+  version: 3.29.0
+  resolution: "cronstrue@npm:3.29.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10/ef278219270d54962d66f33fbefe2026e947634e3f072a5e91cdb295408d25b2432fcdf039d70183e3484512ff84d810659e8101224ec7958db34b880a3703b8
+  checksum: 10/5cd51a4c4b9dd72f862713a1528398cc55ed43b038a7eb2a0e3685d62d2ac8a98ae18e9ab38413159ae60d674dc774ec44dab5244886b603b7f3672326654dea
   languageName: node
   linkType: hard
 
@@ -7132,9 +7132,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.150.1":
-  version: 44.150.1
-  resolution: "renovate@npm:44.150.1"
+"renovate@npm:44.151.2":
+  version: 44.151.2
+  resolution: "renovate@npm:44.151.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7167,7 +7167,7 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.0"
-    "@renovatebot/base-image": "npm:13.118.4"
+    "@renovatebot/base-image": "npm:13.119.2"
     "@renovatebot/detect-tools": "npm:4.0.21"
     "@renovatebot/good-enough-parser": "npm:2.0.1"
     "@renovatebot/osv-offline": "npm:3.0.12"
@@ -7190,7 +7190,7 @@ __metadata:
     commander: "npm:15.0.0"
     common-tags: "npm:1.8.2"
     croner: "npm:10.0.1"
-    cronstrue: "npm:3.27.0"
+    cronstrue: "npm:3.29.0"
     deepmerge: "npm:4.3.1"
     dequal: "npm:2.0.3"
     detect-indent: "npm:7.0.2"
@@ -7270,7 +7270,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/0db3c59ba1de8987e0344ae0e3b14e6797114009f7b46f4cfd6bed635ff111129b713e6702f51f5ce78cf0c3f2bf2a886096d3445a5bcff5fddf1a2fded9398b
+  checksum: 10/83a25c2fb28be297167ab496cb80533fd65e6287bf24d96e602aadede69e798c2be2506cf8e93e8fb504275218cba10f23d85861aa8fd6fc8c5a0037a22520db
   languageName: node
   linkType: hard
 
