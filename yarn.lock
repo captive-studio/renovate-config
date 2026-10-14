@@ -2202,12 +2202,12 @@ __metadata:
   linkType: hard
 
 "@smithy/core@npm:^3.33.2, @smithy/core@npm:^3.33.3, @smithy/core@npm:^3.35.0, @smithy/core@npm:^3.35.2":
-  version: 3.35.2
-  resolution: "@smithy/core@npm:3.35.2"
+  version: 3.36.0
+  resolution: "@smithy/core@npm:3.36.0"
   dependencies:
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/16c9355ddbaaf486cdb0371c430d89cdfc29b86a072f9ab55f1aef910a6061068e83f02e5a14170dfc88e6929947fbbc4f17e5ff8760522b20acbd76652eca06
+  checksum: 10/f71ed52716b2278b5b5ce04667f0e460e5923e4ff72aeddbc9f1bed115914726b021ca342783ec69256a8d019ae77f32ac6f30adc5b802da82051a997b57c4d3
   languageName: node
   linkType: hard
 
