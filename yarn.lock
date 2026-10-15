@@ -4229,9 +4229,9 @@ __metadata:
   linkType: hard
 
 "fast-equals@npm:^6.0.2":
-  version: 6.1.1
-  resolution: "fast-equals@npm:6.1.1"
-  checksum: 10/3ae7be4591190687bab1fb2e13bd405f718c93a8f1c6469c337c2169e507ea58f252e9299af9ccf4d1dd782645b0af995581b8fc29dba3a2fc6a7a251bf61033
+  version: 6.2.0
+  resolution: "fast-equals@npm:6.2.0"
+  checksum: 10/ea1be1f8367eea522d51185b9ffdf2de3fd89279603fc866783ba21ca5035b74b969dee454d3d38aba82ab312ebbac8746dc873344ce17a57eb47eac0bd37340
   languageName: node
   linkType: hard
 
@@ -7983,9 +7983,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^8.4.1":
-  version: 8.11.2
-  resolution: "undici@npm:8.11.2"
-  checksum: 10/a6d851b0a41a94ee11d351457a818f86094ab009af59d82c1e3c38a89cfbb3910f9dbccdef442b156b9d500490f05e9ef9acf312f1a4690a41fac4941a440b8e
+  version: 8.12.1
+  resolution: "undici@npm:8.12.1"
+  checksum: 10/e0d7cf1db2cfef205f197b34eb47ff9b60adcf8d2eb1fdef01c08ec2f44d372b5093c8d12490f59aa2fb964c2bce97f60f67cfe51a1a47bb518ccc5b3992fd6f
   languageName: node
   linkType: hard
 
