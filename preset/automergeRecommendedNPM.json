@@ -72,7 +72,8 @@
         "@vueuse/core",
         "idle-timeout",
         "kube-prometheus-stack",
-        "lottie-react-native"
+        "lottie-react-native",
+        "cronstrue"
       ]
     },
     {
