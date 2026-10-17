@@ -39,4 +39,14 @@ describe('Expo', () => {
       }),
     );
   });
+
+  test('does not update jest-expo, locked by the Expo SDK', () => {
+    expect(groupExpoJSON.packageRules).toContainEqual(
+      expect.objectContaining({
+        description: 'Ne pas mettre à jour les deps verrouillées par Expo',
+        matchPackageNames: expect.arrayContaining(['jest-expo']),
+        enabled: false,
+      }),
+    );
+  });
 });
