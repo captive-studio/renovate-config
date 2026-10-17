@@ -45,6 +45,7 @@
         "@react-navigation/bottom-tabs",
         "@react-navigation/native",
         "@shopify/flash-list",
+        "jest-expo",
         "react-native",
         "react-native-safe-area-context",
         "react-native-reanimated",
