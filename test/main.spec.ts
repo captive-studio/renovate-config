@@ -4,6 +4,7 @@ import applicationJSON from '../application.json';
 import applicationLegacyJSON from '../applicationLegacy.json';
 import libraryJSON from '../library.json';
 import digestJSON from '../preset/digest.json';
+import groupExpoJSON from '../preset/groupExpo.json';
 
 describe('Configuration snapshot', () => {
   test('base.json', () => {
@@ -26,5 +27,16 @@ describe('Minimum release age', () => {
       matchUpdateTypes: ['digest', 'pinDigest', 'lockFileMaintenance'],
       minimumReleaseAgeBehaviour: 'timestamp-optional',
     });
+  });
+});
+
+describe('Expo', () => {
+  test('does not update React Native packages locked by the Expo SDK', () => {
+    expect(groupExpoJSON.packageRules).toContainEqual(
+      expect.objectContaining({
+        matchPackageNames: ['@react-native/**'],
+        enabled: false,
+      }),
+    );
   });
 });

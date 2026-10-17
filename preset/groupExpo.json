@@ -54,6 +54,11 @@
         "lottie-react-native"
       ],
       "enabled": false
+    },
+    {
+      "description": "Ne pas mettre à jour les paquets @react-native/* : leur version doit suivre celle de react-native, imposée par le SDK Expo (ex. jest-expo exige @react-native/jest-preset en peer dep sur la même mineure). Ils montent avec le SDK via `npx expo install --fix`.",
+      "matchPackageNames": ["@react-native/**"],
+      "enabled": false
     }
   ]
 }
