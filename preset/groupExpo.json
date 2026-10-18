@@ -45,6 +45,7 @@
         "@react-navigation/bottom-tabs",
         "@react-navigation/native",
         "@shopify/flash-list",
+        "babel-preset-expo",
         "jest-expo",
         "react-native",
         "react-native-safe-area-context",

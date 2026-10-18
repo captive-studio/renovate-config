@@ -40,11 +40,11 @@ describe('Expo', () => {
     );
   });
 
-  test('does not update jest-expo, locked by the Expo SDK', () => {
+  test.each(['jest-expo', 'babel-preset-expo'])('does not update %s, locked by the Expo SDK', (packageName) => {
     expect(groupExpoJSON.packageRules).toContainEqual(
       expect.objectContaining({
         description: 'Ne pas mettre à jour les deps verrouillées par Expo',
-        matchPackageNames: expect.arrayContaining(['jest-expo']),
+        matchPackageNames: expect.arrayContaining([packageName]),
         enabled: false,
       }),
     );
