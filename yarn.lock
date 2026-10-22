@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.3"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.170.0"
+    renovate: "npm:44.171.9"
     vitest: "npm:5.0.5"
   languageName: unknown
   linkType: soft
@@ -522,15 +522,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@containerbase/base@npm:14.44.0":
-  version: 14.44.0
-  resolution: "@containerbase/base@npm:14.44.0"
+"@containerbase/base@npm:14.44.3":
+  version: 14.44.3
+  resolution: "@containerbase/base@npm:14.44.3"
   peerDependencies:
     zod: ^4.0.0
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/cb324dae51c1a669ed9c63d428a192b80915bae4f19e5aaa9ad4256b103ac0581c6ba6d6c03795eb8b503b0e3ff9dc12098d4a21e86d5915640395e9a5055807
+  checksum: 10/0c9a0c1d19c3878da0f5cc28a8fc2a117c5b253bba21e64a36d2fc09d7879ee62c68779ed2ce890052d3bf6bffe8b34dac3b01be79e25391a2ecebfc122e2d6d
   languageName: node
   linkType: hard
 
@@ -2059,29 +2059,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.135.0":
-  version: 13.135.0
-  resolution: "@renovatebot/base-image@npm:13.135.0"
+"@renovatebot/base-image@npm:13.135.4":
+  version: 13.135.4
+  resolution: "@renovatebot/base-image@npm:13.135.4"
   dependencies:
-    "@containerbase/base": "npm:14.44.0"
+    "@containerbase/base": "npm:14.44.3"
   peerDependencies:
     zod: ^4.0.0
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/30fe0f4ff6869bca1583f93098dc93ca36fc43705dc6e0821c196bbe92a03c8da97cb674ab32785a1dd1afc34229d7c3a6cdc982c09ef4e0573fb780e62253fe
+  checksum: 10/0393e38ad2ddea0b8b326294490d195724b24b18f84afbaa961d3af51b0f3a1461e1cd00e2801c6165cf17e53445db509daea9bd6a5632e883f6096bfd206f7f
   languageName: node
   linkType: hard
 
-"@renovatebot/detect-tools@npm:4.0.22":
-  version: 4.0.22
-  resolution: "@renovatebot/detect-tools@npm:4.0.22"
+"@renovatebot/detect-tools@npm:4.0.23":
+  version: 4.0.23
+  resolution: "@renovatebot/detect-tools@npm:4.0.23"
   dependencies:
     fs-extra: "npm:^11.4.1"
     toml-eslint-parser: "npm:^1.0.3"
     upath: "npm:^3.0.8"
-    zod: "npm:^4.6.6"
-  checksum: 10/da64f04dd5fc5c5024e9162fa637c96c898eac09fb43fe59af4db67fda97d512f83b51b6b7de903cc1ba75e990439cb911eef2a2b76ee49c7ada52e05a24ea6a
+    zod: "npm:^4.6.7"
+  checksum: 10/7320d30fa3a08152461c603af336ab915161fe5b8434bd6642780d90cd9a7e3a4dcb0e5cda068c76d3a438bdcf95a3944c1b22b2b8f66728fd0a32eebf037e56
   languageName: node
   linkType: hard
 
@@ -4146,9 +4146,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:10.1.0":
-  version: 10.1.0
-  resolution: "execa@npm:10.1.0"
+"execa@npm:10.1.1":
+  version: 10.1.1
+  resolution: "execa@npm:10.1.1"
   dependencies:
     "@sindresorhus/merge-streams": "npm:^4.0.0"
     figures: "npm:^6.1.0"
@@ -4162,7 +4162,7 @@ __metadata:
     strip-final-newline: "npm:^4.0.0"
     which-command: "npm:^0.1.0"
     yoctocolors: "npm:^2.2.0"
-  checksum: 10/44e39701969d883c0075a3ff469cf708c9ffca426013e718d3cee206625fc476af85bf7b63d9e44ca993e20b9acafb83eb4953096a9786f559520ed6877da938
+  checksum: 10/1507eade6297536d3f1c22fff2e92211a7dcfa446ada8ecafb7899f9f21487e0333ad7b8382168835d4dcf770a8a4c3d41ddb3029021633e7fd723f7c359db99
   languageName: node
   linkType: hard
 
@@ -4696,9 +4696,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:11.2.0":
-  version: 11.2.0
-  resolution: "google-auth-library@npm:11.2.0"
+"google-auth-library@npm:11.3.0":
+  version: 11.3.0
+  resolution: "google-auth-library@npm:11.3.0"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
@@ -4706,7 +4706,7 @@ __metadata:
     gcp-metadata: "npm:^9.0.0"
     google-logging-utils: "npm:^2.0.0"
     jws: "npm:^4.0.0"
-  checksum: 10/031d92c76f43fbb06d4046fa92ed3d7f517ea8c826cf043063ce8a1c741a507a44a904b680c30c661e32180df486477f235c790fb5ca44da0846f68b2beea45b
+  checksum: 10/5b47b64e5d22f694b1e4da37d4f53125c5af8b053902c30b164058a62a6dcaeb41fd7aadbb6301c55e626995472c90309fea798c91d128e1cf5c13d24b06f1eb
   languageName: node
   linkType: hard
 
@@ -7111,9 +7111,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.170.0":
-  version: 44.170.0
-  resolution: "renovate@npm:44.170.0"
+"renovate@npm:44.171.9":
+  version: 44.171.9
+  resolution: "renovate@npm:44.171.9"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7146,8 +7146,8 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.0"
-    "@renovatebot/base-image": "npm:13.135.0"
-    "@renovatebot/detect-tools": "npm:4.0.22"
+    "@renovatebot/base-image": "npm:13.135.4"
+    "@renovatebot/detect-tools": "npm:4.0.23"
     "@renovatebot/good-enough-parser": "npm:2.0.1"
     "@renovatebot/osv-offline": "npm:3.0.12"
     "@renovatebot/pep440": "npm:5.0.1"
@@ -7179,7 +7179,7 @@ __metadata:
     emoji-regex: "npm:10.6.0"
     emojibase: "npm:17.0.0"
     emojibase-regex: "npm:17.0.0"
-    execa: "npm:10.1.0"
+    execa: "npm:10.1.1"
     find-packages: "npm:10.0.4"
     find-up: "npm:8.0.0"
     fs-extra: "npm:11.4.1"
@@ -7187,7 +7187,7 @@ __metadata:
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
-    google-auth-library: "npm:11.2.0"
+    google-auth-library: "npm:11.3.0"
     got: "npm:16.0.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.10"
@@ -7238,7 +7238,7 @@ __metadata:
     xmldoc: "npm:3.0.0"
     yaml: "npm:2.9.1"
     yauzl: "npm:3.4.0"
-    zod: "npm:4.6.6"
+    zod: "npm:4.6.7"
   dependenciesMeta:
     openpgp:
       optional: true
@@ -7247,7 +7247,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/727f965e9c814adf0a639e9530744c29bbcffeac7f57cd3ae6ba09df7f7dcc204dc4d95dd39093b6c5a1f861f2bd9aa0a5cebb72312cb664ba602600b8743933
+  checksum: 10/14400b20688622a85fc7c54cb627385f08bcef8d5094f412519537a57ff759fc2591dbcee9f9fe0147825969f56af199462abddaece580ae40540aa3c212ad2a
   languageName: node
   linkType: hard
 
@@ -8434,14 +8434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:4.6.6":
-  version: 4.6.6
-  resolution: "zod@npm:4.6.6"
-  checksum: 10/ce628fb33400b531f48b63ad1bd9b5ab95ec3ac60d4e8025892d90af9ca5d03b168aaaf74071928345ad1b1bcd735a7d5cf33230ece7de885240bb0f2b7bb492
-  languageName: node
-  linkType: hard
-
-"zod@npm:^4.6.6":
+"zod@npm:4.6.7, zod@npm:^4.6.7":
   version: 4.6.7
   resolution: "zod@npm:4.6.7"
   checksum: 10/3ca8b8d6bb401538e59504c543db629ea7beaa775e504c3f22269b406fdffbf1431c856d59a597bf66d8487e4d2be12b03a55d76fc2c63d9f046eae1ca173bca
