@@ -4457,13 +4457,13 @@ __metadata:
   linkType: hard
 
 "gaxios@npm:^8.3.0":
-  version: 8.3.1
-  resolution: "gaxios@npm:8.3.1"
+  version: 8.3.2
+  resolution: "gaxios@npm:8.3.2"
   dependencies:
     extend: "npm:^3.0.2"
     https-proxy-agent: "npm:^7.0.1"
     node-fetch: "npm:^3.3.2"
-  checksum: 10/6e1ca86ed3b6e1da75c82716e92cedb28d84777bf6d86916c81cc16d0e6ecae28071fac58cd9d6895a9e94a3bd88d2c5dc66740d0e683b56d74153e51cfc2591
+  checksum: 10/5198b2c76c35194b37a24f3252dd2bf6106e64b526c016af354f0795c51ae0363efff90d7260d5f5ee4391eb745e11f4b2631de6b2fd1cb70c90fe5eb318b857
   languageName: node
   linkType: hard
 
