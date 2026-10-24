@@ -45,9 +45,6 @@ exports[`Configuration snapshot > base.json 1`] = `
   "onboarding": false,
   "packageRules": [
     {
-      "matchDepTypes": [
-        "dependencies",
-      ],
       "matchUpdateTypes": [
         "major",
       ],
@@ -55,9 +52,6 @@ exports[`Configuration snapshot > base.json 1`] = `
       "minimumReleaseAgeBehaviour": "timestamp-optional",
     },
     {
-      "matchDepTypes": [
-        "dependencies",
-      ],
       "matchUpdateTypes": [
         "minor",
       ],
@@ -65,9 +59,6 @@ exports[`Configuration snapshot > base.json 1`] = `
       "minimumReleaseAgeBehaviour": "timestamp-optional",
     },
     {
-      "matchDepTypes": [
-        "dependencies",
-      ],
       "matchUpdateTypes": [
         "patch",
       ],
