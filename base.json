@@ -19,19 +19,16 @@
   "transitiveRemediation": true,
   "packageRules": [
     {
-      "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["major"],
       "minimumReleaseAge": "7 days",
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
-      "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor"],
       "minimumReleaseAge": "2 days",
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
-      "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["patch"],
       "minimumReleaseAge": "2 days",
       "minimumReleaseAgeBehaviour": "timestamp-optional"
