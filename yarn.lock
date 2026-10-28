@@ -5546,11 +5546,11 @@ __metadata:
   linkType: hard
 
 "magic-string@npm:^1.4.3":
-  version: 1.4.4
-  resolution: "magic-string@npm:1.4.4"
+  version: 1.4.5
+  resolution: "magic-string@npm:1.4.5"
   dependencies:
     "@jridgewell/sourcemap-codec": "npm:^1.6.0"
-  checksum: 10/5685194c543427b3b4c6c61a1918464427568e1fd4d35e860dede2e7fadeb12b6ba6cd5d5ce1527e5265995ebe342bf27da825f7bbb9b0e334434ba4ba7e81c6
+  checksum: 10/b5639b23f91f3c683e8cfeedee9933538c19ef63ecd2818285fe47524f831e2643fce5cd6ef0b4093e33505026e671daec14040dafba7d0b781c0b69abb277ac
   languageName: node
   linkType: hard
 
@@ -5761,8 +5761,8 @@ __metadata:
   linkType: hard
 
 "mdast-util-to-markdown@npm:^2.0.0":
-  version: 2.2.0
-  resolution: "mdast-util-to-markdown@npm:2.2.0"
+  version: 2.2.1
+  resolution: "mdast-util-to-markdown@npm:2.2.1"
   dependencies:
     "@types/mdast": "npm:^4.0.0"
     "@types/unist": "npm:^3.0.0"
@@ -5775,7 +5775,7 @@ __metadata:
     micromark-util-html-tag-name: "npm:^2.0.0"
     unist-util-visit: "npm:^5.0.0"
     zwitch: "npm:^2.0.0"
-  checksum: 10/5b11e246180761adab57318ee0783e33ccf7ea0e84c88186930bf65c7cbba6e0e1416e1d0cc56659884ff24f09abda4299917fb367ab0203943e1b630d54e419
+  checksum: 10/4af93f2df4024c9c59902ae82582027b15b87183028425d0918739468c39d39b3a5209ba1bcb45de41d3ec69346052b45905d0bc093e2cd465b7eb2418c42722
   languageName: node
   linkType: hard
 
@@ -6985,12 +6985,12 @@ __metadata:
   linkType: hard
 
 "qs@npm:^6.16.0":
-  version: 6.16.1
-  resolution: "qs@npm:6.16.1"
+  version: 6.17.0
+  resolution: "qs@npm:6.17.0"
   dependencies:
     es-define-property: "npm:^1.0.1"
     side-channel: "npm:^1.1.1"
-  checksum: 10/e33e0a5ceecb7bef81ea1f855365482045f55ba55278f40b8dbf9ee18eae8ef82d44246fe4e4009d6b6f102cbf2885a34b88c4272536cd628cde40b4ac9912c2
+  checksum: 10/c6e6d98d25721c2eb61b2b8b0a99c299e335abd5b8dea3ae6b6335b51da38a0dbf83535c48c02c32745175ed7b96acb25772667647b1a6cc2cac69825f56c7f9
   languageName: node
   linkType: hard
 
