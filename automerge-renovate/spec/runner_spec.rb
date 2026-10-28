@@ -3,11 +3,13 @@
 require "spec_helper"
 require "automerge_renovate/runner"
 require "automerge_renovate/gh_cli"
+require "automerge_renovate/rebase_waiter"
 
 RSpec.describe AutomergeRenovate::Runner do
-  subject(:runner) { described_class.new(gh: gh) }
+  subject(:runner) { described_class.new(gh: gh, rebase_waiter: rebase_waiter) }
 
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
+  let(:rebase_waiter) { instance_double(AutomergeRenovate::RebaseWaiter, call: nil) }
 
   before(:each) do
     allow(gh).to receive(:behind_by).and_return(0)
@@ -190,6 +192,73 @@ RSpec.describe AutomergeRenovate::Runner do
       expect(results_seen).to eq(
         [ { repo: "captive-studio/groove-application", number: 414, url: nil, action: :merge, strategy: :rebase } ]
       )
+    end
+
+    it "attend le rebase d'une PR en retard puis la fusionne, pour tout merger en un seul run" do
+      body = "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi"
+      first = { "number" => 1, "body" => body, "mergeStateStatus" => "CLEAN",
+                "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
+      second = { "number" => 2, "body" => body, "mergeStateStatus" => "BEHIND",
+                 "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
+      rebased = second.merge("mergeStateStatus" => "CLEAN")
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ first, second ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle")
+        .and_return({ "allow_rebase_merge" => true })
+      allow(gh).to receive(:merge)
+      allow(gh).to receive(:update_body)
+      allow(rebase_waiter).to receive(:call).with("captive-studio/monocle", second).and_return(rebased)
+
+      waited = []
+      results = runner.run([ "captive-studio/monocle" ], on_wait: ->(number) { waited << number })
+
+      expect(waited).to eq([ 2 ])
+      expect(gh).to have_received(:update_body).with("captive-studio/monocle", 2, anything)
+      expect(gh).to have_received(:merge).with("captive-studio/monocle", 2, :rebase)
+      expect(results).to eq(
+        [
+          { repo: "captive-studio/monocle", number: 1, url: nil, action: :merge, strategy: :rebase },
+          { repo: "captive-studio/monocle", number: 2, url: nil, action: :merge, strategy: :rebase },
+        ]
+      )
+    end
+
+    it "laisse la PR en rebase demandé quand le rebase n'aboutit pas à temps" do
+      pr = { "number" => 3, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "BEHIND",
+             "statusCheckRollup" => [], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+      allow(gh).to receive(:update_body)
+
+      results = runner.run([ "captive-studio/monocle" ])
+
+      expect(rebase_waiter).to have_received(:call).once
+      expect(results).to eq([ { repo: "captive-studio/monocle", number: 3, url: nil, action: :rebase_requested } ])
+    end
+
+    it "n'attend pas le rebase d'une PR dont l'automerge est désactivé" do
+      pr = { "number" => 4, "body" => "🚦 **Automerge**: Disabled by config.", "mergeStateStatus" => "BEHIND",
+             "statusCheckRollup" => [], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+      allow(gh).to receive(:update_body)
+
+      runner.run([ "captive-studio/monocle" ])
+
+      expect(rebase_waiter).not_to have_received(:call)
+    end
+
+    it "abandonne après un nombre maximal de rebases successifs" do
+      pr = { "number" => 5, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "BEHIND",
+             "statusCheckRollup" => [], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+      allow(gh).to receive(:update_body)
+      allow(rebase_waiter).to receive(:call).and_return(pr)
+
+      results = runner.run([ "captive-studio/monocle" ])
+
+      expect(rebase_waiter).to have_received(:call).exactly(described_class::MAX_REBASES).times
+      expect(results.last[:action]).to eq(:rebase_requested)
     end
   end
 end

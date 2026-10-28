@@ -13,7 +13,7 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
 
   let(:progress) { instance_double(AutomergeRenovate::ProgressPrinter, searching: nil, ticket_found: nil,
-    repos_found: nil, repo: nil, result: nil, summary: nil) }
+    repos_found: nil, repo: nil, result: nil, waiting_rebase: nil, summary: nil) }
 
   before(:each) do
     allow(gh).to receive(:behind_by).and_return(0)
@@ -68,6 +68,23 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
       expect(progress).to have_received(:summary).with(
         [ { repo: "captive-studio/monocle", number: 7, url: nil, action: :merge, strategy: :rebase } ]
       )
+    end
+
+    it "signale l'attente du rebase d'une PR en retard" do
+      pr = { "number" => 8, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "BEHIND",
+             "statusCheckRollup" => [], "headRefOid" => "old", }
+      rebased = pr.merge("mergeStateStatus" => "CLEAN", "headRefOid" => "new",
+                         "statusCheckRollup" => [ { "status" => "COMPLETED", "conclusion" => "SUCCESS" } ])
+      allow(jira).to receive(:find_latest_ticket).and_return(
+        key: "FAC-1",
+        description: "* [https://github.com/captive-studio/monocle/pulls](https://github.com/captive-studio/monocle/pulls)"
+      )
+      allow(gh).to receive_messages(open_renovate_prs: [ pr ], merge_settings: { "allow_rebase_merge" => true },
+                                    update_body: nil, pr: rebased, merge: nil)
+
+      command.run
+
+      expect(progress).to have_received(:waiting_rebase).with(8)
     end
   end
 end

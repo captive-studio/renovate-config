@@ -15,7 +15,7 @@ RSpec.describe AutomergeRenovate::GhCli do
       allow(gh).to receive(:run)
         .with("pr", "list", "--repo", "captive-studio/groove-application", "--author", "app/renovate",
               "--state", "open", "--json",
-              "number,body,mergeStateStatus,statusCheckRollup,url,baseRefName,headRefName")
+              "number,body,mergeStateStatus,statusCheckRollup,url,baseRefName,headRefName,headRefOid")
         .and_return(payload)
 
       prs = gh.open_renovate_prs("captive-studio/groove-application")
@@ -85,10 +85,25 @@ RSpec.describe AutomergeRenovate::GhCli do
     end
   end
 
-  describe "#update_body" do
-    it "édite le corps de la PR" do
+  describe "#pr" do
+    it "relit l'état courant d'une PR" do
+      payload = { "number" => 414, "headRefOid" => "abc123", "statusCheckRollup" => [] }.to_json
       allow(gh).to receive(:run)
-        .with("pr", "edit", "414", "--repo", "captive-studio/groove-application", "--body", "nouveau corps")
+        .with("pr", "view", "414", "--repo", "captive-studio/groove-application", "--json",
+              "number,body,mergeStateStatus,statusCheckRollup,url,baseRefName,headRefName,headRefOid")
+        .and_return(payload)
+
+      pr = gh.pr("captive-studio/groove-application", 414)
+
+      expect(pr).to eq("number" => 414, "headRefOid" => "abc123", "statusCheckRollup" => [])
+    end
+  end
+
+  describe "#update_body" do
+    it "édite le corps de la PR via l'API REST, que gh pr edit ne permet plus (Projects classic retiré)" do
+      allow(gh).to receive(:run)
+        .with("api", "repos/captive-studio/groove-application/pulls/414", "--method", "PATCH",
+              "--raw-field", "body=nouveau corps")
         .and_return("")
 
       expect { gh.update_body("captive-studio/groove-application", 414, "nouveau corps") }.not_to raise_error
@@ -118,6 +133,14 @@ RSpec.describe AutomergeRenovate::GhCli do
       allow(Open3).to receive(:capture3).with("gh", "pr", "list").and_return([ "", "boom", status ])
 
       expect { gh.run("pr", "list") }.to raise_error("gh pr list failed: boom")
+    end
+
+    it "n'inclut pas les options dans l'erreur, pour ne pas afficher un body de PR entier" do
+      status = instance_double(Process::Status, success?: false)
+      allow(Open3).to receive(:capture3).and_return([ "", "boom", status ])
+
+      expect { gh.run("pr", "edit", "646", "--repo", "captive-studio/monocle", "--body", "long\nbody") }
+        .to raise_error("gh pr edit 646 failed: boom")
     end
 
     it "force l'UTF-8 même si l'encodage externe par défaut du process est US-ASCII" do

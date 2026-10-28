@@ -28,6 +28,11 @@ module AutomergeRenovate
       @out.puts @pastel.bold(name)
     end
 
+    def waiting_rebase(number)
+      message = "  ⏳ ##{number} : attente du rebase par Renovate et de la CI (30 min max)..."
+      @out.puts @pastel.dim(message)
+    end
+
     def result(result)
       @out.puts Report.pr_line(result, pastel: @pastel)
     end
