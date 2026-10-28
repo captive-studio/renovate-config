@@ -4,9 +4,11 @@ module AutomergeRenovate
   # Attend que Renovate ait rebasé une PR (nouveau commit de tête) et que ses checks soient terminés,
   # pour pouvoir la redécider dans le même run plutôt qu'à la maintenance suivante.
   class RebaseWaiter
-    # Renovate rebase en quelques minutes, la CI peut en prendre une vingtaine : 30 minutes au plus.
-    POLL_ATTEMPTS = 120
+    # Renovate rebase en quelques minutes, la CI en prend une dizaine : au-delà, la PR attendra le run suivant.
+    SECONDS_PER_MINUTE = 60
+    TIMEOUT_MINUTES = 15
     POLL_INTERVAL_SECONDS = 15
+    POLL_ATTEMPTS = TIMEOUT_MINUTES * SECONDS_PER_MINUTE / POLL_INTERVAL_SECONDS
 
     def initialize(gh:, sleeper: ->(seconds) { sleep(seconds) })
       @gh = gh

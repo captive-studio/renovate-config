@@ -13,7 +13,7 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
 
   let(:progress) { instance_double(AutomergeRenovate::ProgressPrinter, searching: nil, ticket_found: nil,
-    repos_found: nil, repo: nil, result: nil, waiting_rebase: nil, summary: nil) }
+    repos_found: nil, repo: nil, result: nil, waiting_rebase: nil, wait: nil, summary: nil) }
 
   before(:each) do
     allow(gh).to receive(:behind_by).and_return(0)
