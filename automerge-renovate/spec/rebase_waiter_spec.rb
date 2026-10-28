@@ -41,6 +41,16 @@ RSpec.describe AutomergeRenovate::RebaseWaiter do
       expect(sleeper).to have_received(:call).once
     end
 
+    it "n'attend pas le check d'ancienneté de Renovate, qui se compte en jours" do
+      aging = settled.merge("statusCheckRollup" => settled["statusCheckRollup"] + [
+                              { "context" => "renovate/stability-days", "state" => "PENDING" },
+                            ])
+      allow(gh).to receive(:pr).and_return(aging)
+
+      expect(waiter.call("captive-studio/cae-application", pr)).to eq(aging)
+      expect(sleeper).not_to have_received(:call)
+    end
+
     it "patiente tant qu'aucun check n'est encore apparu sur le nouveau commit" do
       allow(gh).to receive(:pr).and_return(settled.merge("statusCheckRollup" => []), settled)
 

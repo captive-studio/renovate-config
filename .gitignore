@@ -1,6 +1,7 @@
 # BEGIN ### Typescript ###
 *.tsbuildinfo
 typings/
+vendor/
 # END ### Typescript ###
 # BEGIN ### VisualStudioCode ###
 .vscode/*
