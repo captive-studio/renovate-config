@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "release_age_gate"
+
 module AutomergeRenovate
   # Attend que Renovate ait rebasé une PR (nouveau commit de tête) et que ses checks soient terminés,
   # pour pouvoir la redécider dans le même run plutôt qu'à la maintenance suivante.
@@ -38,7 +40,9 @@ module AutomergeRenovate
       checks.any? && checks.none? { |check| pending?(check) }
     end
 
+    # Le check d'ancienneté de Renovate se compte en jours : il ne se terminera pas pendant l'attente.
     def pending?(check)
+      return false if ReleaseAgeGate.check?(check)
       return check["state"] == "PENDING" if check.key?("state")
 
       check["status"] != "COMPLETED"

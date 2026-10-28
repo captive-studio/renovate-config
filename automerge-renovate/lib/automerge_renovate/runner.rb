@@ -5,6 +5,7 @@ require_relative "decision_executor"
 require_relative "failed_checks_rerunner"
 require_relative "branch_gap"
 require_relative "rebase_waiter"
+require_relative "release_age_gate"
 
 module AutomergeRenovate
   class Runner
@@ -48,7 +49,7 @@ module AutomergeRenovate
     def decide_until_rebased(repo, pr, merge_settings)
       decision = decide(repo, pr, merge_settings)
       MAX_REBASES.times do
-        break unless awaitable_rebase?(decision)
+        break unless awaitable_rebase?(pr, decision)
 
         @on_wait.call(pr["number"])
         rebased = @rebase_waiter.call(repo, pr)
@@ -66,9 +67,11 @@ module AutomergeRenovate
       @executor.call(repo, pr, decision)
     end
 
-    # Une PR à automerge désactivé reste une décision humaine : inutile de bloquer le run pour elle.
-    def awaitable_rebase?(decision)
-      decision[:action] == :rebase_requested && !decision[:needs_decision]
+    # Inutile de bloquer le run pour une PR qui ne sera pas fusionnable à l'issue du rebase : automerge
+    # désactivé (décision humaine), ou version encore trop récente pour Renovate (attente en jours).
+    def awaitable_rebase?(pr, decision)
+      decision[:action] == :rebase_requested && !decision[:needs_decision] &&
+        !ReleaseAgeGate.new(pr["statusCheckRollup"]).pending?
     end
   end
 end

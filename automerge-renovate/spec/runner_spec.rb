@@ -260,5 +260,20 @@ RSpec.describe AutomergeRenovate::Runner do
       expect(rebase_waiter).to have_received(:call).exactly(described_class::MAX_REBASES).times
       expect(results.last[:action]).to eq(:rebase_requested)
     end
+
+    it "n'attend pas le rebase d'une PR qui attend l'ancienneté minimale de sa version" do
+      pr = { "number" => 1368, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "DIRTY",
+             "statusCheckRollup" => [ { "context" => "renovate/stability-days", "state" => "PENDING" } ], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/cae-application").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/cae-application").and_return({})
+      allow(gh).to receive(:update_body)
+
+      results = runner.run([ "captive-studio/cae-application" ])
+
+      expect(rebase_waiter).not_to have_received(:call)
+      expect(results).to eq(
+        [ { repo: "captive-studio/cae-application", number: 1368, url: nil, action: :rebase_requested } ]
+      )
+    end
   end
 end
