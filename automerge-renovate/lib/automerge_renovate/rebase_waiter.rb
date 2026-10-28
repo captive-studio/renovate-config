@@ -1,0 +1,45 @@
+# frozen_string_literal: true
+
+module AutomergeRenovate
+  # Attend que Renovate ait rebasé une PR (nouveau commit de tête) et que ses checks soient terminés,
+  # pour pouvoir la redécider dans le même run plutôt qu'à la maintenance suivante.
+  class RebaseWaiter
+    # Renovate rebase en quelques minutes, la CI peut en prendre une vingtaine : 30 minutes au plus.
+    POLL_ATTEMPTS = 120
+    POLL_INTERVAL_SECONDS = 15
+
+    def initialize(gh:, sleeper: ->(seconds) { sleep(seconds) })
+      @gh = gh
+      @sleeper = sleeper
+    end
+
+    # Retourne la PR relue, ou nil si elle n'est pas prête à temps.
+    def call(repo, pr)
+      POLL_ATTEMPTS.times do |attempt|
+        @sleeper.call(POLL_INTERVAL_SECONDS) unless attempt.zero?
+        current = @gh.pr(repo, pr["number"])
+        return current if rebased?(pr, current) && checks_settled?(current)
+      end
+      nil
+    end
+
+    private
+
+    def rebased?(pr, current)
+      current["headRefOid"] != pr["headRefOid"]
+    end
+
+    # Juste après le push, GitHub n'a encore rattaché aucun check au commit : une liste vide
+    # passerait pour verte.
+    def checks_settled?(pr)
+      checks = pr["statusCheckRollup"].to_a
+      checks.any? && checks.none? { |check| pending?(check) }
+    end
+
+    def pending?(check)
+      return check["state"] == "PENDING" if check.key?("state")
+
+      check["status"] != "COMPLETED"
+    end
+  end
+end

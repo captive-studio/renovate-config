@@ -23,7 +23,8 @@ module AutomergeRenovate
       results = Runner.new(gh: @gh).run(
         repos,
         on_repo: ->(repo) { @progress.repo(repo) },
-        on_result: ->(result) { @progress.result(result) }
+        on_result: ->(result) { @progress.result(result) },
+        on_wait: ->(number) { @progress.waiting_rebase(number) }
       )
 
       @progress.summary(results)

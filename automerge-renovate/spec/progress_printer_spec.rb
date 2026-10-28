@@ -40,6 +40,14 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
     end
   end
 
+  describe "#waiting_rebase" do
+    it "signale qu'on attend le rebase d'une PR, pour ne pas laisser croire à un blocage" do
+      progress.waiting_rebase(1195)
+
+      expect(out.string).to include("⏳ #1195 : attente du rebase par Renovate et de la CI (30 min max)...")
+    end
+  end
+
   describe "#result" do
     it "affiche la ligne de résultat d'une PR traitée" do
       progress.result({ repo: "r1", number: 414, action: :merge, strategy: :rebase })
