@@ -48,6 +48,10 @@ RSpec.describe AutomergeRenovate::RebaseWaiter do
       expect(sleeper).to have_received(:call).once
     end
 
+    it "abandonne au bout de 15 minutes" do
+      expect(described_class::POLL_ATTEMPTS * described_class::POLL_INTERVAL_SECONDS).to eq(15 * 60)
+    end
+
     it "abandonne et retourne nil au bout du nombre maximal de tentatives" do
       allow(gh).to receive(:pr).and_return(pr)
 

@@ -4,9 +4,13 @@ require "spec_helper"
 require "automerge_renovate/progress_printer"
 
 RSpec.describe AutomergeRenovate::ProgressPrinter do
-  subject(:progress) { described_class.new(pastel: Pastel.new(enabled: false), out: out) }
+  subject(:progress) do
+    described_class.new(pastel: Pastel.new(enabled: false), out: out, sleeper: sleeper, clock: -> { time[0] })
+  end
 
   let(:out) { StringIO.new }
+  let(:time) { [ 1000 ] }
+  let(:sleeper) { instance_double(Proc, call: nil) }
 
   describe "#searching" do
     it "affiche un message de recherche du ticket Jira" do
@@ -44,7 +48,36 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
     it "signale qu'on attend le rebase d'une PR, pour ne pas laisser croire à un blocage" do
       progress.waiting_rebase(1195)
 
-      expect(out.string).to include("⏳ #1195 : attente du rebase par Renovate et de la CI (30 min max)...")
+      expect(out.string).to include("#1195 : attente du rebase par Renovate et de la CI (0 min 00 s, 15 min max)")
+    end
+  end
+
+  it "mesure l'attente avec l'horloge monotone par défaut" do
+    default = described_class.new(pastel: Pastel.new(enabled: false), out: out)
+
+    default.waiting_rebase(1195)
+
+    expect(out.string).to include("(0 min 00 s, 15 min max)")
+  end
+
+  describe "#wait" do
+    it "patiente en animant la ligne d'attente avec le temps écoulé" do
+      progress.waiting_rebase(1195)
+      allow(sleeper).to receive(:call) { |seconds| time[0] += seconds }
+
+      progress.wait(15)
+
+      expect(sleeper).to have_received(:call).with(0.25).exactly(60).times
+      expect(out.string).to end_with("attente du rebase par Renovate et de la CI (0 min 15 s, 15 min max)")
+    end
+  end
+
+  describe "#result après une attente" do
+    it "efface la ligne d'attente avant d'afficher le résultat" do
+      progress.waiting_rebase(1195)
+      progress.result({ repo: "r1", number: 1195, action: :merge, strategy: :rebase })
+
+      expect(out.string).to end_with("\r\e[K  ✓ #1195 fusionnée (rebase)\n")
     end
   end
 

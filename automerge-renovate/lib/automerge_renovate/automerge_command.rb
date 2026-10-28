@@ -20,7 +20,8 @@ module AutomergeRenovate
       repos = RepoUrlExtractor.new(ticket[:description]).repos
       @progress.repos_found(repos.size)
 
-      results = Runner.new(gh: @gh).run(
+      rebase_waiter = RebaseWaiter.new(gh: @gh, sleeper: ->(seconds) { @progress.wait(seconds) })
+      results = Runner.new(gh: @gh, rebase_waiter: rebase_waiter).run(
         repos,
         on_repo: ->(repo) { @progress.repo(repo) },
         on_result: ->(result) { @progress.result(result) },
