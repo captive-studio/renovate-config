@@ -17,6 +17,7 @@
   "onboarding": false,
   "internalChecksAsSuccess": true,
   "transitiveRemediation": true,
+  "postUpdateOptions": ["npmDedupe"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
