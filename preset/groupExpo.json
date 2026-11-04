@@ -34,8 +34,7 @@
       "description": "Attendre 45 jours avant de merger une mise a jour majeure d'Expo",
       "matchPackagePatterns": ["^(@expo|expo)($|[-/])"],
       "matchUpdateTypes": ["major"],
-      "minimumReleaseAge": "45 days",
-      "minimumReleaseAgeBehaviour": "timestamp-optional"
+      "minimumReleaseAge": "45 days"
     },
     {
       "description": "Ne pas mettre à jour les deps verrouillées par Expo",
