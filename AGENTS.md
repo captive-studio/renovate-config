@@ -14,12 +14,12 @@ Single-context : `GLOSSARY.md` à la racine, ADR dans `doc/adr/`. Voir `docs/age
 
 ## Mode autonome
 
-Pour le chantier de la spec #3944 (tickets #3945 à #3950), sur la branche d'intégration `feature/timestamp-required` et les branches de ticket qui en partent, les agents peuvent :
+Quand un agent implémente une spec de ce dépôt (skill `/implement-spec` ou équivalent), il peut, pour cette spec et ses tickets :
 
 - `git add` et `git commit` (Gitmoji, français) ;
 - rebaser sur la branche d'intégration, seule méthode de merge du dépôt ;
-- `git push` de ces branches (jamais sur `main`, jamais de force-push sur `main`) ;
+- créer et pousser des branches `feature/*` et `ticket/*` (jamais `main`, jamais de force-push sur `main`) ;
 - ouvrir la PR en brouillon de la branche d'intégration vers `main`, puis la marquer prête pour relecture ;
-- commenter et fermer les tickets #3945 à #3950 une fois leur travail intégré.
+- commenter et fermer les tickets de la spec une fois leur travail intégré.
 
 Restent interdits : merger sur `main`, bumper une version, publier une release.
