@@ -46,11 +46,10 @@ describe('Minimum release age', () => {
     ['patch', '2 days'],
     ['minor', '2 days'],
     ['major', '7 days'],
-  ])('delays %s updates of every dependency by %s, Docker images included', (updateType, minimumReleaseAge) => {
+  ])('delays %s updates of every dependency by %s, strictly', (updateType, minimumReleaseAge) => {
     expect(baseJSON.packageRules).toContainEqual({
       matchUpdateTypes: [updateType],
       minimumReleaseAge,
-      minimumReleaseAgeBehaviour: 'timestamp-optional',
     });
   });
 });
