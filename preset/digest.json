@@ -5,6 +5,12 @@
     {
       "matchUpdateTypes": ["digest", "pinDigest", "lockFileMaintenance"],
       "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
+    {
+      "description": "Nos images captive-studio (captive-ci, node-ci, ruby-ci...) sont reconstruites par Captive : leurs digests se propagent sans délai.",
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "matchPackageNames": ["captive-studio/**", "ghcr.io/captive-studio/**"],
+      "minimumReleaseAge": null
     }
   ]
 }
