@@ -7,31 +7,18 @@
     "github>captive-studio/renovate-config//preset/commit",
     "github>captive-studio/renovate-config//preset/schedule",
     "github>captive-studio/renovate-config//preset/automergeBase",
-    "github>captive-studio/renovate-config//preset/ghcr",
+    "github>captive-studio/renovate-config//preset/minimumReleaseAge",
     "github>captive-studio/renovate-config//preset/digest",
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     ":pinAllExceptPeerDependencies",
-    "workarounds:all"
+    "workarounds:all",
+    "github>captive-studio/renovate-config//preset/ghcr"
   ],
   "onboarding": false,
   "internalChecksAsSuccess": true,
   "transitiveRemediation": true,
   "postUpdateOptions": ["npmDedupe"],
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["major"],
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "matchUpdateTypes": ["minor"],
-      "minimumReleaseAge": "2 days"
-    },
-    {
-      "matchUpdateTypes": ["patch"],
-      "minimumReleaseAge": "2 days"
-    }
-  ],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 0,
   "platformAutomerge": true,

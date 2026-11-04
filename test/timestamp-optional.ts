@@ -1,6 +1,6 @@
 import { isDeepStrictEqual } from 'node:util';
 
-type Rule = Record<string, unknown>;
+export type Rule =Record<string, unknown>;
 type Preset = { packageRules?: Rule[] };
 export type AllowlistEntry = { preset: string } & Rule;
 

@@ -4,10 +4,9 @@ import applicationJSON from '../application.json';
 import applicationLegacyJSON from '../applicationLegacy.json';
 import libraryJSON from '../library.json';
 import digestJSON from '../preset/digest.json';
+import minimumReleaseAgeJSON from '../preset/minimumReleaseAge.json';
 import groupExpoJSON from '../preset/groupExpo.json';
 import ghcrJSON from '../preset/ghcr.json';
-import groupNodeJSON from '../preset/groupNode.json';
-import groupRubyJSON from '../preset/groupRuby.json';
 
 describe('Configuration snapshot', () => {
   test('base.json', () => {
@@ -49,7 +48,7 @@ describe('Minimum release age', () => {
     ['minor', '2 days'],
     ['major', '7 days'],
   ])('delays %s updates of every dependency by %s, strictly', (updateType, minimumReleaseAge) => {
-    expect(baseJSON.packageRules).toContainEqual({
+    expect(minimumReleaseAgeJSON.packageRules).toContainEqual({
       matchUpdateTypes: [updateType],
       minimumReleaseAge,
     });
@@ -61,20 +60,6 @@ describe('GHCR', () => {
     expect(ghcrJSON.packageRules.map(({ description: _, ...rule }) => rule)).toEqual([
       { matchPackageNames: ['ghcr.io/captive-studio/**'], minimumReleaseAge: null },
     ]);
-  });
-});
-
-describe('CI images', () => {
-  // groupRecommended est appliqué après ghcr : sans exemption dans le groupe, son délai écraserait celle de ghcr.
-  const lastAgeMatching = (rules: Record<string, unknown>[], packageName: string) =>
-    rules.filter((rule) => (rule.matchPackageNames as string[]).includes(packageName) && 'minimumReleaseAge' in rule).at(-1)
-      ?.minimumReleaseAge;
-
-  test.each([
-    ['node-ci', groupNodeJSON],
-    ['ruby-ci', groupRubyJSON],
-  ])('does not delay our %s image', (image, group) => {
-    expect(lastAgeMatching(group.packageRules, `ghcr.io/captive-studio/${image}`)).toBeNull();
   });
 });
 

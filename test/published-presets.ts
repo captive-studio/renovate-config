@@ -10,7 +10,7 @@ const jsonFilesIn = (directory: string) =>
     .map((file) => join(directory, file));
 
 // Renovate tolère les virgules finales (JSON5) ; JSON.parse non.
-const parsePreset = (file: string) => JSON.parse(readFileSync(join(root, file), 'utf8').replace(/,(\s*[\]}])/g, '$1'));
+export const parsePreset =(file: string) => JSON.parse(readFileSync(join(root, file), 'utf8').replace(/,(\s*[\]}])/g, '$1'));
 
 export const publishedPresets = () =>
   Object.fromEntries([...jsonFilesIn('.'), ...jsonFilesIn('preset')].map((file) => [file, parsePreset(file)]));
