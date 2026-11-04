@@ -14,7 +14,7 @@ export const timestampOptionalAllowlist: AllowlistEntry[] = [
   // Images officielles datées ; seules nos images *-ci GHCR n'ont pas de date, exemptées par #3949. À retirer par #3947.
   { preset: 'preset/groupNode.json', groupName: 'Node (CI and Lang)' },
   { preset: 'preset/groupRuby.json', groupName: 'Ruby (CI and Lang)' },
-  // Digests et lock file maintenance sans date exploitable. À réduire par #3950 à la seule lockFileMaintenance,
-  // exception temporaire jusqu'au déploiement de renovatebot/renovate#47542 (pnpm) et #47500 (npm) chez Mend.
-  { preset: 'preset/digest.json', matchUpdateTypes: ['digest', 'pinDigest', 'lockFileMaintenance'] },
+  // Lock file maintenance sans date exploitable : exception temporaire jusqu'au déploiement chez Mend de
+  // https://github.com/renovatebot/renovate/issues/47542 (pnpm) et https://github.com/renovatebot/renovate/issues/47500 (npm).
+  { preset: 'preset/digest.json', matchUpdateTypes: ['lockFileMaintenance'] },
 ];
