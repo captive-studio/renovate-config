@@ -67,6 +67,9 @@ exports[`Configuration snapshot > base.json 1`] = `
     },
   ],
   "platformAutomerge": true,
+  "postUpdateOptions": [
+    "npmDedupe",
+  ],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 0,
   "transitiveRemediation": true,
