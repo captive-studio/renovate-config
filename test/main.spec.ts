@@ -6,6 +6,7 @@ import libraryJSON from '../library.json';
 import digestJSON from '../preset/digest.json';
 import groupExpoJSON from '../preset/groupExpo.json';
 import ghcrJSON from '../preset/ghcr.json';
+import groupNodeJSON from '../preset/groupNode.json';
 
 describe('Configuration snapshot', () => {
   test('base.json', () => {
@@ -59,6 +60,17 @@ describe('GHCR', () => {
     expect(ghcrJSON.packageRules.map(({ description: _, ...rule }) => rule)).toEqual([
       { matchPackageNames: ['ghcr.io/captive-studio/**'], minimumReleaseAge: null },
     ]);
+  });
+});
+
+describe('CI images', () => {
+  // groupRecommended est appliqué après ghcr : sans exemption dans le groupe, son délai écraserait celle de ghcr.
+  const lastAgeMatching = (rules: Record<string, unknown>[], packageName: string) =>
+    rules.filter((rule) => (rule.matchPackageNames as string[]).includes(packageName) && 'minimumReleaseAge' in rule).at(-1)
+      ?.minimumReleaseAge;
+
+  test('does not delay our node-ci image', () => {
+    expect(lastAgeMatching(groupNodeJSON.packageRules, 'ghcr.io/captive-studio/node-ci')).toBeNull();
   });
 });
 
