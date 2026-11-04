@@ -21,18 +21,15 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "minimumReleaseAge": "7 days",
-      "minimumReleaseAgeBehaviour": "timestamp-optional"
+      "minimumReleaseAge": "7 days"
     },
     {
       "matchUpdateTypes": ["minor"],
-      "minimumReleaseAge": "2 days",
-      "minimumReleaseAgeBehaviour": "timestamp-optional"
+      "minimumReleaseAge": "2 days"
     },
     {
       "matchUpdateTypes": ["patch"],
-      "minimumReleaseAge": "2 days",
-      "minimumReleaseAgeBehaviour": "timestamp-optional"
+      "minimumReleaseAge": "2 days"
     }
   ],
   "prConcurrentLimit": 5,
