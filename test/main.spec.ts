@@ -7,6 +7,7 @@ import digestJSON from '../preset/digest.json';
 import groupExpoJSON from '../preset/groupExpo.json';
 import ghcrJSON from '../preset/ghcr.json';
 import groupNodeJSON from '../preset/groupNode.json';
+import groupRubyJSON from '../preset/groupRuby.json';
 
 describe('Configuration snapshot', () => {
   test('base.json', () => {
@@ -69,8 +70,11 @@ describe('CI images', () => {
     rules.filter((rule) => (rule.matchPackageNames as string[]).includes(packageName) && 'minimumReleaseAge' in rule).at(-1)
       ?.minimumReleaseAge;
 
-  test('does not delay our node-ci image', () => {
-    expect(lastAgeMatching(groupNodeJSON.packageRules, 'ghcr.io/captive-studio/node-ci')).toBeNull();
+  test.each([
+    ['node-ci', groupNodeJSON],
+    ['ruby-ci', groupRubyJSON],
+  ])('does not delay our %s image', (image, group) => {
+    expect(lastAgeMatching(group.packageRules, `ghcr.io/captive-studio/${image}`)).toBeNull();
   });
 });
 
