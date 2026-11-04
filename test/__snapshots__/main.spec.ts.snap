@@ -34,35 +34,16 @@ exports[`Configuration snapshot > base.json 1`] = `
     "github>captive-studio/renovate-config//preset/commit",
     "github>captive-studio/renovate-config//preset/schedule",
     "github>captive-studio/renovate-config//preset/automergeBase",
-    "github>captive-studio/renovate-config//preset/ghcr",
+    "github>captive-studio/renovate-config//preset/minimumReleaseAge",
     "github>captive-studio/renovate-config//preset/digest",
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     ":pinAllExceptPeerDependencies",
     "workarounds:all",
+    "github>captive-studio/renovate-config//preset/ghcr",
   ],
   "internalChecksAsSuccess": true,
   "onboarding": false,
-  "packageRules": [
-    {
-      "matchUpdateTypes": [
-        "major",
-      ],
-      "minimumReleaseAge": "7 days",
-    },
-    {
-      "matchUpdateTypes": [
-        "minor",
-      ],
-      "minimumReleaseAge": "2 days",
-    },
-    {
-      "matchUpdateTypes": [
-        "patch",
-      ],
-      "minimumReleaseAge": "2 days",
-    },
-  ],
   "platformAutomerge": true,
   "postUpdateOptions": [
     "npmDedupe",

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Délai de release appliqué à toutes les dépendances. Placé avant preset/ghcr dans les extends : l'exemption de nos images GHCR doit être appliquée après ce délai.",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "minimumReleaseAge": "2 days"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "minimumReleaseAge": "2 days"
+    }
+  ]
+}
