@@ -11,8 +11,12 @@
         "ghcr.io/captive-studio/ruby-ci"
       ],
       "minimumReleaseAge": "3 days",
-      "minimumReleaseAgeBehaviour": "timestamp-optional",
       "automerge": true
+    },
+    {
+      "description": "Notre image ruby-ci est publiée par nous et n'a pas de date sur GHCR : exemptée de délai ici, car ce groupe est appliqué après preset/ghcr et écraserait son exemption",
+      "matchPackageNames": ["ghcr.io/captive-studio/ruby-ci"],
+      "minimumReleaseAge": null
     }
   ]
 }
