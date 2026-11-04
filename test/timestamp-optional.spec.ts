@@ -4,15 +4,15 @@ import { publishedPresets } from './published-presets';
 import { timestampOptionalAllowlist } from './timestamp-optional-allowlist';
 
 describe('timestamp-optional guard', () => {
+  const rule = { matchUpdateTypes: ['patch'], minimumReleaseAgeBehaviour: 'timestamp-optional' };
+
   test('reports a timestamp-optional rule missing from the allowlist', () => {
-    const rule = { matchUpdateTypes: ['patch'], minimumReleaseAgeBehaviour: 'timestamp-optional' };
     expect(unlistedTimestampOptionalRules({ 'base.json': { packageRules: [rule] } }, [])).toEqual([
       { preset: 'base.json', rule },
     ]);
   });
 
   test('ignores a timestamp-optional rule listed in the allowlist', () => {
-    const rule = { matchUpdateTypes: ['patch'], minimumReleaseAgeBehaviour: 'timestamp-optional' };
     const allowlist = [{ preset: 'base.json', matchUpdateTypes: ['patch'] }];
     expect(unlistedTimestampOptionalRules({ 'base.json': { packageRules: [rule] } }, allowlist)).toEqual([]);
   });
