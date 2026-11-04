@@ -1,9 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Les updates de digest et de maintenance des lockfiles n'ont pas de releaseTimestamp exploitable. Avec minimumReleaseAgeBehaviour=timestamp-required (défaut), le check renovate/stability-days reste pending à vie et l'automerge ne se déclenche jamais. On passe en timestamp-optional pour que l'absence de timestamp ne bloque plus, sans toucher au minimumReleaseAge hérité : là où un timestamp existe, le gating par âge continue de s'appliquer.",
+  "description": "Délai de release pour les updates sans date de publication : nos digests captive-studio sont exemptés, les digests tiers restent stricts (en attente tant qu'aucune date n'est fournie), la lock file maintenance garde une exception temporaire.",
   "packageRules": [
     {
-      "matchUpdateTypes": ["digest", "pinDigest", "lockFileMaintenance"],
+      "description": "Exception temporaire : la lock file maintenance n'a pas de releaseTimestamp, et en timestamp-required le check renovate/stability-days resterait pending à vie. À retirer quand Renovate déployé chez Mend délèguera le délai au gestionnaire de paquets (https://github.com/renovatebot/renovate/issues/47542 pour pnpm, https://github.com/renovatebot/renovate/issues/47500 pour npm).",
+      "matchUpdateTypes": ["lockFileMaintenance"],
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {

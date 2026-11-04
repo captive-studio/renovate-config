@@ -34,10 +34,12 @@ describe('Minimum release age', () => {
   });
 
   test('does not require timestamps for lock file maintenance', () => {
-    expect(digestJSON.packageRules).toContainEqual({
-      matchUpdateTypes: ['digest', 'pinDigest', 'lockFileMaintenance'],
-      minimumReleaseAgeBehaviour: 'timestamp-optional',
-    });
+    expect(digestJSON.packageRules).toContainEqual(
+      expect.objectContaining({
+        matchUpdateTypes: ['lockFileMaintenance'],
+        minimumReleaseAgeBehaviour: 'timestamp-optional',
+      }),
+    );
   });
 
   test.each([
