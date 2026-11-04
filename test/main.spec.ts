@@ -5,6 +5,7 @@ import applicationLegacyJSON from '../applicationLegacy.json';
 import libraryJSON from '../library.json';
 import digestJSON from '../preset/digest.json';
 import groupExpoJSON from '../preset/groupExpo.json';
+import ghcrJSON from '../preset/ghcr.json';
 
 describe('Configuration snapshot', () => {
   test('base.json', () => {
@@ -39,6 +40,14 @@ describe('Minimum release age', () => {
       minimumReleaseAge,
       minimumReleaseAgeBehaviour: 'timestamp-optional',
     });
+  });
+});
+
+describe('GHCR', () => {
+  test('exempts only our own GHCR images from the release age delay', () => {
+    expect(ghcrJSON.packageRules.map(({ description: _, ...rule }) => rule)).toEqual([
+      { matchPackageNames: ['ghcr.io/captive-studio/**'], minimumReleaseAge: null },
+    ]);
   });
 });
 
