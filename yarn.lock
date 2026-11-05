@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.201.1"
+    renovate: "npm:44.202.1"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
   languageName: unknown
@@ -2119,10 +2119,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/ruby-semver@npm:5.0.0":
-  version: 5.0.0
-  resolution: "@renovatebot/ruby-semver@npm:5.0.0"
-  checksum: 10/de5ceee675680895db288ea767f2f63aebe13f2efb6c439f3366735fac7e595a6ceb355492f8f3b8b998c62f1dad751132c5f7003cb16d2ede22a5e285bdc75e
+"@renovatebot/ruby-semver@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@renovatebot/ruby-semver@npm:6.0.0"
+  checksum: 10/3ba62a38ecd1117132bf61fa0a87c7363cb7d2fb27595a35528b02513b1f16d5156d8f6e8acc577a7add039320ec96bf7726f979a0784ce6cd9600b3eb657824
   languageName: node
   linkType: hard
 
@@ -7364,9 +7364,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.201.1":
-  version: 44.201.1
-  resolution: "renovate@npm:44.201.1"
+"renovate@npm:44.202.1":
+  version: 44.202.1
+  resolution: "renovate@npm:44.202.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7405,7 +7405,7 @@ __metadata:
     "@renovatebot/osv-offline": "npm:4.5.7"
     "@renovatebot/pep440": "npm:6.0.0"
     "@renovatebot/pgp": "npm:2.0.4"
-    "@renovatebot/ruby-semver": "npm:5.0.0"
+    "@renovatebot/ruby-semver": "npm:6.0.0"
     "@sindresorhus/is": "npm:8.1.0"
     "@yarnpkg/core": "npm:4.9.1"
     "@yarnpkg/parsers": "npm:3.1.0"
@@ -7500,7 +7500,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/5c1f7f711ae56cbe93a1e9aa48a7fa3929a9ddad4ad40d640f483f0dfa7173431a537e3c03ef0109b2f2acdc2182b328136aec0bf75d258243c3b958184e3f14
+  checksum: 10/078f06751c24626080f61789481b1ad3cf068a3003b30bf7dcf75d17a6cfc56e0f92c637f6a62dd89bf003416340d651be31dbb46673f91c50a905e6e43531e6
   languageName: node
   linkType: hard
 
