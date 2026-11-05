@@ -71,7 +71,7 @@
     "prettier": "3.9.10",
     "renovate": "44.207.0",
     "vite": "8.3.5",
-    "vitest": "5.0.5"
+    "vitest": "5.1.0"
   },
   "packageManager": "yarn@4.18.1",
   "engines": {
