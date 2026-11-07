@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.213.0"
+    renovate: "npm:44.217.0"
     vite: "npm:8.3.6"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -523,21 +523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@containerbase/base@npm:14.63.1":
-  version: 14.63.1
-  resolution: "@containerbase/base@npm:14.63.1"
-  dependencies:
-    semver: "npm:^7.8.5"
-  peerDependencies:
-    zod: ^4.0.0
-  peerDependenciesMeta:
-    zod:
-      optional: true
-  checksum: 10/45286b08f1a83e341424cb96d88f09d68553c37e4ac3ccc0dcc47f3f7fe497d7ed92ee5b5ea4ab3e424733522544ab48bf4389f425c9ee838f5e47fa20b7f3db
-  languageName: node
-  linkType: hard
-
-"@containerbase/base@npm:^14.62.0":
+"@containerbase/base@npm:14.66.2, @containerbase/base@npm:^14.62.0":
   version: 14.66.2
   resolution: "@containerbase/base@npm:14.66.2"
   dependencies:
@@ -1783,14 +1769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:1.43.0":
-  version: 1.43.0
-  resolution: "@opentelemetry/semantic-conventions@npm:1.43.0"
-  checksum: 10/44c0e667cbfbecd98911cd6a90dc5f873de262da82d6684f467a87d529098b04fb2b9705bbd3524ecdedf13c62914d9ccf0ddcc4104dbba5062faf68f361aef4
-  languageName: node
-  linkType: hard
-
-"@opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0, @opentelemetry/semantic-conventions@npm:^1.37.0, @opentelemetry/semantic-conventions@npm:^1.41.1":
+"@opentelemetry/semantic-conventions@npm:1.44.0, @opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0, @opentelemetry/semantic-conventions@npm:^1.37.0, @opentelemetry/semantic-conventions@npm:^1.41.1":
   version: 1.44.0
   resolution: "@opentelemetry/semantic-conventions@npm:1.44.0"
   checksum: 10/3780e8cbe495b2c3ed3ca942e00eb0aa0415026bc8fea66b80cb2919b693dd2c62088256e801a1d3bc7af907393aeba5b23fd06b57cc04bfe273578c4aa906b5
@@ -2043,17 +2022,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.157.1":
-  version: 13.157.1
-  resolution: "@renovatebot/base-image@npm:13.157.1"
+"@renovatebot/base-image@npm:13.160.4":
+  version: 13.160.4
+  resolution: "@renovatebot/base-image@npm:13.160.4"
   dependencies:
-    "@containerbase/base": "npm:14.63.1"
+    "@containerbase/base": "npm:14.66.2"
   peerDependencies:
     zod: ^4.0.0
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/e72e33f08e5f500d6e5229133c55ebe9bb2d2d6db3a3ca51458f56d5aa7c8ac54cdc1179afaf180405c39a975580e753c8a81cf47dca36802ec912160ebaef50
+  checksum: 10/8ff66b16f0595411cfde831e2551707b168fcec4215625c38d1fe46b7cccb84fc2bf523174f7611b96f30eeae433806f4bdf33c4161871fdcc2db8871333b3d9
   languageName: node
   linkType: hard
 
@@ -4558,7 +4537,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gaxios@npm:^8.3.0, gaxios@npm:^8.3.1":
+"gaxios@npm:^8.3.1":
   version: 8.3.2
   resolution: "gaxios@npm:8.3.2"
   dependencies:
@@ -4580,7 +4559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gcp-metadata@npm:^9.0.0":
+"gcp-metadata@npm:^9.2.1":
   version: 9.2.3
   resolution: "gcp-metadata@npm:9.2.3"
   dependencies:
@@ -4800,17 +4779,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:11.3.1":
-  version: 11.3.1
-  resolution: "google-auth-library@npm:11.3.1"
+"google-auth-library@npm:11.3.2":
+  version: 11.3.2
+  resolution: "google-auth-library@npm:11.3.2"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
-    gaxios: "npm:^8.3.0"
-    gcp-metadata: "npm:^9.0.0"
-    google-logging-utils: "npm:^2.0.0"
+    gaxios: "npm:^8.3.1"
+    gcp-metadata: "npm:^9.2.1"
+    google-logging-utils: "npm:^2.1.0"
     jws: "npm:^4.0.0"
-  checksum: 10/7bcf1c62ea9b3145e5318939897a33f0160afc734c44f67599f6a40ed3072a48e2912252a1ba8337fabe800c20d03cc989c9a7bc4ce106474754e53edd8d90a0
+  checksum: 10/12edecd5793ff04e36e956529f57f50ac58ed3ecb0d3f3c4d4dd5bfe632c8ade820b2208966ab95adc61745942fbfb0ceacc90a1a7021eba0c3006017fe8d0e8
   languageName: node
   linkType: hard
 
@@ -4821,7 +4800,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-logging-utils@npm:^2.0.0, google-logging-utils@npm:^2.1.0":
+"google-logging-utils@npm:^2.1.0":
   version: 2.1.1
   resolution: "google-logging-utils@npm:2.1.1"
   checksum: 10/544121c52c3c048968e38dc7c7c1507994b8e0019307ebb2c66e29666602108e56a176df5944623d5e282670e518def0198eff50abbad078a3de27bf90abc38c
@@ -7355,9 +7334,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.213.0":
-  version: 44.213.0
-  resolution: "renovate@npm:44.213.0"
+"renovate@npm:44.217.0":
+  version: 44.217.0
+  resolution: "renovate@npm:44.217.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7386,11 +7365,11 @@ __metadata:
     "@opentelemetry/resource-detector-github": "npm:0.34.0"
     "@opentelemetry/resources": "npm:3.0.0"
     "@opentelemetry/sdk-trace": "npm:3.0.0"
-    "@opentelemetry/semantic-conventions": "npm:1.43.0"
+    "@opentelemetry/semantic-conventions": "npm:1.44.0"
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.0"
-    "@renovatebot/base-image": "npm:13.157.1"
+    "@renovatebot/base-image": "npm:13.160.4"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
@@ -7431,7 +7410,7 @@ __metadata:
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
-    google-auth-library: "npm:11.3.1"
+    google-auth-library: "npm:11.3.2"
     got: "npm:16.1.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.10"
@@ -7491,7 +7470,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/d7fbbd70cc084b610feaad50b968c3ebc741ddffb12ccfa62b57733cc02ab6f76ff59c9678cc19506f4401af34516cad8ed15a583cf3f83ab341edca8b064e3b
+  checksum: 10/c9da377f0dbcddbd756bc6a47b2df0b6b10e85f43b5df5208e8ea08ded889698c05162b32c9962d2bd32becc96d14bc28acb6b1f4c42c897ec34b5809309f74a
   languageName: node
   linkType: hard
 
