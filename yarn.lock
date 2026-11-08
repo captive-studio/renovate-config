@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.217.0"
+    renovate: "npm:44.218.0"
     vite: "npm:8.3.6"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -2007,9 +2007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/client@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@redis/client@npm:6.3.0"
+"@redis/client@npm:6.3.1":
+  version: 6.3.1
+  resolution: "@redis/client@npm:6.3.1"
   peerDependencies:
     "@node-rs/xxhash": ^1.1.0
     "@opentelemetry/api": ">=1 <2"
@@ -2018,7 +2018,7 @@ __metadata:
       optional: true
     "@opentelemetry/api":
       optional: true
-  checksum: 10/d957cc6d7cfa90a2bb85b0dea1802817eec649109a6aaf3270bc3016b7c9756b4ad3f8e75e599aadc6141cae96058e066e3cc9b183033e3b0278ea48b61c5444
+  checksum: 10/a1c9073e9aa0bdf794780fd50a153aabbb8c558e98432a10a20884040bc8a6ae1d9155da4c4337e6649022f389de5ff397c4e3b3202a3f6847caf56a843d5715
   languageName: node
   linkType: hard
 
@@ -7334,9 +7334,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.217.0":
-  version: 44.217.0
-  resolution: "renovate@npm:44.217.0"
+"renovate@npm:44.218.0":
+  version: 44.218.0
+  resolution: "renovate@npm:44.218.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7368,7 +7368,7 @@ __metadata:
     "@opentelemetry/semantic-conventions": "npm:1.44.0"
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
-    "@redis/client": "npm:6.3.0"
+    "@redis/client": "npm:6.3.1"
     "@renovatebot/base-image": "npm:13.160.4"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
@@ -7470,7 +7470,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/c9da377f0dbcddbd756bc6a47b2df0b6b10e85f43b5df5208e8ea08ded889698c05162b32c9962d2bd32becc96d14bc28acb6b1f4c42c897ec34b5809309f74a
+  checksum: 10/bd2ed2a286423edf94f4e7e905e51408add25784309c7ee19de0d7dc0c85256c661790453a2e0c47c529f6b7a3549c9c60597d07c0c480c11927637d385827eb
   languageName: node
   linkType: hard
 
