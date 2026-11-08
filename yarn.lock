@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.220.0"
+    renovate: "npm:44.221.6"
     vite: "npm:8.3.6"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -523,7 +523,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@containerbase/base@npm:14.66.2, @containerbase/base@npm:^14.62.0":
+"@containerbase/base@npm:14.66.5":
+  version: 14.66.5
+  resolution: "@containerbase/base@npm:14.66.5"
+  dependencies:
+    semver: "npm:^7.8.5"
+  peerDependencies:
+    zod: ^4.0.0
+  peerDependenciesMeta:
+    zod:
+      optional: true
+  checksum: 10/148d8276305799e02af6d52e1038b00156192b3d7ee92dfdfe187ece099d1d626f1a2f1f4033412a4e65e022a4c2bb06d78e13a2c403fa357c80855efc12b6bb
+  languageName: node
+  linkType: hard
+
+"@containerbase/base@npm:^14.62.0":
   version: 14.66.2
   resolution: "@containerbase/base@npm:14.66.2"
   dependencies:
@@ -2066,17 +2080,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.160.5":
-  version: 13.160.5
-  resolution: "@renovatebot/base-image@npm:13.160.5"
+"@renovatebot/base-image@npm:13.160.10":
+  version: 13.160.10
+  resolution: "@renovatebot/base-image@npm:13.160.10"
   dependencies:
-    "@containerbase/base": "npm:14.66.2"
+    "@containerbase/base": "npm:14.66.5"
   peerDependencies:
     zod: ^4.0.0
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/2b2a101710c27ca308c323e1e1611ef0e8b8b1942a3e5579f8d2f800d92a223a148eff2ffad01b9bdec5b43e0abd57e2a7677fd93993edf3da864d29744b5163
+  checksum: 10/f9eb5db06fb32f553b86b8d0175159d7d198b083632ea9c89f9187a8286a622aa0ac0e7adec5acc79c9382113624e73df3b7eba5c45d3edb79361932a64d129c
   languageName: node
   linkType: hard
 
@@ -4866,9 +4880,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:16.1.0":
-  version: 16.1.0
-  resolution: "got@npm:16.1.0"
+"got@npm:16.2.0":
+  version: 16.2.0
+  resolution: "got@npm:16.2.0"
   dependencies:
     "@sindresorhus/is": "npm:^8.1.0"
     byte-counter: "npm:^0.1.0"
@@ -4880,7 +4894,7 @@ __metadata:
     responselike: "npm:^4.0.2"
     type-fest: "npm:^5.10.0"
     uint8array-extras: "npm:^1.6.0"
-  checksum: 10/c3accae46ad210efe8626e8b21c07c701e28be7998dc37b169543bc5dedfcd9a5002ee38cc785a24aa95b85bc71a5f3b2b4f224af4de72578d4e042bc42a2a25
+  checksum: 10/1420165c3bb5b3c57a69dcbdeebf3204e85c577eeb887f06b96312722c7a3a0dbd8c9ddcb55a589feb8742fe5474fd8b71bc10a8d2d1d2ac118a3bf9ace6f9ee
   languageName: node
   linkType: hard
 
@@ -6733,13 +6747,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:9.0.5":
-  version: 9.0.5
-  resolution: "node-html-parser@npm:9.0.5"
+"node-html-parser@npm:9.0.6":
+  version: 9.0.6
+  resolution: "node-html-parser@npm:9.0.6"
   dependencies:
     css-select: "npm:^5.1.0"
     entities: "npm:^8.0.0"
-  checksum: 10/1b35d67d63d902b244a1398e575c5dd00ef527775464883541407f64d1ce86599379f2037b9d643de06eb04a4a509c5cb776280a26e7601cecffbf76e80b361e
+  checksum: 10/d95da6f82cf93bf2239a1f196def7c028f567d960a754405ea8bfd3179fdb255d0444652b834460251358b521eff56682e2926cc46e998209b192d81bbed282c
   languageName: node
   linkType: hard
 
@@ -7386,9 +7400,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.220.0":
-  version: 44.220.0
-  resolution: "renovate@npm:44.220.0"
+"renovate@npm:44.221.6":
+  version: 44.221.6
+  resolution: "renovate@npm:44.221.6"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7421,7 +7435,7 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.1"
-    "@renovatebot/base-image": "npm:13.160.5"
+    "@renovatebot/base-image": "npm:13.160.10"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
@@ -7463,7 +7477,7 @@ __metadata:
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
     google-auth-library: "npm:11.3.2"
-    got: "npm:16.1.0"
+    got: "npm:16.2.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.10"
     ignore: "npm:7.0.14"
@@ -7481,7 +7495,7 @@ __metadata:
     moo: "npm:0.5.3"
     ms: "npm:2.1.3"
     neotraverse: "npm:1.0.1"
-    node-html-parser: "npm:9.0.5"
+    node-html-parser: "npm:9.0.6"
     openpgp: "npm:6.3.2"
     p-all: "npm:5.0.1"
     p-map: "npm:7.1.1"
@@ -7522,7 +7536,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/ffacaafd6483bb0480281204598b0d2d24bae0f68950bba5ca56a6d7fd9201676eda2a9943e43ac19bca24c372dd6843f91ecf239f2622e3c24997ad6ef87dc4
+  checksum: 10/883ab65387876c09b4113bf1f0d58f906c962db4f19751890162f46fe33a653c6b4d1a7ad19b1903af33a9ee85051d67d601c87d98baf0f0c1b9ca18fdb1258e
   languageName: node
   linkType: hard
 
