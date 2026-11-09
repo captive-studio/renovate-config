@@ -93,6 +93,21 @@ Configurer Renovate pour :
 }
 ```
 
+**Pour un projet Expo** (en plus de `:application` ou `:library`) :
+
+Tout dépôt Expo doit ajouter `github>captive-studio/renovate-config//preset/expo` à ses `extends`. Ce preset désactive les mises à jour des dépendances verrouillées par le SDK Expo (`react-native`, `@babel/core`, `jest-expo`...) : elles se mettent à jour avec `npx expo install --fix`.
+
+```jsonc
+// renovate.json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>captive-studio/renovate-config:application",
+    "github>captive-studio/renovate-config//preset/expo"
+  ]
+}
+```
+
 #### 2. Configurer les propriétaires (`CODEOWNERS`)
 
 > ⚠️ Sans propriétaires définis, les PR de maintenance risquent d’être ignorées.

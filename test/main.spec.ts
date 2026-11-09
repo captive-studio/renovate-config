@@ -6,6 +6,7 @@ import libraryJSON from '../library.json';
 import digestJSON from '../preset/digest.json';
 import minimumReleaseAgeJSON from '../preset/minimumReleaseAge.json';
 import groupExpoJSON from '../preset/groupExpo.json';
+import expoJSON from '../preset/expo.json';
 import ghcrJSON from '../preset/ghcr.json';
 
 describe('Configuration snapshot', () => {
@@ -75,6 +76,27 @@ describe('Expo', () => {
 
   test.each(['jest-expo', 'babel-preset-expo'])('does not update %s, locked by the Expo SDK', (packageName) => {
     expect(groupExpoJSON.packageRules).toContainEqual(
+      expect.objectContaining({
+        description: 'Ne pas mettre à jour les deps verrouillées par Expo',
+        matchPackageNames: expect.arrayContaining([packageName]),
+        enabled: false,
+      }),
+    );
+  });
+});
+
+describe('Expo preset', () => {
+  test('does not update React Native packages locked by the Expo SDK', () => {
+    expect(expoJSON.packageRules).toContainEqual(
+      expect.objectContaining({
+        matchPackageNames: ['@react-native/**'],
+        enabled: false,
+      }),
+    );
+  });
+
+  test.each(['jest-expo', 'babel-preset-expo'])('does not update %s, locked by the Expo SDK', (packageName) => {
+    expect(expoJSON.packageRules).toContainEqual(
       expect.objectContaining({
         description: 'Ne pas mettre à jour les deps verrouillées par Expo',
         matchPackageNames: expect.arrayContaining([packageName]),
