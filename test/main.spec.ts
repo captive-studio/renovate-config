@@ -56,6 +56,12 @@ describe('Minimum release age', () => {
   });
 });
 
+describe('Internal checks', () => {
+  test('does not open a branch while an internal check such as the release age is pending', () => {
+    expect(baseJSON).toHaveProperty('internalChecksFilter', 'strict');
+  });
+});
+
 describe('GHCR', () => {
   test('exempts only our own GHCR images from the release age delay', () => {
     expect(ghcrJSON.packageRules.map(({ description: _, ...rule }) => rule)).toEqual([
