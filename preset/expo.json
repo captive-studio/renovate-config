@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Ne pas mettre à jour les deps verrouillées par Expo",
+      "matchPackageNames": [
+        "@babel/core",
+        "@react-native-community/netinfo",
+        "@react-navigation/bottom-tabs",
+        "@react-navigation/native",
+        "@shopify/flash-list",
+        "babel-preset-expo",
+        "jest-expo",
+        "react-native",
+        "react-native-safe-area-context",
+        "react-native-reanimated",
+        "react-native-gesture-handler",
+        "react-native-worklets",
+        "react-native-keyboard-controller",
+        "lottie-react-native"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Ne pas mettre à jour les paquets @react-native/* : leur version doit suivre celle de react-native, imposée par le SDK Expo (ex. jest-expo exige @react-native/jest-preset en peer dep sur la même mineure). Ils montent avec le SDK via `npx expo install --fix`.",
+      "matchPackageNames": ["@react-native/**"],
+      "enabled": false
+    },
+    {
+      "description": "Attendre 45 jours avant de merger une mise a jour majeure d'Expo",
+      "matchPackagePatterns": ["^(@expo|expo)($|[-/])"],
+      "matchUpdateTypes": ["major"],
+      "minimumReleaseAge": "45 days"
+    },
+    {
+      "description": "Expo-doctor: conserver des ranges (^) pour certaines deps attendues par le SDK Expo",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "@react-navigation/bottom-tabs",
+        "@react-navigation/native"
+      ],
+      "rangeStrategy": "bump"
+    }
+  ]
+}

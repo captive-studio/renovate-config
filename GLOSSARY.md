@@ -16,6 +16,10 @@ _Avoid_: PR à merger, PR orpheline
 Règle qui automerge une majeure précise (version source → version cible) une fois validée, pour tous les dépôts.
 _Avoid_: whitelist, exception
 
+**Dépendance verrouillée par Expo**:
+Dépendance dont la version est imposée par le SDK Expo : elle ne monte qu'avec le SDK (`npx expo install --fix`), jamais par Renovate. Le verrou ne concerne que les dépôts Expo.
+_Avoid_: dep bloquée, dep ignorée
+
 ## Relationships
 
 - Une **Décision à prendre** concerne une dépendance et une version cible, et regroupe une ou plusieurs PR
