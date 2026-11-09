@@ -25,5 +25,11 @@ const matchesPackage = ({ matchPackageNames, matchPackagePrefixes, matchPackageP
   (!matchPackagePrefixes || matchPackagePrefixes.some((prefix) => packageName.startsWith(prefix))) &&
   (!matchPackagePatterns || matchPackagePatterns.some((pattern) => new RegExp(pattern).test(packageName)));
 
-export const effectiveMinimumReleaseAge = (rules: Rule[], packageName: string) =>
-  rules.filter((rule) => 'minimumReleaseAge' in rule && matchesPackage(rule as PackageMatchers, packageName)).at(-1)?.minimumReleaseAge;
+const matchesUpdateType = ({ matchUpdateTypes }: { matchUpdateTypes?: string[] }, updateType?: string) =>
+  !matchUpdateTypes || (updateType !== undefined && matchUpdateTypes.includes(updateType));
+
+export const effectiveMinimumReleaseAge = (rules: Rule[], packageName: string, updateType?: string) =>
+  rules
+    .filter((rule) => 'minimumReleaseAge' in rule && matchesPackage(rule as PackageMatchers, packageName))
+    .filter((rule) => matchesUpdateType(rule, updateType))
+    .at(-1)?.minimumReleaseAge;

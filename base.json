@@ -13,7 +13,8 @@
     ":separateMultipleMinorReleases",
     ":pinAllExceptPeerDependencies",
     "workarounds:all",
-    "github>captive-studio/renovate-config//preset/ghcr"
+    "github>captive-studio/renovate-config//preset/ghcr",
+    "github>captive-studio/renovate-config//preset/pinDigest"
   ],
   "onboarding": false,
   "internalChecksAsSuccess": true,

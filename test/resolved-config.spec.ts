@@ -12,3 +12,9 @@ describe('Our GHCR images in the resolved configuration', () => {
     },
   );
 });
+
+describe('Third-party digest pinning in the resolved configuration', () => {
+  test.each(presets)('%s does not delay pinning the digest of a third-party image', (preset) => {
+    expect(effectiveMinimumReleaseAge(resolvedPackageRules(preset), 'docker.io/library/ruby', 'pinDigest')).toBeNull();
+  });
+});
