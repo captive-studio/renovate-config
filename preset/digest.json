@@ -1,7 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Délai de release pour les updates sans date de publication : nos digests captive-studio sont exemptés, les digests tiers restent stricts (en attente tant qu'aucune date n'est fournie), la lock file maintenance garde une exception temporaire.",
+  "description": "Délai de release pour les updates sans date de publication : nos digests captive-studio sont exemptés, les digests tiers et la lock file maintenance gardent une exception temporaire.",
   "packageRules": [
+    {
+      "description": "Exception temporaire : le check renovate/stability-days de la branche lit upgrade.releaseTimestamp, qu'un digest ne porte jamais, et resterait pending à vie (https://github.com/renovatebot/renovate/issues/45236). Le délai reste appliqué à la lookup grâce à internalChecksFilter strict, avec la date du tag quand le registre la fournit (Docker Hub sous 1000 tags) ; sans date (GHCR, Quay, Docker Hub au-delà de 10 pages), le digest passe sans délai. À retirer quand Renovate déployé chez Mend inclura https://github.com/renovatebot/renovate/pull/46645.",
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
     {
       "description": "Exception temporaire : la lock file maintenance n'a pas de releaseTimestamp, et en timestamp-required le check renovate/stability-days resterait pending à vie. À retirer quand Renovate déployé chez Mend délèguera le délai au gestionnaire de paquets (https://github.com/renovatebot/renovate/issues/47542 pour pnpm, https://github.com/renovatebot/renovate/issues/47500 pour npm).",
       "matchUpdateTypes": ["lockFileMaintenance"],
