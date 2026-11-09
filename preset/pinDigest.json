@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "L'épinglage fige le digest du tag déjà utilisé, sans changer d'image : aucun délai n'a de sens. Les tags Docker n'ont pas de date de publication : avec minimumReleaseAgeBehaviour=timestamp-required, l'épinglage resterait pending à vie. Ce preset est placé en dernier dans les extends de base.json et recommended.json, pour que cette exemption gagne sur les délais des groupes (Ruby, Node...).",
+      "matchUpdateTypes": ["pinDigest"],
+      "minimumReleaseAge": null
+    }
+  ]
+}

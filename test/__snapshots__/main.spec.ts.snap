@@ -41,6 +41,7 @@ exports[`Configuration snapshot > base.json 1`] = `
     ":pinAllExceptPeerDependencies",
     "workarounds:all",
     "github>captive-studio/renovate-config//preset/ghcr",
+    "github>captive-studio/renovate-config//preset/pinDigest",
   ],
   "internalChecksAsSuccess": true,
   "onboarding": false,
