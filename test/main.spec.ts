@@ -7,7 +7,7 @@ import digestJSON from '../preset/digest.json';
 import minimumReleaseAgeJSON from '../preset/minimumReleaseAge.json';
 import expoJSON from '../preset/expo.json';
 import ghcrJSON from '../preset/ghcr.json';
-import { resolvedPackageRules, matchesPackage } from './resolved-config';
+import { resolvedPackageRules, targetsNamespace } from './resolved-config';
 
 describe('Configuration snapshot', () => {
   test('base.json', () => {
@@ -85,9 +85,12 @@ describe('Expo preset', () => {
   });
 });
 
-describe('Babel', () => {
+describe('Expo rules stay out of the common presets', () => {
   test.each(['application.json', 'library.json'])('%s does not disable any @babel/* package', (file) => {
-    const disabled = resolvedPackageRules(file).filter((rule) => rule.enabled === false);
-    expect(disabled.filter((rule) => matchesPackage(rule, '@babel/core'))).toEqual([]);
+    expect(resolvedPackageRules(file).filter((rule) => rule.enabled === false && targetsNamespace(rule, '@babel/'))).toEqual([]);
+  });
+
+  test.each(['application.json', 'library.json'])('%s does not set a rangeStrategy on @react-navigation/*', (file) => {
+    expect(resolvedPackageRules(file).filter((rule) => 'rangeStrategy' in rule && targetsNamespace(rule, '@react-navigation/'))).toEqual([]);
   });
 });

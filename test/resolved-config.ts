@@ -33,3 +33,14 @@ export const effectiveMinimumReleaseAge = (rules: Rule[], packageName: string, u
     .filter((rule) => 'minimumReleaseAge' in rule && matchesPackage(rule as PackageMatchers, packageName))
     .filter((rule) => matchesUpdateType(rule, updateType))
     .at(-1)?.minimumReleaseAge;
+
+const mentionsNamespace = (pattern: string, namespace: string) =>
+  pattern.startsWith(namespace) || (pattern.startsWith('/') && pattern.includes(namespace.slice(0, -1)));
+
+// Vrai si une règle vise un paquet du namespace, quelle que soit la forme du motif (nom exact, glob, regex).
+export const targetsNamespace = (
+  { matchPackageNames = [], matchPackagePrefixes = [], matchPackagePatterns = [] }: PackageMatchers,
+  namespace: string,
+) =>
+  [...matchPackageNames, ...matchPackagePrefixes].some((pattern) => mentionsNamespace(pattern, namespace)) ||
+  matchPackagePatterns.some((pattern) => pattern.includes(namespace.slice(0, -1)));
