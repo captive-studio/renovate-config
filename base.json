@@ -18,6 +18,7 @@
   ],
   "onboarding": false,
   "internalChecksAsSuccess": true,
+  "internalChecksFilter": "strict",
   "transitiveRemediation": true,
   "postUpdateOptions": ["npmDedupe"],
   "prConcurrentLimit": 5,

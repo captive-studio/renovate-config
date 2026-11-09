@@ -44,6 +44,7 @@ exports[`Configuration snapshot > base.json 1`] = `
     "github>captive-studio/renovate-config//preset/pinDigest",
   ],
   "internalChecksAsSuccess": true,
+  "internalChecksFilter": "strict",
   "onboarding": false,
   "platformAutomerge": true,
   "postUpdateOptions": [
