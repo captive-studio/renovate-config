@@ -20,7 +20,7 @@ const matchesName = (pattern: string, packageName: string) =>
 
 type PackageMatchers = { matchPackageNames?: string[]; matchPackagePrefixes?: string[]; matchPackagePatterns?: string[] };
 
-const matchesPackage = ({ matchPackageNames, matchPackagePrefixes, matchPackagePatterns }: PackageMatchers, packageName: string) =>
+export const matchesPackage = ({ matchPackageNames, matchPackagePrefixes, matchPackagePatterns }: PackageMatchers, packageName: string) =>
   (!matchPackageNames || matchPackageNames.some((pattern) => matchesName(pattern, packageName))) &&
   (!matchPackagePrefixes || matchPackagePrefixes.some((prefix) => packageName.startsWith(prefix))) &&
   (!matchPackagePatterns || matchPackagePatterns.some((pattern) => new RegExp(pattern).test(packageName)));
