@@ -231,6 +231,11 @@ bin/automerge-renovate automerge
 * ✅ Garder le tableau de bord “Dependency Dashboard” à jour
 * ✅ Ne pas ignorer les PR obsolètes
 * ✅ Supprimer les limitations une fois la stabilité atteinte
+* ⚠️ Ne pas compter sur `npmDedupe` (dans `base.json`) pour dédupliquer le lockfile : Renovate
+  le traduit en `npm install --package-lock-only --prefer-dedupe`, qui ne réorganise pas les
+  copies déjà imbriquées. Un lockfile npm peut donc arriver avec plusieurs copies d'un même
+  paquet, par exemple `@tamagui/web`, ce qui casse le thème Tamagui (`Missing theme.`). Le
+  dépôt applicatif lance `npm dedupe` et commite le lockfile ; sa CI peut le vérifier.
 
 ---
 
