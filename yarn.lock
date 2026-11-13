@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.9.10"
-    renovate: "npm:44.226.3"
+    renovate: "npm:44.227.4"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -523,9 +523,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@containerbase/base@npm:14.66.15":
-  version: 14.66.15
-  resolution: "@containerbase/base@npm:14.66.15"
+"@containerbase/base@npm:14.66.16":
+  version: 14.66.16
+  resolution: "@containerbase/base@npm:14.66.16"
   dependencies:
     semver: "npm:^7.8.5"
   peerDependencies:
@@ -533,7 +533,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/9d9fab98398285f54f17ab7e4c4b8d6381dcaaa30aaefa2707e8dc77d1d458a349e0114ef18504dc908fcd725b0b169d8f1c1b0efb4f3fa112e45c2b716ffeae
+  checksum: 10/cc972396e761cbc535ba95062213ec328a70ceb0a20a0f53a21b0fce3044c65c4fafd462b52278899fc8b3e48728f1f06b8d60bb8591ffe7c313acdd4543f35f
   languageName: node
   linkType: hard
 
@@ -2106,17 +2106,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.163.4":
-  version: 13.163.4
-  resolution: "@renovatebot/base-image@npm:13.163.4"
+"@renovatebot/base-image@npm:13.163.7":
+  version: 13.163.7
+  resolution: "@renovatebot/base-image@npm:13.163.7"
   dependencies:
-    "@containerbase/base": "npm:14.66.15"
+    "@containerbase/base": "npm:14.66.16"
   peerDependencies:
     zod: ^4.0.0
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/a008b459efdfd98cc839aca9c1bdbeb9c7e7d004d08c9ee543618c23d50e157f6734d5c1516b316f99975f4432214be90e9d34be498835f46983c11ed41b9959
+  checksum: 10/797737078fe14dea0d87ad31d2132f480394cc2436d972d85c9726f3fb4fa285b9b6ad14ce87bee6a26cb353c72640eebc0113ebb628211043269f8eeb8a4536
   languageName: node
   linkType: hard
 
@@ -4905,9 +4905,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:11.3.2":
-  version: 11.3.2
-  resolution: "google-auth-library@npm:11.3.2"
+"google-auth-library@npm:11.3.3":
+  version: 11.3.3
+  resolution: "google-auth-library@npm:11.3.3"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
@@ -4915,7 +4915,7 @@ __metadata:
     gcp-metadata: "npm:^9.2.1"
     google-logging-utils: "npm:^2.1.0"
     jws: "npm:^4.0.0"
-  checksum: 10/12edecd5793ff04e36e956529f57f50ac58ed3ecb0d3f3c4d4dd5bfe632c8ade820b2208966ab95adc61745942fbfb0ceacc90a1a7021eba0c3006017fe8d0e8
+  checksum: 10/122a87f7599518f820254c27cdddce7e7707363275a352619c833c3a6fbacc90a3d62dad3ced2e6e35eb03382f3d39f2b03d64cafe0dcebbd4049f22abfd3ce6
   languageName: node
   linkType: hard
 
@@ -5956,14 +5956,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-table@npm:3.0.4":
-  version: 3.0.4
-  resolution: "markdown-table@npm:3.0.4"
-  checksum: 10/bc699819e6a15607e5def0f21aa862aa061cf1f49877baa93b0185574f6ab143591afe0e18b94d9b15ea80c6a693894150dbccfacf4f6767160dc32ae393dfe0
-  languageName: node
-  linkType: hard
-
-"markdown-table@npm:^3.0.0":
+"markdown-table@npm:3.1.0, markdown-table@npm:^3.0.0":
   version: 3.1.0
   resolution: "markdown-table@npm:3.1.0"
   checksum: 10/b80e93bf0ab014eb391ddd93330091f027a418ccc93de16a70b4c74ccc9581242fa2ff5ae932625e146a785ede9d89147f53b2e64325158f9feae5cfca5e8e92
@@ -7469,9 +7462,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.226.3":
-  version: 44.226.3
-  resolution: "renovate@npm:44.226.3"
+"renovate@npm:44.227.4":
+  version: 44.227.4
+  resolution: "renovate@npm:44.227.4"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7504,7 +7497,7 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.1"
-    "@renovatebot/base-image": "npm:13.163.4"
+    "@renovatebot/base-image": "npm:13.163.7"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
@@ -7545,7 +7538,7 @@ __metadata:
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
-    google-auth-library: "npm:11.3.2"
+    google-auth-library: "npm:11.3.3"
     got: "npm:16.2.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.10"
@@ -7559,7 +7552,7 @@ __metadata:
     klona: "npm:2.0.6"
     luxon: "npm:3.7.2"
     markdown-it: "npm:15.0.3"
-    markdown-table: "npm:3.0.4"
+    markdown-table: "npm:3.1.0"
     minimatch: "npm:10.2.6"
     moo: "npm:0.5.3"
     ms: "npm:2.1.3"
@@ -7605,7 +7598,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/304f1d63fbe528cb2244008eae00a840b9bc05e9077dd1ebff80f7e8733160e38c4a9270ec098ae204f1b342e37ab31393292d0ab96a369562e4c0516a8c0d1f
+  checksum: 10/679a4fb605a9d070d8172fa208511f4b0b694e32c08cef4a393ea3310b7713194a551b8637d996bdcca6b4fb1ffafadff697679aae3cfa0ae9d5405525d53cb6
   languageName: node
   linkType: hard
 
