@@ -185,14 +185,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/credential-provider-ini@npm:^3.973.17, @aws-sdk/credential-provider-ini@npm:^3.973.29":
-  version: 3.973.29
-  resolution: "@aws-sdk/credential-provider-ini@npm:3.973.29"
+"@aws-sdk/credential-provider-ini@npm:^3.973.17, @aws-sdk/credential-provider-ini@npm:^3.973.30":
+  version: 3.973.30
+  resolution: "@aws-sdk/credential-provider-ini@npm:3.973.30"
   dependencies:
     "@aws-sdk/core": "npm:^3.981.0"
     "@aws-sdk/credential-provider-env": "npm:^3.972.84"
     "@aws-sdk/credential-provider-http": "npm:^3.972.86"
-    "@aws-sdk/credential-provider-login": "npm:^3.972.91"
+    "@aws-sdk/credential-provider-login": "npm:^3.972.92"
     "@aws-sdk/credential-provider-process": "npm:^3.972.84"
     "@aws-sdk/credential-provider-sso": "npm:^3.973.28"
     "@aws-sdk/credential-provider-web-identity": "npm:^3.972.90"
@@ -202,13 +202,13 @@ __metadata:
     "@smithy/credential-provider-imds": "npm:^4.5.2"
     "@smithy/types": "npm:^4.20.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/55b432c50ad95d055db3f5424259dd2b3392a4e8456b7a5dc272dd402217be93d98f5feec0b4ffe380c3367d1f22543ad7e53f957aed8501de6aeaf869ad066d
+  checksum: 10/c7639e3167b7c6affa98582148c57f7279ccc66f97f519374814b2989ad88194b4c1e78f412f867246aa3d08d469ac9f2231d66cde160814b052722c9a2d7fd2
   languageName: node
   linkType: hard
 
-"@aws-sdk/credential-provider-login@npm:^3.972.79, @aws-sdk/credential-provider-login@npm:^3.972.91":
-  version: 3.972.91
-  resolution: "@aws-sdk/credential-provider-login@npm:3.972.91"
+"@aws-sdk/credential-provider-login@npm:^3.972.79, @aws-sdk/credential-provider-login@npm:^3.972.92":
+  version: 3.972.92
+  resolution: "@aws-sdk/credential-provider-login@npm:3.972.92"
   dependencies:
     "@aws-sdk/core": "npm:^3.981.0"
     "@aws-sdk/nested-clients": "npm:^3.998.3"
@@ -216,17 +216,17 @@ __metadata:
     "@smithy/core": "npm:^3.40.0"
     "@smithy/types": "npm:^4.20.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/adc1b8a56bd8a856aa94a4abb40b50ca72a2b02cfc9311d2654c072ecf5361660aded8415c4b32983e71f6606207cb551e6ccbe0488a20df6f6b2f34b015bc84
+  checksum: 10/88fbb128b486211f8b01d60a6795f289b46c053ef7893e3375371f871d1ff6b9aa26b56a43082c46ddbb2847ab60fc92415920587c491fcdd8c8dc99cd84f1f6
   languageName: node
   linkType: hard
 
 "@aws-sdk/credential-provider-node@npm:^3.972.84":
-  version: 3.972.96
-  resolution: "@aws-sdk/credential-provider-node@npm:3.972.96"
+  version: 3.972.97
+  resolution: "@aws-sdk/credential-provider-node@npm:3.972.97"
   dependencies:
     "@aws-sdk/credential-provider-env": "npm:^3.972.84"
     "@aws-sdk/credential-provider-http": "npm:^3.972.86"
-    "@aws-sdk/credential-provider-ini": "npm:^3.973.29"
+    "@aws-sdk/credential-provider-ini": "npm:^3.973.30"
     "@aws-sdk/credential-provider-process": "npm:^3.972.84"
     "@aws-sdk/credential-provider-sso": "npm:^3.973.28"
     "@aws-sdk/credential-provider-web-identity": "npm:^3.972.90"
@@ -235,7 +235,7 @@ __metadata:
     "@smithy/credential-provider-imds": "npm:^4.5.2"
     "@smithy/types": "npm:^4.20.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/c266ad9bdb3a4d1f72a5ddbfd11dbda4cf689f9bb991acb67f8c89fc21f25484dc97f8df422b033c9d9a2099c9300f92080d60e4065d7b76e0c6f33c0bf34a87
+  checksum: 10/89263dea588ee39a9e6bb8d5be31914c9872adb9221fdc52d6aacb58ac548304300aa1a8e51d3146a20b39dffe63635e51f2210b79ae8f774ac2390f711d5a91
   languageName: node
   linkType: hard
 
@@ -435,11 +435,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime-corejs3@npm:^7.14.9":
-  version: 7.29.13
-  resolution: "@babel/runtime-corejs3@npm:7.29.13"
+  version: 7.29.14
+  resolution: "@babel/runtime-corejs3@npm:7.29.14"
   dependencies:
     core-js-pure: "npm:^3.48.0"
-  checksum: 10/72f97267ff34b400cc5c348277f44e40a477577a013c24f20b9fd50ac6209ebcd188adb3a1799d0d0f5c7c739884bea479726afe98bee9e3ed63109a3ee6d0a4
+  checksum: 10/352d65bffbd8c06c1d612565d82c798cf84cf4a27e8bdcd7992fd6c2e01d0ea1c1820e53d9c7ab34efaf32607f0eab958b872d88897323de3be1c5d1fabce86f
   languageName: node
   linkType: hard
 
@@ -538,8 +538,8 @@ __metadata:
   linkType: hard
 
 "@containerbase/base@npm:^14.62.0":
-  version: 14.66.16
-  resolution: "@containerbase/base@npm:14.66.16"
+  version: 14.66.21
+  resolution: "@containerbase/base@npm:14.66.21"
   dependencies:
     semver: "npm:^7.8.5"
   peerDependencies:
@@ -547,7 +547,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/cc972396e761cbc535ba95062213ec328a70ceb0a20a0f53a21b0fce3044c65c4fafd462b52278899fc8b3e48728f1f06b8d60bb8591ffe7c313acdd4543f35f
+  checksum: 10/5a343b820cf290debe1f1cf8d10d69a36f1b9cf57da4000d8b175bf16484d4f2ce9a9636c4a24ab83e353141ba088581776cee46f31358af1f5300a717eb5e9c
   languageName: node
   linkType: hard
 
@@ -4998,9 +4998,9 @@ __metadata:
   linkType: hard
 
 "graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.6":
-  version: 4.2.11
-  resolution: "graceful-fs@npm:4.2.11"
-  checksum: 10/bf152d0ed1dc159239db1ba1f74fdbc40cb02f626770dcd5815c427ce0688c2635a06ed69af364396da4636d0408fcf7d4afdf7881724c3307e46aff30ca49e2
+  version: 4.2.12
+  resolution: "graceful-fs@npm:4.2.12"
+  checksum: 10/80fdd8384a2bbc94cc32dca8b7fdf011c6bc11bb96c296c8329a3c3515010956921c5080c4bd2f1a1becdf7655e5fcc691afc63ebb0c1d3da5d6afe4a17d471f
   languageName: node
   linkType: hard
 
