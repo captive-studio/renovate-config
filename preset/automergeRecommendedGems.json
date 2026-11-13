@@ -94,6 +94,13 @@
       "automerge": true
     },
     {
+      "description": "Automerge rspec-rails en major (toutes versions) : chaque majeure suit les versions de Rails supportées, Bundler refuse une majeure incompatible avec le Rails du projet et la CI échoue alors",
+      "matchManagers": ["bundler"],
+      "matchPackageNames": ["rspec-rails"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
+    },
+    {
       "description": "Automerge ransack en major pour 4.x → 5.x uniquement (ruptures : échappement LIKE, combinators normalisés, retrait du monkey patch ActionView)",
       "matchManagers": ["bundler"],
       "matchPackageNames": ["ransack"],
