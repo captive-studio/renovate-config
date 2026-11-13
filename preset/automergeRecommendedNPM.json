@@ -73,7 +73,8 @@
         "idle-timeout",
         "kube-prometheus-stack",
         "lottie-react-native",
-        "cronstrue"
+        "cronstrue",
+        "chart.js"
       ]
     },
     {
