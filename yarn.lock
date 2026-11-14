@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.10.1"
-    renovate: "npm:44.229.0"
+    renovate: "npm:44.230.1"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -2175,10 +2175,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pgp@npm:2.0.4":
-  version: 2.0.4
-  resolution: "@renovatebot/pgp@npm:2.0.4"
-  checksum: 10/fa7e77741ad2ac40bed2373ae4468286c0adec95236e2432f169db5bd58e812cb3162f499b64b006aca52e4cfcca5d9b5277fdab4d29ab391583c344bf3ee263
+"@renovatebot/pgp@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@renovatebot/pgp@npm:2.0.5"
+  checksum: 10/58859afb7da89d63554a8c63e523c115e832ee3323f0053bb89ab0d51948018de8d6aba2438ca65ffacf637561edb225334107feafbf58de1ef7b41672122b82
   languageName: node
   linkType: hard
 
@@ -7471,9 +7471,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.229.0":
-  version: 44.229.0
-  resolution: "renovate@npm:44.229.0"
+"renovate@npm:44.230.1":
+  version: 44.230.1
+  resolution: "renovate@npm:44.230.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7511,7 +7511,7 @@ __metadata:
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
     "@renovatebot/pep440": "npm:6.0.0"
-    "@renovatebot/pgp": "npm:2.0.4"
+    "@renovatebot/pgp": "npm:2.0.5"
     "@renovatebot/ruby-semver": "npm:6.0.0"
     "@sindresorhus/is": "npm:8.1.0"
     "@yarnpkg/core": "npm:4.9.1"
@@ -7607,7 +7607,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/e94a80e36cbb58f618a06afd4282caaf97a20956142512b9df1fe41cc70356ca507fd05e8c945ce286691e73a28ccde031ad70887037b6ce0fb7a9bada50dc78
+  checksum: 10/fd4a6775d89b3c2f32e8719f2b00a9618ee806a6f8257ff518c5626d7c1d7ddda7023377b6015fe0a604d8cd07c4857295f6f28592d466bd26a7e79007fae5d0
   languageName: node
   linkType: hard
 
