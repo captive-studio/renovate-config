@@ -34,7 +34,13 @@ module AutomergeRenovate
     end
 
     def rebase_needed?
-      RebaseNeed.new(@pr).needed?
+      RebaseNeed.new(@pr).needed? && !mergeable_while_behind?
+    end
+
+    # Sans exigence de branche à jour, GitHub fusionne une branche en retard (CLEAN) : une PR verte
+    # est fusionnée tout de suite plutôt qu'après un rebase et une nouvelle CI.
+    def mergeable_while_behind?
+      merge_state_status == "CLEAN" && automerge_enabled? && checks_green?
     end
 
     # Une PR à rebaser dont l'automerge est désactivé reste une décision humaine : on la rebase
