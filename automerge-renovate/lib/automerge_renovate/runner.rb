@@ -71,7 +71,14 @@ module AutomergeRenovate
     # désactivé (décision humaine), ou version encore trop récente pour Renovate (attente en jours).
     def awaitable_rebase?(pr, decision)
       decision[:action] == :rebase_requested && !decision[:needs_decision] &&
-        !ReleaseAgeGate.new(pr["statusCheckRollup"]).pending?
+        !ReleaseAgeGate.new(pr["statusCheckRollup"]).pending? &&
+        !regenerated_by_renovate?(pr)
+    end
+
+    # Une PR en conflit est régénérée par Renovate à son prochain passage, sans délai garanti :
+    # on coche la case et on la reprend au run suivant plutôt que de bloquer celui-ci.
+    def regenerated_by_renovate?(pr)
+      pr["mergeStateStatus"] == "DIRTY"
     end
   end
 end
