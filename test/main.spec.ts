@@ -80,6 +80,17 @@ describe('Expo preset', () => {
     );
   });
 
+  test('groups Expo SDK minor/patch updates, jest-expo included', () => {
+    expect(expoJSON.packageRules).toContainEqual(
+      expect.objectContaining({
+        matchPackageNames: expect.arrayContaining(['jest-expo']),
+        matchUpdateTypes: ['minor', 'patch'],
+        groupName: 'Expo SDK',
+        enabled: true,
+      }),
+    );
+  });
+
   test.each(['jest-expo', 'babel-preset-expo'])('does not update %s, locked by the Expo SDK', (packageName) => {
     expect(expoJSON.packageRules).toContainEqual(
       expect.objectContaining({
