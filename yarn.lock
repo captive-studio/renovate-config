@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.10.1"
-    renovate: "npm:44.238.3"
+    renovate: "npm:44.239.1"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -1865,14 +1865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:1.44.0":
-  version: 1.44.0
-  resolution: "@opentelemetry/semantic-conventions@npm:1.44.0"
-  checksum: 10/3780e8cbe495b2c3ed3ca942e00eb0aa0415026bc8fea66b80cb2919b693dd2c62088256e801a1d3bc7af907393aeba5b23fd06b57cc04bfe273578c4aa906b5
-  languageName: node
-  linkType: hard
-
-"@opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0, @opentelemetry/semantic-conventions@npm:^1.37.0, @opentelemetry/semantic-conventions@npm:^1.41.1":
+"@opentelemetry/semantic-conventions@npm:1.45.0, @opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0, @opentelemetry/semantic-conventions@npm:^1.37.0, @opentelemetry/semantic-conventions@npm:^1.41.1":
   version: 1.45.0
   resolution: "@opentelemetry/semantic-conventions@npm:1.45.0"
   checksum: 10/a95d97b3ee90bcb50097044ceae014a061904b87bffe45b659ba2a3b122e66e5373628fc8298cfee43f49a0bd79e7098f016766c0d7e2c8afcfc215a81a5f1ce
@@ -7500,9 +7493,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.238.3":
-  version: 44.238.3
-  resolution: "renovate@npm:44.238.3"
+"renovate@npm:44.239.1":
+  version: 44.239.1
+  resolution: "renovate@npm:44.239.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7531,7 +7524,7 @@ __metadata:
     "@opentelemetry/resource-detector-github": "npm:0.34.1"
     "@opentelemetry/resources": "npm:3.1.0"
     "@opentelemetry/sdk-trace": "npm:3.1.0"
-    "@opentelemetry/semantic-conventions": "npm:1.44.0"
+    "@opentelemetry/semantic-conventions": "npm:1.45.0"
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.1"
@@ -7636,7 +7629,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/a4af8cb447764e2b7e90cd7a0a3d4ff074960d4baab78b877135e543b72dc469d6ee8a5e5d35605ba874d5b2d44c38f7afc345bc3fdc223fd1ac315a9dbe0c77
+  checksum: 10/020be3ab32e2b6a2da80733671d6daa9e7babce00ef01e603ac48e386964d4a22efce1679cbe9ef0aa6a2b68ec4f3e388302e8ab6b1284fe66b467bb1c2ad330
   languageName: node
   linkType: hard
 
