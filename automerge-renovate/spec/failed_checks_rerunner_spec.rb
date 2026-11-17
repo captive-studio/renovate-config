@@ -10,6 +10,13 @@ RSpec.describe AutomergeRenovate::FailedChecksRerunner do
   let(:gh) { instance_double(AutomergeRenovate::GhCli) }
 
   describe "#call" do
+    it "ne relance rien quand la décision n'est pas rejouable (artefacts Renovate en échec)" do
+      decision = { action: :skip, reason: "artefacts Renovate en échec", needs_investigation: true,
+                   rerunnable: false, }
+
+      expect(rerunner.call("captive-studio/cae-serveur", {}, decision)).to eq(decision)
+    end
+
     it "laisse la décision inchangée quand la PR ne nécessite pas d'investigation" do
       pr = { "statusCheckRollup" => [] }
       decision = { action: :merge, strategy: :rebase }

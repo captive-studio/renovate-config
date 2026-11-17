@@ -12,7 +12,6 @@ RSpec.describe AutomergeRenovate::Runner do
   let(:rebase_waiter) { instance_double(AutomergeRenovate::RebaseWaiter, call: nil) }
 
   before(:each) do
-    allow(gh).to receive(:behind_by).and_return(0)
     allow(gh).to receive(:merged?).and_return(true)
   end
 
@@ -50,23 +49,39 @@ RSpec.describe AutomergeRenovate::Runner do
       expect(gh).to have_received(:update_branch).with("captive-studio/cae-application", 1008)
     end
 
-    it "rebase la branche via GitHub quand elle est en retard sans que GitHub la marque BEHIND" do
-      pr = { "number" => 1103, "body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi",
-             "mergeStateStatus" => "UNSTABLE", "baseRefName" => "main",
-             "headRefName" => "renovate/openai-7.x",
-             "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
-      allow(gh).to receive(:open_renovate_prs).with("captive-studio/cae-application").and_return([ pr ])
-      allow(gh).to receive(:merge_settings).with("captive-studio/cae-application").and_return({})
-      allow(gh).to receive(:behind_by)
-        .with("captive-studio/cae-application", "main", "renovate/openai-7.x").and_return(4)
-      allow(gh).to receive(:update_branch)
+    it "relit les PR suivantes d'un repo après une fusion, leur état ayant changé" do
+      green = [ { "conclusion" => "SUCCESS" } ]
+      first = { "number" => 1, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
+                "statusCheckRollup" => green, }
+      stale = first.merge("number" => 2)
+      fresh = stale.merge("mergeStateStatus" => "DIRTY", "body" => "- [ ] <!-- rebase-check -->x\n" \
+                                                                    "🚦 **Automerge**: Enabled.")
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ first, stale ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({ "allow_rebase_merge" => true })
+      allow(gh).to receive(:merge)
+      allow(gh).to receive(:pr).with("captive-studio/monocle", 2).and_return(fresh)
+      allow(gh).to receive(:update_body)
 
-      results = runner.run([ "captive-studio/cae-application" ])
+      results = runner.run([ "captive-studio/monocle" ])
 
-      expect(results).to eq(
-        [ { repo: "captive-studio/cae-application", number: 1103, url: nil, action: :rebase_requested } ]
-      )
-      expect(gh).to have_received(:update_branch).with("captive-studio/cae-application", 1103)
+      expect(gh).to have_received(:merge).once
+      expect(results.last[:action]).to eq(:rebase_requested)
+    end
+
+    it "relit une PR dont GitHub n'a pas encore calculé l'état de fusion" do
+      unknown = { "number" => 3, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNKNOWN",
+                  "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ unknown ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({ "allow_rebase_merge" => true })
+      allow(gh).to receive(:pr).with("captive-studio/monocle", 3).and_return(unknown.merge("mergeStateStatus" => "CLEAN"))
+      allow(gh).to receive(:merge)
+      sleeper = instance_double(Proc, call: nil)
+
+      results = described_class.new(gh: gh, rebase_waiter: rebase_waiter, sleeper: sleeper)
+                               .run([ "captive-studio/monocle" ])
+
+      expect(sleeper).to have_received(:call).with(2).once
+      expect(results.last[:action]).to eq(:merge)
     end
 
     it "inclut l'URL de la PR dans le résultat, pour les PR nécessitant une décision" do
@@ -200,6 +215,7 @@ RSpec.describe AutomergeRenovate::Runner do
         .and_return({ "allow_rebase_merge" => true })
       allow(gh).to receive(:merge)
       allow(gh).to receive(:update_branch)
+      allow(gh).to receive(:pr).with("captive-studio/monocle", 2).and_return(second)
       allow(rebase_waiter).to receive(:call).with("captive-studio/monocle", second).and_return(rebased)
 
       waited = []
