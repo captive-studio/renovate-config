@@ -74,6 +74,15 @@ RSpec.describe AutomergeRenovate::ChecksEvaluator do
       expect(evaluator.pending_checks).to eq([ running, pending ])
     end
 
+    it "considère en cours un CheckRun en file d'attente dont gh renvoie une conclusion vide" do
+      queued = { "__typename" => "CheckRun", "status" => "QUEUED", "conclusion" => "" }
+
+      evaluator = described_class.new([ queued ])
+
+      expect(evaluator.red_checks).to be_empty
+      expect(evaluator.pending_checks).to eq([ queued ])
+    end
+
     it "retourne uniquement les checks non verts" do
       green = { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "SUCCESS" }
       red = { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "FAILURE" }
