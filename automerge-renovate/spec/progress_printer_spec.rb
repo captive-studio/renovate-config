@@ -12,6 +12,20 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
   let(:time) { [ 1000 ] }
   let(:sleeper) { instance_double(Proc, call: nil) }
 
+  describe "#decision" do
+    it "affiche la PR renvoyée par GitHub, sans son corps, et la décision prise" do
+      pr = { "number" => 941, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNSTABLE" }
+
+      progress.decision(pr, { action: :skip, reason: "checks en cours" })
+
+      output = JSON.parse(out.string)
+      expect(output).to eq(
+        "pr" => { "number" => 941, "mergeStateStatus" => "UNSTABLE", "automergeEnabled" => true },
+        "decision" => { "action" => "skip", "reason" => "checks en cours" }
+      )
+    end
+  end
+
   describe "#searching" do
     it "affiche un message de recherche du ticket Jira" do
       progress.searching

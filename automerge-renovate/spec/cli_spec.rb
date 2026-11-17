@@ -22,9 +22,16 @@ RSpec.describe AutomergeRenovate::Cli do
       expect(AutomergeRenovate::AutomergeCommand).to have_received(:new).with(
         jira: kind_of(AutomergeRenovate::JiraClient),
         gh: kind_of(AutomergeRenovate::GhCli),
-        progress: kind_of(AutomergeRenovate::ProgressPrinter)
+        progress: kind_of(AutomergeRenovate::ProgressPrinter),
+        debug: false
       )
       expect(command).to have_received(:run).with(ticket_key: "FAC-2000")
+    end
+
+    it "active le mode debug avec --debug" do
+      described_class.new([], debug: true).automerge
+
+      expect(AutomergeRenovate::AutomergeCommand).to have_received(:new).with(hash_including(debug: true))
     end
 
     it "délègue avec ticket_key à nil quand aucune clé n'est fournie" do
