@@ -52,6 +52,9 @@ bin/automerge-renovate automerge
 
 # Rejoue un ticket précis (test, ou ticket passé)
 bin/automerge-renovate automerge FAC-2514
+
+# Affiche, avant chaque décision, la PR telle que l'API GitHub la renvoie (sans son corps)
+bin/automerge-renovate automerge --debug
 ```
 
 L'outil affiche sa progression en direct (recherche du ticket → repos trouvés → chaque PR traitée), puis un récapitulatif et les deux listes ci-dessus. Aucun mode `--dry-run` : il agit dès son lancement.

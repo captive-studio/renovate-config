@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require "json"
 require "pastel"
+require_relative "automerge_status"
 require_relative "report"
 require_relative "flagged_pr_list"
 require_relative "rebase_waiter"
@@ -55,6 +57,14 @@ module AutomergeRenovate
     def result(result)
       clear_waiting
       @out.puts Report.pr_line(result, pastel: @pastel)
+    end
+
+    # Le corps de la PR (description Renovate) noierait la sortie : seul son statut d'automerge compte.
+    def decision(pr, decision)
+      clear_waiting
+      automerge = AutomergeStatus.new(pr["body"]).enabled?
+      payload = pr.except("body").merge("automergeEnabled" => automerge)
+      @out.puts @pastel.dim(JSON.pretty_generate(pr: payload, decision: decision))
     end
 
     def summary(results)

@@ -21,8 +21,10 @@ module AutomergeRenovate
       @branch_gap = BranchGap.new(gh: gh)
     end
 
-    def run(repos, on_repo: ->(_repo) { }, on_result: ->(_result) { }, on_wait: ->(_number) { })
+    def run(repos, on_repo: ->(_repo) { }, on_result: ->(_result) { }, on_wait: ->(_number) { },
+            on_decision: ->(_pr, _decision) { })
       @on_wait = on_wait
+      @on_decision = on_decision
       repos.flat_map { |repo| run_repo(repo, on_repo, on_result) }
     end
 
@@ -64,6 +66,7 @@ module AutomergeRenovate
     def decide(repo, pr, merge_settings)
       pr = @branch_gap.call(repo, pr)
       decision = PrDecision.new(pr, merge_settings).call
+      @on_decision.call(pr, decision)
       @executor.call(repo, pr, decision)
     end
 
