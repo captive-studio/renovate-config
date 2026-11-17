@@ -3,10 +3,10 @@
 require_relative "release_age_gate"
 
 module AutomergeRenovate
-  # Attend que Renovate ait rebasé une PR (nouveau commit de tête) et que ses checks soient terminés,
+  # Attend qu'une PR ait été rebasée (nouveau commit de tête) et que ses checks soient terminés,
   # pour pouvoir la redécider dans le même run plutôt qu'à la maintenance suivante.
   class RebaseWaiter
-    # Renovate rebase en quelques minutes, la CI en prend une dizaine : au-delà, la PR attendra le run suivant.
+    # Un rebase prend au plus quelques minutes, la CI en prend une dizaine : au-delà, la PR attendra le run suivant.
     SECONDS_PER_MINUTE = 60
     TIMEOUT_MINUTES = 15
     POLL_INTERVAL_SECONDS = 15

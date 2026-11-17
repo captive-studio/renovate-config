@@ -80,7 +80,7 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
         description: "* [https://github.com/captive-studio/monocle/pulls](https://github.com/captive-studio/monocle/pulls)"
       )
       allow(gh).to receive_messages(open_renovate_prs: [ pr ], merge_settings: { "allow_rebase_merge" => true },
-                                    update_body: nil, pr: rebased, merge: nil)
+                                    update_branch: nil, pr: rebased, merge: nil)
 
       command.run
 

@@ -35,25 +35,22 @@ RSpec.describe AutomergeRenovate::Runner do
       expect(gh).to have_received(:merge).with("captive-studio/groove-application", 414, :rebase)
     end
 
-    it "coche la case rebase quand la branche n'est pas à jour" do
+    it "rebase la branche via GitHub quand elle n'est pas à jour" do
       pr = { "number" => 1008, "body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi",
              "mergeStateStatus" => "BEHIND", "statusCheckRollup" => [], }
       allow(gh).to receive(:open_renovate_prs).with("captive-studio/cae-application").and_return([ pr ])
       allow(gh).to receive(:merge_settings).with("captive-studio/cae-application").and_return({})
-      allow(gh).to receive(:update_body)
+      allow(gh).to receive(:update_branch)
 
       results = runner.run([ "captive-studio/cae-application" ])
 
       expect(results).to eq(
         [ { repo: "captive-studio/cae-application", number: 1008, url: nil, action: :rebase_requested } ]
       )
-      expect(gh).to have_received(:update_body).with(
-        "captive-studio/cae-application", 1008,
-        "🚦 **Automerge**: Enabled.\n- [x] <!-- rebase-check -->coche-moi"
-      )
+      expect(gh).to have_received(:update_branch).with("captive-studio/cae-application", 1008)
     end
 
-    it "coche la case rebase quand la branche est en retard sans que GitHub la marque BEHIND" do
+    it "rebase la branche via GitHub quand elle est en retard sans que GitHub la marque BEHIND" do
       pr = { "number" => 1103, "body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi",
              "mergeStateStatus" => "UNSTABLE", "baseRefName" => "main",
              "headRefName" => "renovate/openai-7.x",
@@ -62,17 +59,14 @@ RSpec.describe AutomergeRenovate::Runner do
       allow(gh).to receive(:merge_settings).with("captive-studio/cae-application").and_return({})
       allow(gh).to receive(:behind_by)
         .with("captive-studio/cae-application", "main", "renovate/openai-7.x").and_return(4)
-      allow(gh).to receive(:update_body)
+      allow(gh).to receive(:update_branch)
 
       results = runner.run([ "captive-studio/cae-application" ])
 
       expect(results).to eq(
         [ { repo: "captive-studio/cae-application", number: 1103, url: nil, action: :rebase_requested } ]
       )
-      expect(gh).to have_received(:update_body).with(
-        "captive-studio/cae-application", 1103,
-        "🚦 **Automerge**: Enabled.\n- [x] <!-- rebase-check -->coche-moi"
-      )
+      expect(gh).to have_received(:update_branch).with("captive-studio/cae-application", 1103)
     end
 
     it "inclut l'URL de la PR dans le résultat, pour les PR nécessitant une décision" do
@@ -205,14 +199,14 @@ RSpec.describe AutomergeRenovate::Runner do
       allow(gh).to receive(:merge_settings).with("captive-studio/monocle")
         .and_return({ "allow_rebase_merge" => true })
       allow(gh).to receive(:merge)
-      allow(gh).to receive(:update_body)
+      allow(gh).to receive(:update_branch)
       allow(rebase_waiter).to receive(:call).with("captive-studio/monocle", second).and_return(rebased)
 
       waited = []
       results = runner.run([ "captive-studio/monocle" ], on_wait: ->(number) { waited << number })
 
       expect(waited).to eq([ 2 ])
-      expect(gh).to have_received(:update_body).with("captive-studio/monocle", 2, anything)
+      expect(gh).to have_received(:update_branch).with("captive-studio/monocle", 2)
       expect(gh).to have_received(:merge).with("captive-studio/monocle", 2, :rebase)
       expect(results).to eq(
         [
@@ -227,7 +221,7 @@ RSpec.describe AutomergeRenovate::Runner do
              "statusCheckRollup" => [], }
       allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
       allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
-      allow(gh).to receive(:update_body)
+      allow(gh).to receive(:update_branch)
 
       results = runner.run([ "captive-studio/monocle" ])
 
@@ -240,7 +234,7 @@ RSpec.describe AutomergeRenovate::Runner do
              "statusCheckRollup" => [], }
       allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
       allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
-      allow(gh).to receive(:update_body)
+      allow(gh).to receive(:update_branch)
 
       runner.run([ "captive-studio/monocle" ])
 
@@ -252,7 +246,7 @@ RSpec.describe AutomergeRenovate::Runner do
              "statusCheckRollup" => [], }
       allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
       allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
-      allow(gh).to receive(:update_body)
+      allow(gh).to receive(:update_branch)
       allow(rebase_waiter).to receive(:call).and_return(pr)
 
       results = runner.run([ "captive-studio/monocle" ])

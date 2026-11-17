@@ -42,6 +42,10 @@ module AutomergeRenovate
           "--method", "PATCH", "--raw-field", "body=#{body}")
     end
 
+    def update_branch(repo, number)
+      run("pr", "update-branch", number.to_s, "--repo", repo, "--rebase")
+    end
+
     def rerun_failed_jobs(repo, run_id)
       run("run", "rerun", run_id.to_s, "--repo", repo, "--failed")
     end

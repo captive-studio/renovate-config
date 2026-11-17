@@ -22,7 +22,7 @@ module AutomergeRenovate
         @gh.merge(repo, number, decision[:strategy])
         wait_until_merged(repo, number)
       when :rebase_requested
-        @gh.update_body(repo, number, RebaseCheckbox.new(pr["body"]).check)
+        request_rebase(repo, pr)
       end
       decision
     rescue RuntimeError => e
@@ -30,6 +30,16 @@ module AutomergeRenovate
     end
 
     private
+
+    # Un simple retard se rebase tout de suite côté GitHub ; Renovate ne repasse qu'à son prochain run.
+    # Un conflit (lockfile, souvent) demande à Renovate de régénérer la branche.
+    def request_rebase(repo, pr)
+      if pr["mergeStateStatus"] == "DIRTY"
+        @gh.update_body(repo, pr["number"], RebaseCheckbox.new(pr["body"]).check)
+      else
+        @gh.update_branch(repo, pr["number"])
+      end
+    end
 
     def wait_until_merged(repo, number)
       MERGE_POLL_ATTEMPTS.times do

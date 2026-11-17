@@ -48,7 +48,7 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
     it "signale qu'on attend le rebase d'une PR, pour ne pas laisser croire à un blocage" do
       progress.waiting_rebase(1195)
 
-      expect(out.string).to include("#1195 : attente du rebase par Renovate et de la CI (0 min 00 s, 15 min max)")
+      expect(out.string).to include("#1195 : attente du rebase et de la CI (0 min 00 s, 15 min max)")
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.describe AutomergeRenovate::ProgressPrinter do
       progress.wait(15)
 
       expect(sleeper).to have_received(:call).with(0.25).exactly(60).times
-      expect(out.string).to end_with("attente du rebase par Renovate et de la CI (0 min 15 s, 15 min max)")
+      expect(out.string).to end_with("attente du rebase et de la CI (0 min 15 s, 15 min max)")
     end
   end
 

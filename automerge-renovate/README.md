@@ -86,8 +86,8 @@ L'outil suit un pipeline simple : **Jira → repos → PR → décision → acti
 | `AutomergeStatus` | Automerge activé ou non, d'après le corps de la PR |
 | `ChecksEvaluator` | Tous les checks verts ? Lesquels sont rouges ? |
 | `MergeStrategyPicker` | Choisit rebase > squash > merge selon ce que le repo autorise |
-| `RebaseCheckbox` | Coche la case "rebase/retry" dans le corps de la PR |
-| `DecisionExecutor` | Applique la décision via `gh` (merge/rebase), convertit un échec `gh` en skip |
+| `RebaseCheckbox` | Coche la case "rebase/retry" dans le corps de la PR (conflit à régénérer par Renovate) |
+| `DecisionExecutor` | Applique la décision via `gh` (merge, rebase GitHub immédiat si simple retard), convertit un échec `gh` en skip |
 | `FailedChecksRerunner` / `GithubActionsRunIds` | Relance les jobs GitHub Actions en échec sur les PR à investiguer |
 | `Runner` | Orchestre repos → PR → décision → exécution, notifie la progression en direct |
 | `Report` / `ActionTally` | Rapport final coloré, groupé par repo, avec total |

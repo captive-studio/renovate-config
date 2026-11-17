@@ -74,7 +74,7 @@ module AutomergeRenovate
       frame = SPINNER_FRAMES[@frame % SPINNER_FRAMES.size]
       @frame += 1
       elapsed = format("%<minutes>d min %<seconds>02d s", minutes: minutes, seconds: seconds)
-      message = "  #{frame} ##{@waiting} : attente du rebase par Renovate et de la CI " \
+      message = "  #{frame} ##{@waiting} : attente du rebase et de la CI " \
                 "(#{elapsed}, #{RebaseWaiter::TIMEOUT_MINUTES} min max)"
       @out.print CLEAR_LINE + @pastel.dim(message)
     end
