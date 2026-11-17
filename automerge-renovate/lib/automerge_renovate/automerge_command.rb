@@ -6,8 +6,9 @@ require_relative "runner"
 module AutomergeRenovate
   # Orchestre un run complet : ticket Jira -> repos -> fusion des PR -> rapport de progression.
   class AutomergeCommand
-    def initialize(jira:, gh:, progress:, debug: false)
+    def initialize(jira:, gh:, progress:, debug: false, wait: true)
       @debug = debug
+      @wait = wait
       @jira = jira
       @gh = gh
       @progress = progress
@@ -22,7 +23,7 @@ module AutomergeRenovate
       @progress.repos_found(repos.size)
 
       rebase_waiter = RebaseWaiter.new(gh: @gh, sleeper: ->(seconds) { @progress.wait(seconds) })
-      results = Runner.new(gh: @gh, rebase_waiter: rebase_waiter).run(
+      results = Runner.new(gh: @gh, rebase_waiter: rebase_waiter, wait: @wait).run(
         repos,
         on_repo: ->(repo) { @progress.repo(repo) },
         on_result: ->(result) { @progress.result(result) },

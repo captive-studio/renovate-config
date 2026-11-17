@@ -23,7 +23,8 @@ RSpec.describe AutomergeRenovate::Cli do
         jira: kind_of(AutomergeRenovate::JiraClient),
         gh: kind_of(AutomergeRenovate::GhCli),
         progress: kind_of(AutomergeRenovate::ProgressPrinter),
-        debug: false
+        debug: false,
+        wait: true
       )
       expect(command).to have_received(:run).with(ticket_key: "FAC-2000")
     end
@@ -32,6 +33,12 @@ RSpec.describe AutomergeRenovate::Cli do
       described_class.new([], debug: true).automerge
 
       expect(AutomergeRenovate::AutomergeCommand).to have_received(:new).with(hash_including(debug: true))
+    end
+
+    it "désactive l'attente du rebase et de la CI avec --no-wait" do
+      described_class.new([], wait: false).automerge
+
+      expect(AutomergeRenovate::AutomergeCommand).to have_received(:new).with(hash_including(wait: false))
     end
 
     it "délègue avec ticket_key à nil quand aucune clé n'est fournie" do
