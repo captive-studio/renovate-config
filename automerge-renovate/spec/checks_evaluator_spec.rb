@@ -64,6 +64,16 @@ RSpec.describe AutomergeRenovate::ChecksEvaluator do
   end
 
   describe "#red_checks" do
+    it "ne compte pas comme rouges les checks encore en cours" do
+      running = { "__typename" => "CheckRun", "status" => "IN_PROGRESS", "conclusion" => nil }
+      pending = { "__typename" => "StatusContext", "state" => "PENDING" }
+
+      evaluator = described_class.new([ running, pending ])
+
+      expect(evaluator.red_checks).to be_empty
+      expect(evaluator.pending_checks).to eq([ running, pending ])
+    end
+
     it "retourne uniquement les checks non verts" do
       green = { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "SUCCESS" }
       red = { "__typename" => "CheckRun", "status" => "COMPLETED", "conclusion" => "FAILURE" }
