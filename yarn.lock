@@ -523,7 +523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@containerbase/base@npm:14.66.25, @containerbase/base@npm:^14.62.0":
+"@containerbase/base@npm:14.66.25":
   version: 14.66.25
   resolution: "@containerbase/base@npm:14.66.25"
   dependencies:
@@ -534,6 +534,20 @@ __metadata:
     zod:
       optional: true
   checksum: 10/d40bf417a3597e56fedc86f5cb3d462c31c8188597fd7a0b9cb5cac822850f233d3907e2195742bb2a72331ce6bb4b3a7a2733c0a4b6240f472c3b5ac710ea35
+  languageName: node
+  linkType: hard
+
+"@containerbase/base@npm:^14.62.0":
+  version: 14.66.27
+  resolution: "@containerbase/base@npm:14.66.27"
+  dependencies:
+    semver: "npm:^7.8.5"
+  peerDependencies:
+    zod: ^4.0.0
+  peerDependenciesMeta:
+    zod:
+      optional: true
+  checksum: 10/12ea6682115a457a3c8a63a86abe2e230223f6e6e1b4289df50c800d9477e6c79d4a5b0cce4adfceb19e565bb0c90cd9642c7336c10550daab0d58fa6d38d2eb
   languageName: node
   linkType: hard
 
@@ -2514,11 +2528,11 @@ __metadata:
   linkType: hard
 
 "@tybys/wasm-util@npm:^0.10.3":
-  version: 0.10.4
-  resolution: "@tybys/wasm-util@npm:0.10.4"
+  version: 0.10.5
+  resolution: "@tybys/wasm-util@npm:0.10.5"
   dependencies:
     tslib: "npm:^2.4.0"
-  checksum: 10/da910a0439afad49a6427e4d16fcd5a52199cb471e07c262e1dd5ed7664908e6f142f4dca1b09895c53f4ca4402663042d760f41c9fa7ff33f76c662739646df
+  checksum: 10/4dc0780653a20bcf2e22b0b7986924ea7057c594ab5195cf160d16130b6ada266a13ca5845dffb423c849419d75ed39d6b549c271cff03202ac65edbe37a882a
   languageName: node
   linkType: hard
 
@@ -4062,9 +4076,9 @@ __metadata:
   linkType: hard
 
 "es-module-lexer@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "es-module-lexer@npm:3.0.4"
-  checksum: 10/31198ec02dd28ce70f378832e9b00c1f4cf466f01e6d5796a74538a0d69f9fe0aa1bfd40fde74e1b472dec62124d49ea85cf41fa5b8d4a5e4145a1b3e11a05de
+  version: 3.0.5
+  resolution: "es-module-lexer@npm:3.0.5"
+  checksum: 10/7ab80be19ff190f1fe8b99f730b101ccc6b6abc9c5ae7f9508332ea768873ecec96469b54b5e7aef9923d87abab9949ff77bd33e16475cd2f1c761d8cb7d2d80
   languageName: node
   linkType: hard
 
