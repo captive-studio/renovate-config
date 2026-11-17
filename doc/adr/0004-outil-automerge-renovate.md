@@ -4,7 +4,7 @@ Date : 2026-07-08
 
 ## Statut
 
-Accepté
+Accepté. Étapes 1 à 3 de la sélection des PR remplacées par l'ADR [0008](0008-rebase-des-pr-renovate.md).
 
 ## Contexte
 
