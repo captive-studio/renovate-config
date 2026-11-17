@@ -40,6 +40,13 @@
         "@react-navigation/native"
       ],
       "rangeStrategy": "bump"
+    },
+    {
+      "description": "Regrouper les montées minor/patch du SDK Expo dans une seule PR : `expo install --check` exige que expo, expo-*, @expo/* et jest-expo soient alignés ensemble, une PR par paquet reste rouge. Réactive jest-expo (bloqué plus haut) pour ses seules montées minor/patch.",
+      "matchPackageNames": ["/^(@expo|expo)($|[-/])/", "jest-expo"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Expo SDK",
+      "enabled": true
     }
   ]
 }
