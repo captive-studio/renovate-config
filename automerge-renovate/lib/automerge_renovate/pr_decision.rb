@@ -22,8 +22,8 @@ module AutomergeRenovate
     end
 
     def call
-      return rebase_decision if rebase_needed?
       return automerge_disabled_skip unless automerge_enabled?
+      return REBASE_REQUESTED if rebase_needed?
       return RED_CHECKS_SKIP if checks.red_checks.any?
       return RELEASE_AGE_SKIP if ReleaseAgeGate.new(@pr["statusCheckRollup"]).pending?
       return PENDING_CHECKS_SKIP unless checks_green?
@@ -45,15 +45,7 @@ module AutomergeRenovate
     # Sans exigence de branche à jour, GitHub fusionne une branche en retard (CLEAN) : une PR verte
     # est fusionnée tout de suite plutôt qu'après un rebase et une nouvelle CI.
     def mergeable_while_behind?
-      merge_state_status == "CLEAN" && automerge_enabled? && checks_green?
-    end
-
-    # Une PR à rebaser dont l'automerge est désactivé reste une décision humaine : on la rebase
-    # pour la rendre décidable, sans la sortir de la liste.
-    def rebase_decision
-      return REBASE_REQUESTED if automerge_enabled?
-
-      REBASE_REQUESTED.merge(needs_decision: true)
+      merge_state_status == "CLEAN" && checks_green?
     end
 
     def automerge_disabled_skip
