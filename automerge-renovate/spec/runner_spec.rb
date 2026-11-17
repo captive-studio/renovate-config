@@ -241,6 +241,19 @@ RSpec.describe AutomergeRenovate::Runner do
       expect(rebase_waiter).not_to have_received(:call)
     end
 
+    it "n'attend pas le rebase d'une PR en conflit, régénérée par Renovate à son prochain passage" do
+      pr = { "number" => 6, "body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi",
+             "mergeStateStatus" => "DIRTY", "statusCheckRollup" => [], }
+      allow(gh).to receive(:open_renovate_prs).with("captive-studio/monocle").and_return([ pr ])
+      allow(gh).to receive(:merge_settings).with("captive-studio/monocle").and_return({})
+      allow(gh).to receive(:update_body)
+
+      results = runner.run([ "captive-studio/monocle" ])
+
+      expect(rebase_waiter).not_to have_received(:call)
+      expect(results).to eq([ { repo: "captive-studio/monocle", number: 6, url: nil, action: :rebase_requested } ])
+    end
+
     it "abandonne après un nombre maximal de rebases successifs" do
       pr = { "number" => 5, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "BEHIND",
              "statusCheckRollup" => [], }
