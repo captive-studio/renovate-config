@@ -46,6 +46,16 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :rebase_requested, needs_decision: true)
     end
 
+    it "fusionne directement une PR verte en retard quand GitHub accepte le merge (CLEAN)" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
+             "behindBy" => 4, "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
+      merge_settings = { "allow_rebase_merge" => true }
+
+      decision = described_class.new(pr, merge_settings).call
+
+      expect(decision).to eq(action: :merge, strategy: :rebase)
+    end
+
     it "demande un rebase quand la branche est en retard, même avec des checks rouges" do
       pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNSTABLE",
              "behindBy" => 4, "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
