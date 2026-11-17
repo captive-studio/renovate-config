@@ -12,7 +12,8 @@ module AutomergeRenovate
 
     # Un StatusContext porte un state, un CheckRun un status (QUEUED, IN_PROGRESS…) jusqu'à sa conclusion.
     def self.pending?(check)
-      return false if check["conclusion"]
+      # gh renvoie une conclusion vide ("") tant qu'un CheckRun n'est pas terminé.
+      return false unless check["conclusion"].to_s.empty?
       return PENDING_STATES.include?(check["state"]) if check.key?("state")
 
       check["status"] != "COMPLETED"
