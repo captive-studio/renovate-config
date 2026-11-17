@@ -538,8 +538,8 @@ __metadata:
   linkType: hard
 
 "@containerbase/base@npm:^14.62.0":
-  version: 14.66.27
-  resolution: "@containerbase/base@npm:14.66.27"
+  version: 14.67.0
+  resolution: "@containerbase/base@npm:14.67.0"
   dependencies:
     semver: "npm:^7.8.5"
   peerDependencies:
@@ -547,7 +547,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/12ea6682115a457a3c8a63a86abe2e230223f6e6e1b4289df50c800d9477e6c79d4a5b0cce4adfceb19e565bb0c90cd9642c7336c10550daab0d58fa6d38d2eb
+  checksum: 10/e1e292e02e7ba0c6dc44733fedbd9f3192a5ace561096fdb0c3f9976020ba7ae104e40ab2a891a8374f12da6200e4f7971a6e65d427bcd0d0807c4946d08bff1
   languageName: node
   linkType: hard
 
@@ -2369,12 +2369,12 @@ __metadata:
   linkType: hard
 
 "@smithy/core@npm:^3.33.2, @smithy/core@npm:^3.35.0, @smithy/core@npm:^3.38.0, @smithy/core@npm:^3.39.0, @smithy/core@npm:^3.40.0":
-  version: 3.40.0
-  resolution: "@smithy/core@npm:3.40.0"
+  version: 3.41.0
+  resolution: "@smithy/core@npm:3.41.0"
   dependencies:
     "@smithy/types": "npm:^4.20.0"
     tslib: "npm:^2.6.2"
-  checksum: 10/543c9c5d4b07420d541713148d6b632c201aaffbeb2e7d8dca4a3056deecc1f58d501c18bb395ad77cc07b537e0165aac003ad950d8bda75e7f0ee2ee9b21799
+  checksum: 10/c42deba45875effb874f119033847a298e35526d76b83a4c419d039c7324130413c60cd7c0deea193b4e6959715f83ae1a9a9952346a74f5e2d30021692e59b5
   languageName: node
   linkType: hard
 
