@@ -66,6 +66,24 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :rebase_requested)
     end
 
+    it "attend la PR sans la signaler à investiguer quand des checks sont en cours" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
+             "statusCheckRollup" => [ { "status" => "IN_PROGRESS", "conclusion" => nil } ], }
+
+      decision = described_class.new(pr, { "allow_rebase_merge" => true }).call
+
+      expect(decision).to eq(action: :skip, reason: "checks en cours")
+    end
+
+    it "indique que la version est trop récente quand Renovate attend son ancienneté" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
+             "statusCheckRollup" => [ { "context" => "renovate/stability-days", "state" => "PENDING" } ], }
+
+      decision = described_class.new(pr, { "allow_rebase_merge" => true }).call
+
+      expect(decision).to eq(action: :skip, reason: "version trop récente (minimumReleaseAge)")
+    end
+
     it "ignore la PR quand un check n'est pas vert" do
       pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "CLEAN",
              "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }

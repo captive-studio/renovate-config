@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative "checks_evaluator"
 require_relative "release_age_gate"
 
 module AutomergeRenovate
@@ -43,9 +44,8 @@ module AutomergeRenovate
     # Le check d'ancienneté de Renovate se compte en jours : il ne se terminera pas pendant l'attente.
     def pending?(check)
       return false if ReleaseAgeGate.check?(check)
-      return check["state"] == "PENDING" if check.key?("state")
 
-      check["status"] != "COMPLETED"
+      ChecksEvaluator.pending?(check)
     end
   end
 end
