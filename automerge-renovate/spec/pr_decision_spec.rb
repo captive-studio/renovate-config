@@ -35,15 +35,14 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :rebase_requested)
     end
 
-    it "demande un rebase sur une branche en retard même si l'automerge est désactivé, " \
-       "en la gardant dans les décisions à prendre" do
+    it "ne rebase pas une branche en retard dont l'automerge est désactivé : décision humaine" do
       pr = { "body" => "🚦 **Automerge**: Disabled by config.", "mergeStateStatus" => "UNSTABLE",
              "behindBy" => 4, "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
       merge_settings = { "allow_rebase_merge" => true }
 
       decision = described_class.new(pr, merge_settings).call
 
-      expect(decision).to eq(action: :rebase_requested, needs_decision: true)
+      expect(decision).to eq(action: :skip, reason: "automerge désactivé", needs_decision_red: true)
     end
 
     it "fusionne directement une PR verte en retard quand GitHub accepte le merge (CLEAN)" do
