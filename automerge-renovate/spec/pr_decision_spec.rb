@@ -55,14 +55,42 @@ RSpec.describe AutomergeRenovate::PrDecision do
       expect(decision).to eq(action: :merge, strategy: :rebase)
     end
 
-    it "demande un rebase quand la branche est en retard, même avec des checks rouges" do
+    it "classe à investiguer une PR rouge fusionnable telle quelle, sans la rebaser" do
       pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNSTABLE",
-             "behindBy" => 4, "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
-      merge_settings = { "allow_rebase_merge" => true }
+             "statusCheckRollup" => [ { "conclusion" => "FAILURE" } ], }
 
-      decision = described_class.new(pr, merge_settings).call
+      decision = described_class.new(pr, { "allow_rebase_merge" => true }).call
 
-      expect(decision).to eq(action: :rebase_requested)
+      expect(decision).to eq(action: :skip, reason: "checks non verts", needs_investigation: true)
+    end
+
+    it "attend que GitHub calcule l'état de fusion plutôt que d'agir sur UNKNOWN" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNKNOWN",
+             "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
+
+      decision = described_class.new(pr, { "allow_rebase_merge" => true }).call
+
+      expect(decision).to eq(action: :skip, reason: "état de fusion pas encore calculé par GitHub")
+    end
+
+    it "signale les artefacts Renovate en échec, sans relance possible de la CI" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "UNSTABLE",
+             "statusCheckRollup" => [ { "context" => "renovate/artifacts", "state" => "FAILURE" },
+                                      { "conclusion" => "FAILURE" }, ], }
+
+      decision = described_class.new(pr, { "allow_rebase_merge" => true }).call
+
+      expect(decision).to eq(action: :skip, reason: "artefacts Renovate en échec",
+                             needs_investigation: true, rerunnable: false)
+    end
+
+    it "ne rebase pas une PR verte que GitHub bloque pour une autre raison qu'un retard" do
+      pr = { "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "BLOCKED",
+             "statusCheckRollup" => [ { "conclusion" => "SUCCESS" } ], }
+
+      decision = described_class.new(pr, { "allow_rebase_merge" => true }).call
+
+      expect(decision).to eq(action: :skip, reason: "fusion bloquée par GitHub (BLOCKED)")
     end
 
     it "attend la PR sans la signaler à investiguer quand des checks sont en cours" do

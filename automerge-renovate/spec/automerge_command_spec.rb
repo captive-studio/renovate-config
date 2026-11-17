@@ -16,7 +16,6 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
     repos_found: nil, repo: nil, result: nil, waiting_rebase: nil, wait: nil, summary: nil, decision: nil) }
 
   before(:each) do
-    allow(gh).to receive(:behind_by).and_return(0)
     allow(gh).to receive(:merged?).and_return(true)
   end
 

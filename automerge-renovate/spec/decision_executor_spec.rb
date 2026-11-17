@@ -58,6 +58,19 @@ RSpec.describe AutomergeRenovate::DecisionExecutor do
       expect(decision).to eq(action: :rebase_requested)
     end
 
+    it "demande à Renovate de régénérer une PR que GitHub refuse de fusionner pour conflit" do
+      conflicted = pr.merge("body" => "- [ ] <!-- rebase-check -->x")
+      allow(gh).to receive(:merge)
+        .and_raise(RuntimeError, "gh pr merge 1472 failed: GraphQL: Pull Request has merge conflicts")
+      allow(gh).to receive(:update_body)
+
+      decision = executor.call("captive-studio/cae-application", conflicted, { action: :merge, strategy: :rebase })
+
+      expect(gh).to have_received(:update_body).with("captive-studio/cae-application", 414,
+                                                     "- [x] <!-- rebase-check -->x")
+      expect(decision).to eq(action: :rebase_requested)
+    end
+
     it "convertit un échec gh en skip plutôt que de laisser l'exception se propager" do
       allow(gh).to receive(:merge).and_raise(RuntimeError, "GraphQL: Merge already in progress")
 

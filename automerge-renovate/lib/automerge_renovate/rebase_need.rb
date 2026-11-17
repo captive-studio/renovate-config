@@ -10,10 +10,10 @@ module AutomergeRenovate
       @pr = pr
     end
 
-    # GitHub ne renvoie BEHIND que si la branche de base exige d'être à jour ; sans ce réglage,
-    # le retard réel ne se lit que dans le compte de commits d'écart.
+    # Seuls cas où GitHub refuse de fusionner la PR telle quelle : sans exigence de branche à jour,
+    # une PR en retard se fusionne directement, rebaser ne ferait que relancer sa CI.
     def needed?
-      REBASABLE_STATUSES.include?(@pr["mergeStateStatus"]) || @pr["behindBy"].to_i.positive?
+      REBASABLE_STATUSES.include?(@pr["mergeStateStatus"])
     end
   end
 end

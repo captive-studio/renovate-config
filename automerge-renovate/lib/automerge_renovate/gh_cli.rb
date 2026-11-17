@@ -18,10 +18,6 @@ module AutomergeRenovate
         .slice("allow_rebase_merge", "allow_squash_merge", "allow_merge_commit")
     end
 
-    def behind_by(repo, base, head)
-      JSON.parse(run("api", "repos/#{repo}/compare/#{base}...#{head}")).fetch("behind_by")
-    end
-
     def merge(repo, number, strategy)
       run("pr", "merge", number.to_s, "--repo", repo, "--#{strategy}")
     end

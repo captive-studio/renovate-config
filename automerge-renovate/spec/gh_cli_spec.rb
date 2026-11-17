@@ -56,18 +56,6 @@ RSpec.describe AutomergeRenovate::GhCli do
     end
   end
 
-  describe "#behind_by" do
-    it "retourne le nombre de commits de retard de la branche sur sa base" do
-      allow(gh).to receive(:run)
-        .with("api", "repos/captive-studio/cae-application/compare/main...renovate/openai-7.x")
-        .and_return({ "behind_by" => 4, "ahead_by" => 1 }.to_json)
-
-      behind = gh.behind_by("captive-studio/cae-application", "main", "renovate/openai-7.x")
-
-      expect(behind).to eq(4)
-    end
-  end
-
   describe "#merge" do
     it "fusionne la PR avec la stratégie demandée" do
       allow(gh).to receive(:run)

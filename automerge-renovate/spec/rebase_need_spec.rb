@@ -13,12 +13,8 @@ RSpec.describe AutomergeRenovate::RebaseNeed do
       expect(described_class.new("mergeStateStatus" => "DIRTY")).to be_needed
     end
 
-    it "est vrai quand la branche accuse du retard sans que GitHub la marque BEHIND" do
-      expect(described_class.new("mergeStateStatus" => "UNSTABLE", "behindBy" => 4)).to be_needed
-    end
-
-    it "est faux quand la branche est à jour" do
-      expect(described_class.new("mergeStateStatus" => "UNSTABLE", "behindBy" => 0)).not_to be_needed
+    it "est faux pour une branche fusionnable telle quelle, même en retard" do
+      expect(described_class.new("mergeStateStatus" => "UNSTABLE")).not_to be_needed
     end
   end
 end

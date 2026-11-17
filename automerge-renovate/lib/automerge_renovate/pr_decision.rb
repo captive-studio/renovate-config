@@ -15,6 +15,16 @@ module AutomergeRenovate
     }.freeze
     PENDING_CHECKS_SKIP = { action: :skip, reason: "checks en cours" }.freeze
     RELEASE_AGE_SKIP = { action: :skip, reason: "version trop récente (minimumReleaseAge)" }.freeze
+    # Renovate n'a pas su mettre à jour le lockfile : relancer la CI n'y changera rien.
+    ARTIFACTS_SKIP = {
+      action: :skip, reason: "artefacts Renovate en échec",
+      needs_investigation: true, rerunnable: false,
+    }.freeze
+    UNKNOWN_STATE_SKIP = {
+      action: :skip, reason: "état de fusion pas encore calculé par GitHub",
+    }.freeze
+    ARTIFACTS_CONTEXT = "renovate/artifacts"
+    MERGEABLE_STATES = %w[CLEAN HAS_HOOKS].freeze
 
     def initialize(pr, merge_settings)
       @pr = pr
@@ -23,11 +33,13 @@ module AutomergeRenovate
 
     def call
       return automerge_disabled_skip unless automerge_enabled?
-      return REBASE_REQUESTED if rebase_needed?
+      return UNKNOWN_STATE_SKIP if merge_state_status == "UNKNOWN"
+      return REBASE_REQUESTED if RebaseNeed.new(@pr).needed?
+      return ARTIFACTS_SKIP if artifacts_failed?
       return RED_CHECKS_SKIP if checks.red_checks.any?
       return RELEASE_AGE_SKIP if ReleaseAgeGate.new(@pr["statusCheckRollup"]).pending?
       return PENDING_CHECKS_SKIP unless checks_green?
-      return REBASE_REQUESTED unless merge_state_status == "CLEAN"
+      return blocked_skip unless MERGEABLE_STATES.include?(merge_state_status)
 
       merge_or_skip
     end
@@ -38,14 +50,15 @@ module AutomergeRenovate
       @pr["mergeStateStatus"]
     end
 
-    def rebase_needed?
-      RebaseNeed.new(@pr).needed? && !mergeable_while_behind?
+    def artifacts_failed?
+      @pr["statusCheckRollup"].to_a.any? do |check|
+        check["context"] == ARTIFACTS_CONTEXT && check["state"] == "FAILURE"
+      end
     end
 
-    # Sans exigence de branche à jour, GitHub fusionne une branche en retard (CLEAN) : une PR verte
-    # est fusionnée tout de suite plutôt qu'après un rebase et une nouvelle CI.
-    def mergeable_while_behind?
-      merge_state_status == "CLEAN" && checks_green?
+    # Checks verts mais GitHub refuse le merge (revue requise, PR en brouillon…) : un rebase n'y peut rien.
+    def blocked_skip
+      { action: :skip, reason: "fusion bloquée par GitHub (#{merge_state_status})" }
     end
 
     def automerge_disabled_skip

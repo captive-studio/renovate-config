@@ -22,12 +22,18 @@ L'outil ne rebase que lorsque GitHub refuse de fusionner la PR telle quelle, et 
 | État de la PR | Action |
 |---|---|
 | Automerge désactivé | aucun rebase ; signalée dans les **Décisions à prendre**, checks verts ou rouges |
+| `UNKNOWN` (état de fusion pas encore calculé) | relue jusqu'à 5 fois à 2 s d'intervalle ; toujours `UNKNOWN` : ignorée, reprise au run suivant |
 | Verte, en retard, mais `mergeStateStatus` `CLEAN` (la base n'exige pas d'être à jour) | fusion directe, sans rebase ni nouvelle CI |
 | `BEHIND` (la protection de branche exige une branche à jour) | rebase immédiat par GitHub (`gh pr update-branch --rebase`), attente de la CI, puis fusion dans le même run |
 | `DIRTY` (conflit, souvent de lockfile) | case de rebase Renovate cochée, **sans attente** : la PR sera reprise au run suivant |
 | Checks en cours (file d'attente, exécution, statut `PENDING`) | ignorée avec « checks en cours », sans rerun |
 | `renovate/stability-days` en attente | ignorée avec « version trop récente (minimumReleaseAge) » |
-| Au moins un check rouge | inchangé (ADR [0005](0005-rerun-checks-rouges.md)), prioritaire sur un check en cours |
+| `renovate/artifacts` en échec (Renovate n'a pas su mettre à jour le lockfile) | à investiguer, **sans rerun** : relancer la CI n'y changerait rien |
+| Au moins un check rouge, même en retard | à investiguer et rerun (ADR [0005](0005-rerun-checks-rouges.md)), sans rebase ; prioritaire sur un check en cours |
+| Verte mais bloquée par GitHub pour une autre raison (`BLOCKED`…) | ignorée avec « fusion bloquée par GitHub », sans rebase |
+| Merge refusé pour conflit alors que GitHub la disait `CLEAN` | case de rebase Renovate cochée, comme pour `DIRTY` |
+
+L'outil liste les PR d'un repo une fois, au début. Après une fusion dans ce repo, chaque PR suivante est relue avant d'être décidée : son état a changé.
 
 `--no-wait` désactive toute attente : un run rapide qui laisse les PR rebasées « rebase demandé » jusqu'au run suivant.
 
@@ -40,5 +46,5 @@ L'outil ne rebase que lorsque GitHub refuse de fusionner la PR telle quelle, et 
 
 - Une PR fusionnée sans rebase a vu sa CI tourner sur l'ancienne base : une incompatibilité avec la PR fusionnée juste avant ne se voit qu'après le merge. C'est le même risque que le bouton « Rebase and merge » de GitHub, accepté pour des PR que Renovate automerge déjà.
 - Le rebase par GitHub est poussé sous l'identité de la personne qui lance l'outil, pas de Renovate.
-- Une PR encore simplement en retard avec des checks en cours ou rouges est toujours rebasée (retard mesuré par `behind_by`). Limiter le rebase aux seuls `BEHIND` et `DIRTY` a été proposé mais pas encore tranché.
+- Le retard d'une PR sur sa base n'est plus mesuré (plus d'appel `compare` par PR) : seul l'état de fusion renvoyé par GitHub compte.
 - `gh` renvoie une conclusion vide (`""`) pour un check non terminé : elle doit être lue comme absente, sous peine de prendre le check pour rouge.
