@@ -15,9 +15,12 @@ module AutomergeRenovate
       "Fusionne les PR Renovate prêtes des repos listés dans le ticket Jira de maintenance"
     option :debug, type: :boolean, default: false,
                    desc: "Affiche, pour chaque décision, la PR telle que renvoyée par l'API GitHub"
+    option :wait, type: :boolean, default: true,
+                  desc: "Attend le rebase et la CI (--no-wait : reprend la PR au run suivant)"
     def automerge(ticket_key = nil)
       command = AutomergeCommand.new(jira: jira, gh: GhCli.new, progress: ProgressPrinter.new,
-                                     debug: options.fetch(:debug, false))
+                                     debug: options.fetch(:debug, false),
+                                     wait: options.fetch(:wait, true))
       command.run(ticket_key: ticket_key)
     end
 

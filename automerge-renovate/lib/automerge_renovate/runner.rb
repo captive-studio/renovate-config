@@ -13,8 +13,10 @@ module AutomergeRenovate
     # est fusionnée pendant qu'on attend le rebase de celle-ci.
     MAX_REBASES = 3
 
-    def initialize(gh:, rebase_waiter: RebaseWaiter.new(gh: gh))
+    # wait: false rend la main dès le rebase demandé, sans attendre la CI : la PR sera reprise au run suivant.
+    def initialize(gh:, rebase_waiter: RebaseWaiter.new(gh: gh), wait: true)
       @gh = gh
+      @wait = wait
       @rebase_waiter = rebase_waiter
       @executor = DecisionExecutor.new(gh: gh)
       @rerunner = FailedChecksRerunner.new(gh: gh)
@@ -51,7 +53,7 @@ module AutomergeRenovate
     def decide_until_rebased(repo, pr, merge_settings)
       decision = decide(repo, pr, merge_settings)
       MAX_REBASES.times do
-        break unless awaitable_rebase?(pr, decision)
+        break unless @wait && awaitable_rebase?(pr, decision)
 
         @on_wait.call(pr["number"])
         rebased = @rebase_waiter.call(repo, pr)
