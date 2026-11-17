@@ -35,8 +35,18 @@ RSpec.describe AutomergeRenovate::DecisionExecutor do
       expect(decision).to eq(action: :merge, strategy: :rebase)
     end
 
-    it "coche la case rebase quand la décision est :rebase_requested" do
-      body_pr = pr.merge("body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi")
+    it "rebase la branche via GitHub quand la PR est seulement en retard" do
+      allow(gh).to receive(:update_branch)
+
+      decision = executor.call("captive-studio/cae-application", pr.merge("mergeStateStatus" => "BEHIND"),
+                               { action: :rebase_requested })
+
+      expect(gh).to have_received(:update_branch).with("captive-studio/cae-application", 414)
+      expect(decision).to eq(action: :rebase_requested)
+    end
+
+    it "coche la case rebase quand la PR est en conflit" do
+      body_pr = pr.merge("mergeStateStatus" => "DIRTY", "body" => "🚦 **Automerge**: Enabled.\n- [ ] <!-- rebase-check -->coche-moi")
       allow(gh).to receive(:update_body)
 
       decision = executor.call("captive-studio/cae-application", body_pr, { action: :rebase_requested })

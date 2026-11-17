@@ -29,6 +29,17 @@ RSpec.describe AutomergeRenovate::GhCli do
     end
   end
 
+  describe "#update_branch" do
+    it "rebase la branche de la PR sur sa base" do
+      allow(gh).to receive(:run)
+
+      gh.update_branch("captive-studio/groove-application", 936)
+
+      expect(gh).to have_received(:run)
+        .with("pr", "update-branch", "936", "--repo", "captive-studio/groove-application", "--rebase")
+    end
+  end
+
   describe "#merge_settings" do
     it "retourne les stratégies de merge autorisées par le repo" do
       payload = { "allow_rebase_merge" => true, "allow_squash_merge" => false,
