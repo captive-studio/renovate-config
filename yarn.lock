@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.0.4"
     prettier: "npm:3.10.1"
-    renovate: "npm:44.239.1"
+    renovate: "npm:44.239.2"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.0"
   languageName: unknown
@@ -6724,7 +6724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.14.0, nan@npm:^2.29.0":
+"nan@npm:^2.14.0, nan@npm:^2.30.0":
   version: 2.30.0
   resolution: "nan@npm:2.30.0"
   dependencies:
@@ -6811,7 +6811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp@npm:^13.0.2, node-gyp@npm:latest":
+"node-gyp@npm:^13.1.0, node-gyp@npm:latest":
   version: 13.1.0
   resolution: "node-gyp@npm:13.1.0"
   dependencies:
@@ -7399,14 +7399,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.27.0":
-  version: 1.27.0
-  resolution: "re2@npm:1.27.0"
+"re2@npm:1.27.1":
+  version: 1.27.1
+  resolution: "re2@npm:1.27.1"
   dependencies:
     install-artifact-from-github: "npm:^1.8.1"
-    nan: "npm:^2.29.0"
-    node-gyp: "npm:^13.0.2"
-  checksum: 10/11a14bc90c2fd67801c25d6f785d5634efc4ed2dd6fcc6c642ee7596439d6ca6a11a7916bf0462a5b323065de6ce742c732cbc65eadb03230e5d43c524591785
+    nan: "npm:^2.30.0"
+    node-gyp: "npm:^13.1.0"
+  checksum: 10/49ad016f1ed4f1570eb2e5b35ddbb407453801e4b67661ee5842c10f6da98b4687680ea0e0aecbfefdbe1c5c92ddd1ee61f13882a97a2f4357eb4d23d9c925f0
   languageName: node
   linkType: hard
 
@@ -7493,9 +7493,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.239.1":
-  version: 44.239.1
-  resolution: "renovate@npm:44.239.1"
+"renovate@npm:44.239.2":
+  version: 44.239.2
+  resolution: "renovate@npm:44.239.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7598,7 +7598,7 @@ __metadata:
     prettier: "npm:3.9.10"
     protobufjs: "npm:8.8.1"
     punycode: "npm:2.3.1"
-    re2: "npm:1.27.0"
+    re2: "npm:1.27.1"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
     remark-github: "npm:12.0.0"
@@ -7629,7 +7629,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/020be3ab32e2b6a2da80733671d6daa9e7babce00ef01e603ac48e386964d4a22efce1679cbe9ef0aa6a2b68ec4f3e388302e8ab6b1284fe66b467bb1c2ad330
+  checksum: 10/36cd8dd732ec911e8ede39c80e04f4afe47323bea7cccbb3c43243f7bbefd5b5734ea574901d3af73ff22220ff30ed360417754d792d81b1f6d343e1ebe36d78
   languageName: node
   linkType: hard
 
