@@ -538,8 +538,8 @@ __metadata:
   linkType: hard
 
 "@containerbase/base@npm:^14.62.0":
-  version: 14.67.2
-  resolution: "@containerbase/base@npm:14.67.2"
+  version: 14.67.3
+  resolution: "@containerbase/base@npm:14.67.3"
   dependencies:
     semver: "npm:^7.8.5"
   peerDependencies:
@@ -547,7 +547,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/e9842e3b68a3d69fcc7570675cdb99ea245d3fd3b585408f8f96c02e84ca1ef83f28954f32ab0f0b4b7099623b91d3700bb0486b5795d79b9cd94af2ab8acb03
+  checksum: 10/c69784bb09bf36478c813c21b189fa805cb860fe59e8e8f97b9a4f44fc0b2403e9e09ef9bd74fcae62accc9b641d254600d007e34ba64237540352791dc3e7f5
   languageName: node
   linkType: hard
 
