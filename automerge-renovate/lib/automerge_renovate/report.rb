@@ -18,10 +18,10 @@ module AutomergeRenovate
       end
     end
 
-    # Lien cliquable OSC 8 vers la PR, seulement quand la couleur est active (vrai terminal).
+    # Lien cliquable OSC 8 vers la PR, seulement dans un vrai terminal.
     def self.pr_ref(pr, pastel)
       ref = "##{pr[:number]}"
-      return ref unless pastel.enabled? && pr[:repo]
+      return ref unless $stdout.tty? && pr[:repo]
 
       "\e]8;;https://github.com/#{pr[:repo]}/pull/#{pr[:number]}\e\\#{ref}\e]8;;\e\\"
     end
