@@ -7,14 +7,23 @@ module AutomergeRenovate
   # Formate les résultats du Runner en rapport terminal coloré, groupé par repo.
   class Report
     def self.pr_line(pr, pastel:)
+      ref = pr_ref(pr, pastel)
       case pr[:action]
       when :merge
-        pastel.green("  ✓ #%<number>d fusionnée (%<strategy>s)" % pr)
+        pastel.green("  ✓ #{ref} fusionnée (#{pr[:strategy]})")
       when :rebase_requested
-        pastel.yellow("  → #%<number>d rebase demandé" % pr)
+        pastel.yellow("  → #{ref} rebase demandé")
       when :skip
-        pastel.red("  ✗ #%<number>d ignorée : %<reason>s" % pr)
+        pastel.red("  ✗ #{ref} ignorée : #{pr[:reason]}")
       end
+    end
+
+    # Lien cliquable OSC 8 vers la PR, seulement quand la couleur est active (vrai terminal).
+    def self.pr_ref(pr, pastel)
+      ref = "##{pr[:number]}"
+      return ref unless pastel.enabled? && pr[:repo]
+
+      "\e]8;;https://github.com/#{pr[:repo]}/pull/#{pr[:number]}\e\\#{ref}\e]8;;\e\\"
     end
 
     def initialize(results, pastel: Pastel.new)
