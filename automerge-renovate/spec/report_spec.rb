@@ -64,6 +64,14 @@ RSpec.describe AutomergeRenovate::Report do
   end
 
   describe ".pr_line" do
+    it "rend le numéro cliquable vers la PR quand la couleur est active" do
+      pr = { repo: "captive-studio/monocle", number: 42, action: :rebase_requested }
+
+      line = described_class.pr_line(pr, pastel: Pastel.new(enabled: true))
+
+      expect(line).to include("\e]8;;https://github.com/captive-studio/monocle/pull/42\e\\#42\e]8;;\e\\")
+    end
+
     it "formate une ligne de PR fusionnée, réutilisable pour un affichage en direct" do
       pr = { repo: "captive-studio/groove-application", number: 414, action: :merge, strategy: :rebase }
 
