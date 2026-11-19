@@ -6,6 +6,14 @@ require "open3"
 module AutomergeRenovate
   class GhCli
     FIELDS = "number,body,mergeStateStatus,statusCheckRollup,url,baseRefName,headRefName,headRefOid"
+    # Coupures réseau passagères : sans réessai, un seul timeout interrompt tout le run.
+    TRANSIENT_ERROR = /dial tcp|i\/o timeout|connection reset|TLS handshake timeout/
+    RETRIES = 2
+    RETRY_DELAY = 5
+
+    def initialize(sleeper: ->(seconds) { sleep(seconds) })
+      @sleeper = sleeper
+    end
 
     def open_renovate_prs(repo)
       output = run("pr", "list", "--repo", repo, "--author", "app/renovate",
@@ -51,10 +59,17 @@ module AutomergeRenovate
     end
 
     def run(*args)
-      out, err, status = Open3.capture3("gh", *args)
-      raise "gh #{command_name(args)} failed: #{err}" unless status.success?
+      attempts = 0
+      loop do
+        out, err, status = Open3.capture3("gh", *args)
+        break out.dup.force_encoding("UTF-8") if status.success?
 
-      out.dup.force_encoding("UTF-8")
+        attempts += 1
+        retryable = attempts <= RETRIES && err.match?(TRANSIENT_ERROR)
+        raise "gh #{command_name(args)} failed: #{err}" unless retryable
+
+        @sleeper.call(RETRY_DELAY * attempts)
+      end
     end
 
     private

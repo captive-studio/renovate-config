@@ -132,6 +132,25 @@ RSpec.describe AutomergeRenovate::GhCli do
   end
 
   describe "#run" do
+    it "réessaie après une coupure réseau passagère" do
+      gh = described_class.new(sleeper: ->(_) { })
+      failure = instance_double(Process::Status, success?: false)
+      success = instance_double(Process::Status, success?: true)
+      allow(Open3).to receive(:capture3).with("gh", "pr", "list")
+        .and_return([ "", "dial tcp 1.2.3.4:443: i/o timeout", failure ], [ "out", "", success ])
+
+      expect(gh.run("pr", "list")).to eq("out")
+    end
+
+    it "abandonne après plusieurs coupures réseau" do
+      gh = described_class.new(sleeper: ->(_) { })
+      failure = instance_double(Process::Status, success?: false)
+      allow(Open3).to receive(:capture3).and_return([ "", "i/o timeout", failure ])
+
+      expect { gh.run("pr", "list") }.to raise_error("gh pr list failed: i/o timeout")
+      expect(Open3).to have_received(:capture3).exactly(3).times
+    end
+
     it "exécute gh via Open3 et retourne sa sortie standard en cas de succès" do
       status = instance_double(Process::Status, success?: true)
       allow(Open3).to receive(:capture3).with("gh", "pr", "list").and_return([ "out\n", "", status ])
