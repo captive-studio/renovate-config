@@ -14,7 +14,8 @@
     ":pinAllExceptPeerDependencies",
     "workarounds:all",
     "github>captive-studio/renovate-config//preset/ghcr",
-    "github>captive-studio/renovate-config//preset/pinDigest"
+    "github>captive-studio/renovate-config//preset/pinDigest",
+    "github>captive-studio/renovate-config//preset/setupRuby"
   ],
   "onboarding": false,
   "internalChecksAsSuccess": true,

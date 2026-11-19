@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "ruby/setup-ruby sans délai et en une seule PR : il ne connaît un Ruby qu'après sa sortie, alors que .ruby-version passe au nouveau Ruby après le même délai de 2 jours. Sans ça, la CI casse sur « Unknown version » (Ruby 4.0.10, captive-platform#1722).",
+  "packageRules": [
+    {
+      "matchDepNames": ["ruby/setup-ruby"],
+      "minimumReleaseAge": null,
+      "separateMultipleMinor": false,
+      "automerge": true
+    }
+  ]
+}

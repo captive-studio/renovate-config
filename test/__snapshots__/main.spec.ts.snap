@@ -42,6 +42,7 @@ exports[`Configuration snapshot > base.json 1`] = `
     "workarounds:all",
     "github>captive-studio/renovate-config//preset/ghcr",
     "github>captive-studio/renovate-config//preset/pinDigest",
+    "github>captive-studio/renovate-config//preset/setupRuby",
   ],
   "internalChecksAsSuccess": true,
   "internalChecksFilter": "strict",
