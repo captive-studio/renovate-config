@@ -7,6 +7,7 @@ import digestJSON from '../preset/digest.json';
 import minimumReleaseAgeJSON from '../preset/minimumReleaseAge.json';
 import expoJSON from '../preset/expo.json';
 import ghcrJSON from '../preset/ghcr.json';
+import setupRubyJSON from '../preset/setupRuby.json';
 import { resolvedPackageRules, targetsNamespace } from './resolved-config';
 
 describe('Configuration snapshot', () => {
@@ -53,6 +54,21 @@ describe('Minimum release age', () => {
       matchUpdateTypes: [updateType],
       minimumReleaseAge,
     });
+  });
+});
+
+describe('setup-ruby', () => {
+  test('follows ruby/setup-ruby without delay, in a single PR, so it knows a Ruby before .ruby-version moves to it', () => {
+    expect(setupRubyJSON.packageRules).toEqual([
+      { matchDepNames: ['ruby/setup-ruby'], minimumReleaseAge: null, separateMultipleMinor: false, automerge: true },
+    ]);
+  });
+
+  test('is applied after the release age delay and the minor split it overrides', () => {
+    const extendsList = baseJSON.extends;
+    const index = (preset: string) => extendsList.findIndex((entry) => entry.endsWith(preset));
+    expect(index('//preset/setupRuby')).toBeGreaterThan(index('//preset/minimumReleaseAge'));
+    expect(index('//preset/setupRuby')).toBeGreaterThan(index(':separateMultipleMinorReleases'));
   });
 });
 
