@@ -57,6 +57,13 @@ describe('Minimum release age', () => {
   });
 });
 
+describe('Vulnerability alerts', () => {
+  test('ships security fixes without release delay and automerges them', () => {
+    expect(baseJSON.osvVulnerabilityAlerts).toBe(true);
+    expect(baseJSON.vulnerabilityAlerts).toMatchObject({ minimumReleaseAge: null, automerge: true });
+  });
+});
+
 describe('setup-ruby', () => {
   test('follows ruby/setup-ruby without delay, in a single PR, so it knows a Ruby before .ruby-version moves to it', () => {
     expect(setupRubyJSON.packageRules).toEqual([

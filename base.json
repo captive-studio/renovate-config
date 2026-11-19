@@ -26,5 +26,11 @@
   "prHourlyLimit": 0,
   "platformAutomerge": true,
   "updateNotScheduled": true,
-  "assigneesFromCodeOwners": false
+  "assigneesFromCodeOwners": false,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "description": "Correctifs de sécurité : sans délai de release et mergés automatiquement.",
+    "minimumReleaseAge": null,
+    "automerge": true
+  }
 }
