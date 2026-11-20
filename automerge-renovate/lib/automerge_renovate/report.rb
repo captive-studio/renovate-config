@@ -14,7 +14,9 @@ module AutomergeRenovate
       when :rebase_requested
         pastel.yellow("  → #{ref} rebase demandé")
       when :skip
-        pastel.red("  ✗ #{ref} ignorée : #{pr[:reason]}")
+        # Des checks en cours ne sont pas un échec : la PR sera reprise au prochain passage.
+        color = pr[:reason] == PrDecision::PENDING_CHECKS_SKIP[:reason] ? :yellow : :red
+        pastel.public_send(color, "  ✗ #{ref} ignorée : #{pr[:reason]}")
       end
     end
 
