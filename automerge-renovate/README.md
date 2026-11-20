@@ -56,8 +56,9 @@ bin/automerge-renovate automerge FAC-2514
 # Affiche, avant chaque décision, la PR telle que l'API GitHub la renvoie (sans son corps)
 bin/automerge-renovate automerge --debug
 
-# N'attend pas le rebase et la CI : les PR rebasées seront fusionnées au run suivant
-bin/automerge-renovate automerge --no-wait
+# Attend le rebase et la CI pour fusionner les PR rebasées dans le même run
+# (par défaut, elles sont fusionnées au run suivant)
+bin/automerge-renovate automerge --wait
 ```
 
 L'outil affiche sa progression en direct (recherche du ticket → repos trouvés → chaque PR traitée), puis un récapitulatif et les deux listes ci-dessus. Aucun mode `--dry-run` : il agit dès son lancement.
