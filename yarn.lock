@@ -6001,15 +6001,15 @@ __metadata:
   linkType: hard
 
 "mdast-util-gfm-autolink-literal@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "mdast-util-gfm-autolink-literal@npm:2.1.1"
+  version: 2.1.2
+  resolution: "mdast-util-gfm-autolink-literal@npm:2.1.2"
   dependencies:
     "@types/mdast": "npm:^4.0.0"
     ccount: "npm:^2.0.0"
     devlop: "npm:^1.0.0"
     mdast-util-find-and-replace: "npm:^3.0.0"
     micromark-util-character: "npm:^2.0.0"
-  checksum: 10/a3a3e739191948dccfae32234e8abd93153838246c9d4d41aecbc772f4a441d03b48b32b720b4fa6d6a45dd9b6569eb06e5ff5c14b6477c7fee2111ca69abcce
+  checksum: 10/67718ec54702700d9c2b45639b8ebfcc075f5afc7512f9a88d3dc3acccdb9bb8c1506f341357782981284a533ac22d9620d27c51b67caab860e80303eeedff9a
   languageName: node
   linkType: hard
 
