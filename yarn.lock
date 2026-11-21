@@ -538,8 +538,8 @@ __metadata:
   linkType: hard
 
 "@containerbase/base@npm:^14.62.0":
-  version: 14.67.3
-  resolution: "@containerbase/base@npm:14.67.3"
+  version: 14.68.0
+  resolution: "@containerbase/base@npm:14.68.0"
   dependencies:
     semver: "npm:^7.8.5"
   peerDependencies:
@@ -547,7 +547,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/c69784bb09bf36478c813c21b189fa805cb860fe59e8e8f97b9a4f44fc0b2403e9e09ef9bd74fcae62accc9b641d254600d007e34ba64237540352791dc3e7f5
+  checksum: 10/7fd429a73e94ee240e8ac2075d11ad3da5a67bc5972296cb2002b0030bebd7fb473d124e5300816bcccb69b186b343adabb5b847883f8b89f791971f4b5b658f
   languageName: node
   linkType: hard
 
@@ -4392,9 +4392,9 @@ __metadata:
   linkType: hard
 
 "fast-equals@npm:^6.2.2":
-  version: 6.3.0
-  resolution: "fast-equals@npm:6.3.0"
-  checksum: 10/feac66122d71d85c2ca8015d8c3e097a4453fa5285c6c11c1e063d1c0a94406618159d8c2c14a07f980beae8e6819a6510755287827526584ebb1c89558433e3
+  version: 6.4.0
+  resolution: "fast-equals@npm:6.4.0"
+  checksum: 10/6edd1f06adfbc4806a6ab50e5ba94816791226299a81652c60dfe4629f9cdedf715f88d674f44727ba59a14ac695ac2ebee23bf1c4d7c3ecab7aea367ab8aeb5
   languageName: node
   linkType: hard
 
