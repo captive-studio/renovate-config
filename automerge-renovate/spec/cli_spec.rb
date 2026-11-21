@@ -26,7 +26,7 @@ RSpec.describe AutomergeRenovate::Cli do
         debug: false,
         wait: false
       )
-      expect(command).to have_received(:run).with(ticket_key: "FAC-2000")
+      expect(command).to have_received(:run).with(ticket_key: "FAC-2000", repos: nil)
     end
 
     it "active le mode debug avec --debug" do
@@ -41,10 +41,17 @@ RSpec.describe AutomergeRenovate::Cli do
       expect(AutomergeRenovate::AutomergeCommand).to have_received(:new).with(hash_including(wait: true))
     end
 
+    it "traite la liste fixe de repos passée avec --repos, sans client Jira" do
+      described_class.new([], repos: [ "captive-studio/vesta" ]).automerge
+
+      expect(AutomergeRenovate::AutomergeCommand).to have_received(:new).with(hash_including(jira: nil))
+      expect(command).to have_received(:run).with(ticket_key: nil, repos: [ "captive-studio/vesta" ])
+    end
+
     it "délègue avec ticket_key à nil quand aucune clé n'est fournie" do
       cli.automerge
 
-      expect(command).to have_received(:run).with(ticket_key: nil)
+      expect(command).to have_received(:run).with(ticket_key: nil, repos: nil)
     end
   end
 end

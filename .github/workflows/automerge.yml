@@ -1,0 +1,53 @@
+name: Automerge Renovate
+
+on:
+  schedule:
+    # 5h heure de Paris (4h UTC en hiver, 5h UTC en été : cron GitHub en UTC)
+    - cron: "0 4 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: automerge-renovate
+  cancel-in-progress: false
+
+jobs:
+  automerge:
+    runs-on: captive-small
+    defaults:
+      run:
+        working-directory: automerge-renovate
+    env:
+      # Token avec droits d'écriture sur tous les repos listés (GITHUB_TOKEN ne couvre que ce repo)
+      GH_TOKEN: ${{ secrets.AUTOMERGE_RENOVATE_GH_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          working-directory: automerge-renovate
+          bundler-cache: true
+
+      - name: Automerge
+        # Liste figée en dur pour éviter un token Jira (source : ticket FAC-2769)
+        run: >-
+          bin/automerge-renovate automerge --repos
+          Captive-Studio/cae-application
+          Captive-Studio/groove-application
+          Captive-Studio/ad-poids-lourds-application
+          Captive-Studio/vesta
+          Captive-Studio/monocle
+          Captive-Studio/yotime
+          Captive-Studio/groove-serveur
+          Captive-Studio/cae-serveur
+          Captive-Studio/compagnie-des-familles-serveur
+          Captive-Studio/ad-poids-lourds-serveur
+          Guitguitou/as-monaco-beachvolley
+          Captive-Studio/captive-platform
+          captive-studio/captive-dashboard
+          captive-studio/captive-deploy
+          captive-studio/captivengers
+          captive-studio/captive-images
+          captive-studio/captive-maintenance
+          captive-studio/alveole-js

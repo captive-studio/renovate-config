@@ -17,11 +17,15 @@ module AutomergeRenovate
                    desc: "Affiche, pour chaque décision, la PR telle que renvoyée par l'API GitHub"
     option :wait, type: :boolean, default: false,
                   desc: "Attend le rebase et la CI (sans --wait : reprend la PR au run suivant)"
+    option :repos, type: :array,
+                   desc: "Liste fixe de repos (owner/nom) à traiter, sans passer par Jira"
     def automerge(ticket_key = nil)
-      command = AutomergeCommand.new(jira: jira, gh: GhCli.new, progress: ProgressPrinter.new,
+      repos = options[:repos]
+      command = AutomergeCommand.new(jira: repos ? nil : jira, gh: GhCli.new,
+                                     progress: ProgressPrinter.new,
                                      debug: options.fetch(:debug, false),
                                      wait: options.fetch(:wait, false))
-      command.run(ticket_key: ticket_key)
+      command.run(ticket_key: ticket_key, repos: repos)
     end
 
     private

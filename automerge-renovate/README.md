@@ -59,7 +59,12 @@ bin/automerge-renovate automerge --debug
 # Attend le rebase et la CI pour fusionner les PR rebasées dans le même run
 # (par défaut, elles sont fusionnées au run suivant)
 bin/automerge-renovate automerge --wait
+
+# Traite une liste fixe de repos, sans passer par Jira (pas besoin de token Jira)
+bin/automerge-renovate automerge --repos captive-studio/vesta captive-studio/monocle
 ```
+
+Une CI ([`.github/workflows/automerge.yml`](../.github/workflows/automerge.yml)) lance la commande chaque jour à 5h (Paris) sur le runner `captive-small`, avec une liste de repos fixée en dur. Elle a besoin du secret `AUTOMERGE_RENOVATE_GH_TOKEN` : un token GitHub avec droits d'écriture sur tous ces repos.
 
 L'outil affiche sa progression en direct (recherche du ticket → repos trouvés → chaque PR traitée), puis un récapitulatif et les deux listes ci-dessus. Aucun mode `--dry-run` : il agit dès son lancement.
 

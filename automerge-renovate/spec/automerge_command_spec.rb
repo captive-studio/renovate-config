@@ -69,6 +69,15 @@ RSpec.describe AutomergeRenovate::AutomergeCommand do
       )
     end
 
+    it "traite la liste fixe de repos sans interroger Jira" do
+      allow(gh).to receive_messages(open_renovate_prs: [], merge_settings: {})
+
+      command.run(repos: [ "captive-studio/vesta" ])
+
+      expect(progress).not_to have_received(:searching)
+      expect(progress).to have_received(:repo).with("captive-studio/vesta")
+    end
+
     it "signale l'attente du rebase d'une PR en retard" do
       pr = { "number" => 8, "body" => "🚦 **Automerge**: Enabled.", "mergeStateStatus" => "BEHIND",
              "statusCheckRollup" => [], "headRefOid" => "old", }

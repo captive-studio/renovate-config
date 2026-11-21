@@ -14,12 +14,9 @@ module AutomergeRenovate
       @progress = progress
     end
 
-    def run(ticket_key: nil)
-      @progress.searching
-      ticket = ticket_key ? @jira.find_ticket(ticket_key) : @jira.find_latest_ticket
-      @progress.ticket_found(ticket[:key])
-
-      repos = RepoUrlExtractor.new(ticket[:description]).repos
+    # repos: liste fixe qui court-circuite Jira (ex. CI sans token Jira).
+    def run(ticket_key: nil, repos: nil)
+      repos ||= repos_from_jira(ticket_key)
       @progress.repos_found(repos.size)
 
       rebase_waiter = RebaseWaiter.new(gh: @gh, sleeper: ->(seconds) { @progress.wait(seconds) })
@@ -32,6 +29,15 @@ module AutomergeRenovate
       )
 
       @progress.summary(results)
+    end
+
+    private
+
+    def repos_from_jira(ticket_key)
+      @progress.searching
+      ticket = ticket_key ? @jira.find_ticket(ticket_key) : @jira.find_latest_ticket
+      @progress.ticket_found(ticket[:key])
+      RepoUrlExtractor.new(ticket[:description]).repos
     end
   end
 end
