@@ -4366,9 +4366,9 @@ __metadata:
   linkType: hard
 
 "fast-equals@npm:^6.2.2":
-  version: 6.4.0
-  resolution: "fast-equals@npm:6.4.0"
-  checksum: 10/6edd1f06adfbc4806a6ab50e5ba94816791226299a81652c60dfe4629f9cdedf715f88d674f44727ba59a14ac695ac2ebee23bf1c4d7c3ecab7aea367ab8aeb5
+  version: 6.4.1
+  resolution: "fast-equals@npm:6.4.1"
+  checksum: 10/61c35221894284fa09638ec23b327766ae00269c050130caf72cf08b46b2b2e609dee710de1732abd496d949302956cad5615e270f30f251f34d5376dbc55c73
   languageName: node
   linkType: hard
 
