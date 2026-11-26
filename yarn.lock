@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.1.0"
     prettier: "npm:3.10.1"
-    renovate: "npm:44.257.9"
+    renovate: "npm:44.259.0"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.1"
   languageName: unknown
@@ -2069,9 +2069,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.174.5":
-  version: 13.174.5
-  resolution: "@renovatebot/base-image@npm:13.174.5"
+"@renovatebot/base-image@npm:13.175.0":
+  version: 13.175.0
+  resolution: "@renovatebot/base-image@npm:13.175.0"
   dependencies:
     "@containerbase/base": "npm:14.68.3"
   peerDependencies:
@@ -2079,7 +2079,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/3ae8c2d8b63f0ccb89235214dd4cc7b74cda472fb2022cb0d8881e09c90bac5aa014f22a79d19eb860b581d028c5de279b213139ae216f529f7e9b8ee29aca25
+  checksum: 10/d8212a5a262b3fb20946b1f14a555dac3528e0938e65f7f696249a6a4d147fb8f16a573dd782dd9c7603c8e98d6499cfd08929a5599806e38309c485dcfa7f18
   languageName: node
   linkType: hard
 
@@ -2289,12 +2289,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@simple-git/argv-parser@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@simple-git/argv-parser@npm:2.0.1"
+"@simple-git/argv-parser@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@simple-git/argv-parser@npm:3.0.0"
   dependencies:
     "@simple-git/args-pathspec": "npm:^1.0.4"
-  checksum: 10/9070117b85a33ec76994327ca3284c7ad3b107148dc78420588b032053e144d5591f25b5d26a31313440001ff4778ebfa44fe5d7c84e6281307ebb7ce1b3de03
+  checksum: 10/2d31e4093f8d329449c2169f6b1e21c17f1f8495c4e82096d5762d9c6931d26a8902c2353ed749f353d5edef34430bfe7b8001ddc72af0493b21b71252847f98
   languageName: node
   linkType: hard
 
@@ -3458,12 +3458,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:3.39.0":
-  version: 3.39.0
-  resolution: "cronstrue@npm:3.39.0"
+"cronstrue@npm:3.41.0":
+  version: 3.41.0
+  resolution: "cronstrue@npm:3.41.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10/6356298c5932e2f1f8fb9f46a54c554d7b6a2f4d49d0080ba60371b9352762b2ca79178a61abb95607cad94f46222c7bc971a781984ab01b9ec1a3998e3bf9fc
+  checksum: 10/e0ad5ab49bb3f31890e6c6bf2f5b0c15e859348fc4cf15c8c613351aca08fab79cfebf9d8aa565bba452c53b4e6c4353c4810bde9bcee918a4a5e163f744dd86
   languageName: node
   linkType: hard
 
@@ -7427,9 +7427,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.257.9":
-  version: 44.257.9
-  resolution: "renovate@npm:44.257.9"
+"renovate@npm:44.259.0":
+  version: 44.259.0
+  resolution: "renovate@npm:44.259.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7462,7 +7462,7 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.1"
-    "@renovatebot/base-image": "npm:13.174.5"
+    "@renovatebot/base-image": "npm:13.175.0"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
@@ -7485,7 +7485,7 @@ __metadata:
     commander: "npm:15.0.0"
     common-tags: "npm:1.8.2"
     croner: "npm:10.0.1"
-    cronstrue: "npm:3.39.0"
+    cronstrue: "npm:3.41.0"
     deepmerge: "npm:4.3.1"
     dequal: "npm:2.0.3"
     detect-indent: "npm:7.0.2"
@@ -7542,7 +7542,7 @@ __metadata:
     semver-stable: "npm:3.0.0"
     semver-utils: "npm:1.1.4"
     shlex: "npm:3.0.0"
-    simple-git: "npm:4.0.2"
+    simple-git: "npm:4.1.0"
     slugify: "npm:1.6.9"
     source-map-support: "npm:0.5.21"
     strip-json-comments: "npm:5.1.0"
@@ -7563,7 +7563,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/4dcbd9fb3b398029aadd3167a5ce89029b9828df487999237c17be9f9fb0ac99e9a4e3aead6582465e33747eed78631aa1b871b7a8ab05333848201b9c847117
+  checksum: 10/89089966106681c1d1fd69247d211fc301808e57301acdd298810dbe1d5356d04edcfe35f7c0d10045eb21c66e9eddd7fb6d4c884f4e4061b10ddad72f9d4cd6
   languageName: node
   linkType: hard
 
@@ -7916,16 +7916,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-git@npm:4.0.2":
-  version: 4.0.2
-  resolution: "simple-git@npm:4.0.2"
+"simple-git@npm:4.1.0":
+  version: 4.1.0
+  resolution: "simple-git@npm:4.1.0"
   dependencies:
     "@kwsites/file-exists": "npm:^1.1.1"
     "@kwsites/promise-deferred": "npm:^1.1.1"
     "@simple-git/args-pathspec": "npm:1.0.4"
-    "@simple-git/argv-parser": "npm:2.0.1"
+    "@simple-git/argv-parser": "npm:3.0.0"
     debug: "npm:^4.4.0"
-  checksum: 10/fd41d812c3a489520fcb9c5e517cf62cdef7d93b414880cafee1541ea914d51914262ddeb5b219f28a45c0641bcee673569132bb12b2880cc5a75c857bdd30e6
+  checksum: 10/6a373efdf0d7f417c8eb72daf6164ead4b62d6ebef93f9f1ece485eaf3c3f097db44aa44b85ba44f35e32275a7025f30bf5a24e7fe7d953777560820ee0ca97c
   languageName: node
   linkType: hard
 
