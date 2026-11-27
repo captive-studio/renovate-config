@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.1.0"
     prettier: "npm:3.10.1"
-    renovate: "npm:44.260.0"
+    renovate: "npm:44.260.3"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.1"
   languageName: unknown
@@ -2083,9 +2083,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.176.0":
-  version: 13.176.0
-  resolution: "@renovatebot/base-image@npm:13.176.0"
+"@renovatebot/base-image@npm:13.176.2":
+  version: 13.176.2
+  resolution: "@renovatebot/base-image@npm:13.176.2"
   dependencies:
     "@containerbase/base": "npm:14.69.0"
   peerDependencies:
@@ -2093,7 +2093,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10/4c6b8351728e74adbd4b7ad23e1d93ca1751d2e651f21caf6b6cb036ceb1b797383d3a03b146d510d19b1546dadac1d4a72612e98dc306471846a489439efb36
+  checksum: 10/db3819400a8da2fe4efc5e9cc3248d9673194d4e2f8b7e6cd3b12e968d4c10c50b381f0a6256a5f186698508a2ab91c30d47b1ccc412b9c33d095a2174ca0b18
   languageName: node
   linkType: hard
 
@@ -2941,13 +2941,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"azure-devops-node-api@npm:17.0.1":
-  version: 17.0.1
-  resolution: "azure-devops-node-api@npm:17.0.1"
+"azure-devops-node-api@npm:17.0.2":
+  version: 17.0.2
+  resolution: "azure-devops-node-api@npm:17.0.2"
   dependencies:
     tunnel: "npm:0.0.6"
-    typed-rest-client: "npm:3.1.2"
-  checksum: 10/b81db78448ac068814913811cd9c9cebb0e33c342060026bb82c284d5a326e47abf5299bea8c8e474e16398aec1373fb565300b0df90503145eb1848fa90cb43
+    typed-rest-client: "npm:3.1.3"
+  checksum: 10/e33f2e8600396f197e9c1298634cf0b5975f00d62693bd417b0a5c440abedc8b1e64419c23d7240b20d34e77224e1ff285c8e2b64386800dd2a04ba6b4e98b85
   languageName: node
   linkType: hard
 
@@ -7323,7 +7323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.16.0":
+"qs@npm:^6.16.1":
   version: 6.17.1
   resolution: "qs@npm:6.17.1"
   dependencies:
@@ -7441,9 +7441,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.260.0":
-  version: 44.260.0
-  resolution: "renovate@npm:44.260.0"
+"renovate@npm:44.260.3":
+  version: 44.260.3
+  resolution: "renovate@npm:44.260.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7476,7 +7476,7 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.1"
-    "@renovatebot/base-image": "npm:13.176.0"
+    "@renovatebot/base-image": "npm:13.176.2"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
@@ -7491,7 +7491,7 @@ __metadata:
     agentkeepalive: "npm:4.6.0"
     async-mutex: "npm:0.5.0"
     aws4: "npm:1.13.2"
-    azure-devops-node-api: "npm:17.0.1"
+    azure-devops-node-api: "npm:17.0.2"
     bunyan: "npm:1.8.15"
     cacache: "npm:20.0.4"
     changelog-filename-regex: "npm:2.0.1"
@@ -7577,7 +7577,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/c8cc2bd10392090ce61d4e5d9173ff40f9e5918de866eac75fa78de77275e4544ea3c1f874db351cb5692ddf229590b95163f7b678223feba72c8af9979ddbd4
+  checksum: 10/3767e16372dd00682c51c591c4595f95e0fac3185e13572dde503cb888965812cc76a4d83cf507ae9bd6fc304e5bab38cd9e0651e24db746cd57e57d55dd580e
   languageName: node
   linkType: hard
 
@@ -8298,16 +8298,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typed-rest-client@npm:3.1.2":
-  version: 3.1.2
-  resolution: "typed-rest-client@npm:3.1.2"
+"typed-rest-client@npm:3.1.3":
+  version: 3.1.3
+  resolution: "typed-rest-client@npm:3.1.3"
   dependencies:
     des.js: "npm:^1.1.0"
     js-md4: "npm:^0.3.2"
-    qs: "npm:^6.16.0"
+    qs: "npm:^6.16.1"
     tunnel: "npm:0.0.6"
     underscore: "npm:^1.13.8"
-  checksum: 10/32f688b0fdaebdf29facdcf59266a3de6f1937b27b39832a4e4e559a69e3cd76eb5d56adad511e95d4d0d93d90504237d5f762cb64556b91fc416546f5b2f116
+  checksum: 10/b5e79177a15430822b10295903b8cec87182a871eccb25b3396f7dfcced1333bb679da60a7aab92f92574508fa5565e77fa0882854a4716a4b2fc66a1b2473e9
   languageName: node
   linkType: hard
 
