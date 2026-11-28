@@ -778,9 +778,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-cpp@npm:^7.0.2, @cspell/dict-cpp@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "@cspell/dict-cpp@npm:7.2.0"
-  checksum: 10/ec695537fda298a49e64d4ae7198c526080d17ce2c0e320ca657121586e9f6154a812b265689abe2cd57371efdde569b5c369446bb13b8e7e6ff47feb6a467cc
+  version: 7.2.1
+  resolution: "@cspell/dict-cpp@npm:7.2.1"
+  checksum: 10/8e5145ad0d0d3d1fb8b1f594272ee3c7a10d71f54fd4591e62b789a35cf3c99abcefedf198bc47a97b32e4f1be068fa7464dd7344b36b2cace8f2b8150d9f9d7
   languageName: node
   linkType: hard
 
@@ -848,9 +848,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-en-common-misspellings@npm:^2.1.12, @cspell/dict-en-common-misspellings@npm:^2.2.6":
-  version: 2.2.6
-  resolution: "@cspell/dict-en-common-misspellings@npm:2.2.6"
-  checksum: 10/3d7821a164a322416878ab172a4bc3618f17ec378e25beee865597ad2326ad82a1a370ffe9a5cc213da72b2320e855891454a10afbaf949211efaedfe62edd09
+  version: 2.2.7
+  resolution: "@cspell/dict-en-common-misspellings@npm:2.2.7"
+  checksum: 10/1e00c921e25b6266a6405d43865597a571751e1dee5cffaf84c73a8a4c178e46f318dbc69ab44b75630382852f61c9fe6b8c1a9fca6a068b175d418738c18f34
   languageName: node
   linkType: hard
 
@@ -925,9 +925,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-golang@npm:^6.0.26, @cspell/dict-golang@npm:^6.0.29":
-  version: 6.0.29
-  resolution: "@cspell/dict-golang@npm:6.0.29"
-  checksum: 10/707d90dd96bef559b0bf2dfc0e3d73310640364ae9dda43c0da6af1c98dabc782790293c669a2173862ddbfcd7cca642be3636f68d466b3d2ca3b7da34030a7e
+  version: 6.0.30
+  resolution: "@cspell/dict-golang@npm:6.0.30"
+  checksum: 10/4ff462f7e8fc7b58a1dba2f1daa5dd6cb0e2b47c87d6ac76f36000367a276623d841d18c4cc85576342116624817be0429b9d998557ccd106b36f045379ae13c
   languageName: node
   linkType: hard
 
@@ -1042,9 +1042,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-npm@npm:^5.2.38, @cspell/dict-npm@npm:^5.2.56":
-  version: 5.2.56
-  resolution: "@cspell/dict-npm@npm:5.2.56"
-  checksum: 10/1574c063f46f784be026aab7c78f6231eb1dee99db656accd294fefe0307b141a978381b1b3f99198f0e779548975c6cc033a8e83b5e0101e232f64477456558
+  version: 5.2.58
+  resolution: "@cspell/dict-npm@npm:5.2.58"
+  checksum: 10/9de6a74440d0015f6ed17c507ee4a86883e0a4cffad945a832beb8a5433ae69eaf1e8e83944cd5ad05e1daa2dd79936a1ca54301564b2daed0da9b0e25f4a20c
   languageName: node
   linkType: hard
 
@@ -1070,11 +1070,11 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-python@npm:^4.2.26, @cspell/dict-python@npm:^4.5.3":
-  version: 4.5.3
-  resolution: "@cspell/dict-python@npm:4.5.3"
+  version: 4.5.4
+  resolution: "@cspell/dict-python@npm:4.5.4"
   dependencies:
     "@cspell/dict-data-science": "npm:^2.0.17"
-  checksum: 10/701468e073c004bf2b79236e34a7f5aeec03300b8c4e222afed253d1e0bc69e7fdee2eb39fa65553b95591e07b1ba63e1040d599382bb0393b544d3bca579978
+  checksum: 10/76a4d171533c2a7c12382dbc02687d5cbd9a2f3fb293f85715b0b271d13d4c605f380a79ff7b6650d1108c05f7636a8432d15b59781d11206fb8621bc5ec8b1a
   languageName: node
   linkType: hard
 
@@ -1114,9 +1114,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-software-terms@npm:^5.2.2, @cspell/dict-software-terms@npm:^5.4.9":
-  version: 5.4.9
-  resolution: "@cspell/dict-software-terms@npm:5.4.9"
-  checksum: 10/442ac3ab45accc5c26738a3b93445c1a2794ba9ccf3979ac43e381e949bf92023663d1dbeb1da900f683939de612202634626cd2ea04ac6131b9bf9586748f7e
+  version: 5.4.11
+  resolution: "@cspell/dict-software-terms@npm:5.4.11"
+  checksum: 10/fa312f890350323af0cce934efad424e0078f5b52caf00b5bd4841eccae7ee68752adaee7b72a9c2fb8840747bf42ab74a461de96d15f09ba9c5b3e029878974
   languageName: node
   linkType: hard
 
@@ -1272,9 +1272,9 @@ __metadata:
   linkType: hard
 
 "@eslint-community/regexpp@npm:^4.12.2":
-  version: 4.12.3
-  resolution: "@eslint-community/regexpp@npm:4.12.3"
-  checksum: 10/b62f4b1fa2365b0def47402915ac650f297c4b9b8e2c0adf2002d353a26d2e9d0ff0be87fae19726c5fd9ba899d49c632a10e91518eebb678783b072cbddac9f
+  version: 4.12.4
+  resolution: "@eslint-community/regexpp@npm:4.12.4"
+  checksum: 10/38ec6d7ab57f8eaea964189d88b3cf377d1729a65bf343807966e93d71219cf06a034776a18381757d803433efc140ee679a9e1081510e766e50204d972982f6
   languageName: node
   linkType: hard
 
@@ -2600,11 +2600,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=13.7.0":
-  version: 26.6.10
-  resolution: "@types/node@npm:26.6.10"
+  version: 26.6.11
+  resolution: "@types/node@npm:26.6.11"
   dependencies:
     undici-types: "npm:~8.9.0"
-  checksum: 10/b4cd3369bcff5fa639b54748a6abda6e860e0c188a9b4c9f60cb6b58e683eff86697d1fc10eea1ce2c59c5daf21a91752387613b8b931062700a61b9b5ed2bf4
+  checksum: 10/684887f6f6d1fec32605d9707a11614ededc482b270708d7da0aad6ef2a8641d3aad52c060178450373f88d770743cd43f0d43f9d977da6813b020639e800f58
   languageName: node
   linkType: hard
 
@@ -7199,13 +7199,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.5.32":
-  version: 8.5.33
-  resolution: "postcss@npm:8.5.33"
+  version: 8.5.34
+  resolution: "postcss@npm:8.5.34"
   dependencies:
     nanoid: "npm:^3.3.20"
     picocolors: "npm:^1.1.1"
-    source-map-js: "npm:^1.2.2"
-  checksum: 10/89136a68865e151c06635707d04e147d0e13d61210927246acfef1ff189663dc6fdb77341a167bf0ac235c0683e7c2af21ac43672660795d22d759cb66134406
+    source-map-js: "npm:^1.2.4"
+  checksum: 10/c482835c943ac8fc1cc983e6901ea3810eca51a6e8f541ca269e1fc572618118b93f5bf3abd1644bd18c29c62ad4187c7699a86e499df40803a6c77a97d9bfe1
   languageName: node
   linkType: hard
 
@@ -7984,7 +7984,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:^1.2.2":
+"source-map-js@npm:^1.2.4":
   version: 1.2.4
   resolution: "source-map-js@npm:1.2.4"
   checksum: 10/65ac88fed07bc58f78203b5b0cbfa9ecc978f738423e83e8b8f035bb15a2efd949e1c6b6697bad8ed6dd38fe6cb624b2ce1ba3c550479980d4e77ec3b5cd028d
@@ -8136,7 +8136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:7.5.23, tar@npm:^7.5.3, tar@npm:^7.5.7":
+"tar@npm:7.5.23":
   version: 7.5.23
   resolution: "tar@npm:7.5.23"
   dependencies:
@@ -8146,6 +8146,19 @@ __metadata:
     minizlib: "npm:^3.1.0"
     yallist: "npm:^5.0.0"
   checksum: 10/b8550890576aa494ae1e3bfa85040bb302fb592fd9c64de9972c937ee9a54b3302cac5906d4c81cc0855eabd23b8ef3d0f0d90e499d9d7bc8d17fed3aa81d4f1
+  languageName: node
+  linkType: hard
+
+"tar@npm:^7.5.3, tar@npm:^7.5.7":
+  version: 7.5.24
+  resolution: "tar@npm:7.5.24"
+  dependencies:
+    "@isaacs/fs-minipass": "npm:^4.0.0"
+    chownr: "npm:^3.0.0"
+    minipass: "npm:^7.1.2"
+    minizlib: "npm:^3.1.0"
+    yallist: "npm:^5.0.0"
+  checksum: 10/9156541c8e99f5bc491aa7fbf5fa778095c774353cc610c9caa65845b3b911000aa3d781a10e649dd57869b6a93270504cac26ec81e58b05b5b2ea828dd8d1db
   languageName: node
   linkType: hard
 
