@@ -1279,13 +1279,13 @@ __metadata:
   linkType: hard
 
 "@eslint/config-array@npm:^0.23.6":
-  version: 0.23.6
-  resolution: "@eslint/config-array@npm:0.23.6"
+  version: 0.23.7
+  resolution: "@eslint/config-array@npm:0.23.7"
   dependencies:
     "@eslint/object-schema": "npm:^3.0.5"
     debug: "npm:^4.3.1"
     minimatch: "npm:^11.0.5"
-  checksum: 10/090cbcfcd0de25c6ae8c1542a0a5a042806c52166e8e687b54dd317967c9fd9dabcaaa090ab62f68db8449e7916681a1d9d3a82ffd4e4b5b229ce0335edbcaf6
+  checksum: 10/6284bfc76df11dcc492a231f591c2d9d95d9e9790475846c0f20bba4954b4c7717752ebe47aa8208d73b9b792a05bcb5dc3e228e66f2c8066e5e659f777504f5
   languageName: node
   linkType: hard
 
@@ -6071,8 +6071,8 @@ __metadata:
   linkType: hard
 
 "mdast-util-to-markdown@npm:^2.0.0":
-  version: 2.2.4
-  resolution: "mdast-util-to-markdown@npm:2.2.4"
+  version: 2.2.5
+  resolution: "mdast-util-to-markdown@npm:2.2.5"
   dependencies:
     "@types/mdast": "npm:^4.0.0"
     "@types/unist": "npm:^3.0.0"
@@ -6085,7 +6085,7 @@ __metadata:
     micromark-util-html-tag-name: "npm:^2.0.0"
     unist-util-visit: "npm:^5.0.0"
     zwitch: "npm:^2.0.0"
-  checksum: 10/dc27abdc5d48d8cf0aa9aa6d5646a72c58b68d5b6b62093cc1fa17bf92a4fc64f998faa8b6cddcda5971beb4d27b33b98065b6914272ac63cc812aed6091dbca
+  checksum: 10/24b65e09ee9a6a288cd32dcad2866acbc9446a6652d64aca9abf4c2e21d97933a3fc95e89bd09d51d57bf1057ed4b0af8aa3d131f9cfd3e6574ea58e45a0b092
   languageName: node
   linkType: hard
 
