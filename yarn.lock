@@ -508,7 +508,7 @@ __metadata:
     markdown-magic-subpackage-list: "npm:2.1.0"
     npm-run-all2: "npm:9.1.0"
     prettier: "npm:3.10.1"
-    renovate: "npm:44.263.6"
+    renovate: "npm:44.264.1"
     vite: "npm:8.3.8"
     vitest: "npm:5.1.2"
   languageName: unknown
@@ -2145,10 +2145,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pep440@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@renovatebot/pep440@npm:6.0.0"
-  checksum: 10/e877b2ca6fd755085b7a46fb202c3cb864e9547deec74f3e509e680063d4e9c1825077277f917a7690314f9e448b543cec1a032abf3c280eebb3f03150895fb2
+"@renovatebot/pep440@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@renovatebot/pep440@npm:6.0.1"
+  checksum: 10/4b54e0379091ccda0daf22ddf2400e29b864a0b776c3858f5f7e03e0f1dd1d2094f8e689ff1a2cec5960c9e915252b51344ade633232af06510e1115cabeaf96
   languageName: node
   linkType: hard
 
@@ -7434,9 +7434,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.263.6":
-  version: 44.263.6
-  resolution: "renovate@npm:44.263.6"
+"renovate@npm:44.264.1":
+  version: 44.264.1
+  resolution: "renovate@npm:44.264.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -7473,7 +7473,7 @@ __metadata:
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.11"
-    "@renovatebot/pep440": "npm:6.0.0"
+    "@renovatebot/pep440": "npm:6.0.1"
     "@renovatebot/pgp": "npm:2.0.6"
     "@renovatebot/ruby-semver": "npm:6.0.0"
     "@sindresorhus/is": "npm:8.1.0"
@@ -7570,7 +7570,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10/b35f460e0d5492d2747df9f323fc9f41ba411f40279b7f727079b38fec1b23118064aa8e91e80f38462c1c7ecada2f45d52e33c9f6cf2bc9d46b63357fd9a8a7
+  checksum: 10/2a16257718a93ae30fee0a01194eabecf343ae908cfbc517a002d10a95d2e2f5829a934a8f16be30fd45533f8fea4cea6c046eff30fd8d77c9a6608ceca55207
   languageName: node
   linkType: hard
 
